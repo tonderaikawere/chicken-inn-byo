@@ -1,0 +1,114 @@
+{
+  "name": "Chicken Inn Zimbabwe - LUV DAT Chicken",
+  "short_name": "Chicken Inn ZW",
+  "description": "Zimbabwe's favorite Kentucky fried chicken since 1987. Order online from 50+ outlets nationwide.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff8b33",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-ZW",
+  "dir": "ltr",
+  "categories": ["food", "restaurant", "delivery"],
+  "icons": [
+    {
+      "src": "/chickeninn-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/chickeninn-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/chickeninn-logo.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/chickeninn-logo.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/chickeninn-logo.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/chickeninn-logo.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/hero-chicken.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Chicken Inn Homepage"
+    },
+    {
+      "src": "/chicken-wings.jpg",
+      "sizes": "750x1334",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "Menu Selection"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Order Now",
+      "short_name": "Order",
+      "description": "Quick order from our menu",
+      "url": "/menu",
+      "icons": [
+        {
+          "src": "/chickeninn-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Find Location",
+      "short_name": "Locations",
+      "description": "Find nearest Chicken Inn outlet",
+      "url": "/locations",
+      "icons": [
+        {
+          "src": "/chickeninn-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get in touch with us",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/chickeninn-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 480
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}
