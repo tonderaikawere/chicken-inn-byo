@@ -306,7 +306,7 @@ const FullMenu = () => {
               <TabsContent value={selectedCategory}>
                 <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                   {filteredItems.map((item) => (
-                    <Card key={item.id} className="shadow-elegant hover:shadow-lg transition-shadow bg-card border-border">
+                    <Card key={item.id} className="shadow-elegant hover:shadow-lg transition-shadow bg-card border-border flex flex-col h-full">
                       <div className="relative">
                         <img
                           src={item.image}
@@ -314,37 +314,41 @@ const FullMenu = () => {
                           className="w-full h-48 object-cover rounded-t-lg"
                         />
                       </div>
-                      <CardContent className="p-4">
-                        <div className="flex justify-between items-start mb-2">
-                          <h3 className="font-semibold text-lg">{item.name}</h3>
-                          <span className="text-xl font-bold text-primary">${item.price}</span>
-                        </div>
-                        
-                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                          {item.description}
-                        </p>
-
-                        <div className="flex flex-wrap gap-1.5 mb-3">
-                          {item.badges.map((badge) => (
-                            <span key={badge} className="px-2 py-0.5 text-[11px] font-bold rounded bg-secondary text-secondary-foreground flex items-center gap-1">
-                              {getBadgeIcon(badge)}
-                              {badge.replace("-", " ")}
-                            </span>
-                          ))}
-                        </div>
-
-                        <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
-                          <div className="flex items-center gap-1">
-                            <Clock className="h-3 w-3" />
-                            {item.prepTime}
+                      <CardContent className="p-4 flex-1 flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <div className="flex justify-between items-start">
+                            <h3 className="font-semibold text-lg">{item.name}</h3>
+                            <span className="text-xl font-bold text-primary">${item.price}</span>
                           </div>
-                          <span>{item.calories} cal</span>
+                          
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {item.description}
+                          </p>
+
+                          <div className="flex flex-wrap gap-1.5">
+                            {item.badges.map((badge) => (
+                              <span key={badge} className="px-2 py-0.5 text-[11px] font-bold rounded bg-secondary text-secondary-foreground flex items-center gap-1">
+                                {getBadgeIcon(badge)}
+                                {badge.replace("-", " ")}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className="flex items-center justify-between text-xs text-muted-foreground">
+                            <div className="flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              {item.prepTime}
+                            </div>
+                            <span>{item.calories} cal</span>
+                          </div>
                         </div>
 
-                        <Button onClick={() => addToCart(item)} className="w-full">
-                          <Plus className="h-4 w-4 mr-2" />
-                          Add to Cart
-                        </Button>
+                        <div className="pt-4">
+                          <Button onClick={() => addToCart(item)} className="w-full">
+                            <Plus className="h-4 w-4 mr-2" />
+                            Add to Cart
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   ))}

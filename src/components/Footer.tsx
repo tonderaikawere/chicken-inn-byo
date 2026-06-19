@@ -12,7 +12,7 @@ const Footer = () => {
             <img 
               src={logo} 
               alt="Chicken Inn Bulawayo" 
-              className="h-10 md:h-12 w-auto brightness-0 invert hover:scale-105 transition-transform" 
+              className="h-10 md:h-12 w-auto hover:scale-105 transition-transform" 
             />
             <p className="text-zinc-400 text-sm leading-relaxed">
               Zimbabwe's favorite chicken restaurant since 1987. Serving Bulawayo with fresh, crispy, and delicious meals!
@@ -54,11 +54,11 @@ const Footer = () => {
             <h4 className="font-black uppercase tracking-wider text-white text-sm">Contact Us</h4>
             <ul className="space-y-3 text-zinc-400 text-sm font-semibold">
               <li className="flex items-start gap-2.5">
-                <Phone className="h-4.5 w-4.5 mt-0.5 flex-shrink-0 fill-current text-primary" />
+                <Phone className="h-4.5 w-4.5 mt-0.5 flex-shrink-0 text-primary" />
                 <span>073 120 0040</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Mail className="h-4.5 w-4.5 mt-0.5 flex-shrink-0 fill-current text-primary" />
+                <Mail className="h-4.5 w-4.5 mt-0.5 flex-shrink-0 text-primary" />
                 <span className="break-all">customercare@simbisa.co.zw</span>
               </li>
               <li className="flex items-start gap-2.5">
@@ -88,7 +88,7 @@ const Footer = () => {
                 className="text-zinc-400 hover:text-white transition-colors p-2.5 bg-zinc-900 hover:bg-primary rounded-xl border border-zinc-800"
                 aria-label="Follow us on Instagram"
               >
-                <Instagram className="h-5 w-5 fill-current" />
+                <Instagram className="h-5 w-5" />
               </a>
               <a 
                 href="https://twitter.com/chickeninnzw" 
