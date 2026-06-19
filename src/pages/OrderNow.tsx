@@ -244,7 +244,7 @@ const OrderNow = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
       <main className="flex-1 container mx-auto px-4 py-8">
@@ -256,7 +256,7 @@ const OrderNow = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Order <span className="bg-gradient-hero bg-clip-text text-transparent">Now & Save</span>
+            Order <span className="text-primary">Now & Save</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Exclusive online deals and fast delivery. Order now and satisfy your Chicken Inn cravings!
@@ -313,7 +313,7 @@ const OrderNow = () => {
                   <CardContent>
                     <div className="grid md:grid-cols-2 gap-6">
                       {featuredDeals.map((deal) => (
-                        <div key={deal.id} className="relative border border-border rounded-xl p-4 hover:shadow-md transition-shadow bg-gradient-card">
+                        <div key={deal.id} className="relative border border-border rounded-xl p-4 hover:shadow-md transition-shadow bg-card">
                           {deal.popular && (
                             <Badge className="absolute -top-2 -right-2 bg-primary">
                               <Star className="h-3 w-3 mr-1 fill-white" />
@@ -360,7 +360,7 @@ const OrderNow = () => {
                   <CardContent>
                     <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
                       {quickOrder.map((item) => (
-                        <div key={item.id} className="text-center border border-border rounded-xl p-4 hover:shadow-md transition-shadow bg-gradient-card flex flex-col justify-between">
+                        <div key={item.id} className="text-center border border-border rounded-xl p-4 hover:shadow-md transition-shadow bg-card flex flex-col justify-between">
                           <div>
                             <h4 className="font-bold text-foreground mb-1">{item.name}</h4>
                             <p className="text-2xl font-black text-primary mb-2">${item.price}</p>

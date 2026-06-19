@@ -226,11 +226,11 @@ const MenuPage = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <section className="py-20 bg-primary/5">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Our <span className="bg-gradient-hero bg-clip-text text-transparent">Menu</span>
+                Our <span className="text-primary">Menu</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
                 Discover our delicious selection of chicken dishes, made fresh to order 
@@ -258,7 +258,7 @@ const MenuPage = () => {
               <TabsContent value={activeCategory} className="animate-fade-in">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {filteredItems.map((item) => (
-                    <Card key={item.id} className="overflow-hidden transition-all duration-300 hover:shadow-elegant hover:scale-105 bg-gradient-card border-border">
+                    <Card key={item.id} className="overflow-hidden transition-all duration-300 hover:shadow-elegant hover:scale-105 bg-card border-border">
                       <CardHeader className="p-0">
                         <div className="aspect-square overflow-hidden relative">
                           <img
@@ -268,7 +268,7 @@ const MenuPage = () => {
                           />
                           {item.category === "chicken" && (
                             <Badge className="absolute top-3 left-3 bg-primary">
-                              <Star className="h-3 w-3 mr-1" />
+                              <Star className="h-3 w-3 mr-1 fill-current" />
                               Signature
                             </Badge>
                           )}

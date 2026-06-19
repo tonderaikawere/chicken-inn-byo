@@ -265,14 +265,14 @@ const FullMenu = () => {
 
   const getBadgeIcon = (badge: string) => {
     switch (badge) {
-      case "signature": return <Star className="h-3 w-3" />;
+      case "signature": return <Star className="h-3 w-3 fill-current text-primary" />;
       case "spicy": return <Flame className="h-3 w-3" />;
       default: return null;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
         <div className="mb-6">
@@ -282,7 +282,7 @@ const FullMenu = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Full <span className="bg-gradient-hero bg-clip-text text-transparent">Menu</span>
+            Full <span className="text-primary">Menu</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore our complete menu of delicious chicken dishes, sides, and drinks
@@ -418,7 +418,7 @@ const FullMenu = () => {
             <Card className="shadow-elegant">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Star className="h-5 w-5 text-primary" />
+                  <Star className="h-5 w-5 fill-current text-primary" />
                   Most Popular
                 </CardTitle>
               </CardHeader>
