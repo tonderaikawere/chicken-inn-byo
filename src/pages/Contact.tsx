@@ -38,26 +38,26 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+263 4 123 456", "+263 4 789 012"],
-      description: "Available 24/7 for orders and support"
+      details: ["073 120 0040", "073 120 0029"],
+      description: "Available during operating hours for orders & support"
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@chickeninn.co.zw", "orders@chickeninn.co.zw"],
+      details: ["customercare@simbisa.co.zw"],
       description: "We respond within 24 hours"
     },
     {
       icon: MapPin,
-      title: "Head Office",
-      details: ["123 Samora Machel Avenue", "Harare, Zimbabwe"],
-      description: "Visit us Monday to Friday, 8AM - 5PM"
+      title: "Main Bulawayo Outlet",
+      details: ["10 9th Avenue", "Bulawayo, Zimbabwe"],
+      description: "Visit us Monday to Sunday"
     },
     {
       icon: Clock,
       title: "Operating Hours",
-      details: ["Mon-Sun: 8:00 AM - 10:00 PM", "Delivery: 9:00 AM - 9:00 PM"],
-      description: "Consistent hours across all outlets"
+      details: ["Mon-Sun: 8:00 AM - 9:00 PM", "GVL Outlet: 8:00 AM - 10:00 PM"],
+      description: "Consistent hours for takeaways and dine-in"
     }
   ];
 
@@ -184,21 +184,21 @@ const Contact = () => {
               </div>
 
               <div className="bg-muted/30 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6">Visit Our Head Office</h3>
+                <h3 className="text-2xl font-bold mb-6">Visit Our Main Outlet</h3>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
                     <MapPin className="h-5 w-5 text-primary mt-1" />
                     <div>
-                      <p className="font-semibold">Chicken Inn Head Office</p>
-                      <p className="text-muted-foreground">123 Samora Machel Avenue</p>
-                      <p className="text-muted-foreground">Harare, Zimbabwe</p>
+                      <p className="font-semibold">Chicken Inn 9th Avenue</p>
+                      <p className="text-muted-foreground">10 9th Avenue</p>
+                      <p className="text-muted-foreground">Bulawayo, Zimbabwe</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="font-semibold">Office Hours</p>
-                      <p className="text-muted-foreground">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                      <p className="font-semibold">Store Hours</p>
+                      <p className="text-muted-foreground">Monday - Sunday: 8:00 AM - 9:00 PM</p>
                     </div>
                   </div>
                 </div>
@@ -208,11 +208,11 @@ const Contact = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Phone className="h-4 w-4 text-primary" />
-                      <span className="text-sm">+263 4 123 456</span>
+                      <span className="text-sm">073 120 0040</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-4 w-4 text-primary" />
-                      <span className="text-sm">info@chickeninn.co.zw</span>
+                      <span className="text-sm">customercare@simbisa.co.zw</span>
                     </div>
                   </div>
                 </div>

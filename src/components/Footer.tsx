@@ -11,14 +11,14 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             <img 
               src={logo} 
-              alt="Chicken Inn Zimbabwe" 
+              alt="Chicken Inn Bulawayo" 
               className="h-10 md:h-12 w-auto mb-4 brightness-0 invert" 
             />
             <p className="text-background/80 mb-4 text-sm md:text-base leading-relaxed">
-              Zimbabwe's favorite Kentucky fried chicken since 1987. Fresh, crispy & delicious!
+              Zimbabwe's favorite chicken restaurant since 1987. Serving Bulawayo with fresh, crispy & delicious meals!
             </p>
             <p className="text-background/60 text-sm font-medium">
-              🇿🇼 Proudly Zimbabwean
+              🇿🇼 Proudly Zimbabwean • Meal of the People
             </p>
           </div>
 
@@ -55,15 +55,15 @@ const Footer = () => {
             <ul className="space-y-2 md:space-y-3 text-background/80 text-sm">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>+263 4 123 456</span>
+                <span>073 120 0040</span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span className="break-all">info@chickeninn.co.zw</span>
+                <span className="break-all">customercare@simbisa.co.zw</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>123 Samora Machel Ave, Harare</span>
+                <span>10 9th Avenue, Bulawayo</span>
               </li>
             </ul>
           </div>
@@ -71,9 +71,11 @@ const Footer = () => {
           {/* Social Media */}
           <div>
             <h4 className="font-semibold mb-3 md:mb-4 text-background text-base md:text-lg">Follow Us</h4>
-            <div className="flex gap-3 md:gap-4">
+            <div className="flex gap-3 md:gap-4 animate-fade-in">
               <a 
-                href="https://facebook.com/ChickenInnZW" 
+                href="https://www.facebook.com/ChickenInn9thAve/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-background/80 hover:text-primary transition-colors p-2 hover:bg-background/10 rounded-lg"
                 aria-label="Follow us on Facebook"
               >
@@ -81,6 +83,8 @@ const Footer = () => {
               </a>
               <a 
                 href="https://instagram.com/chickeninnzw" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-background/80 hover:text-primary transition-colors p-2 hover:bg-background/10 rounded-lg"
                 aria-label="Follow us on Instagram"
               >
@@ -88,6 +92,8 @@ const Footer = () => {
               </a>
               <a 
                 href="https://twitter.com/chickeninnzw" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-background/80 hover:text-primary transition-colors p-2 hover:bg-background/10 rounded-lg"
                 aria-label="Follow us on Twitter"
               >
@@ -99,7 +105,7 @@ const Footer = () => {
             <div className="mt-4 lg:hidden">
               <h5 className="font-medium mb-2 text-background text-sm">Hours</h5>
               <p className="text-background/80 text-xs">
-                Mon-Sun: 8:00 AM - 10:00 PM
+                Mon-Sun: 8:00 AM - 9:00 PM
               </p>
             </div>
           </div>
@@ -109,10 +115,20 @@ const Footer = () => {
         <div className="border-t border-background/20 pt-6 md:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-background/60 text-xs md:text-sm">
             <p className="text-center sm:text-left">
-              &copy; 2025 Chicken Inn Zimbabwe. All rights reserved.
+              &copy; {new Date().getFullYear()} Chicken Inn Bulawayo. All rights reserved.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center">
-              <span>Designed by Tonde</span>
+              <span>
+                Designed and developed by{" "}
+                <a 
+                  href="https://tonde-portfolio.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-primary underline transition-colors"
+                >
+                  Tonde
+                </a>
+              </span>
               <span className="hidden sm:inline">•</span>
               <span>Learning Project</span>
             </div>
