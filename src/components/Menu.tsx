@@ -66,10 +66,15 @@ const menuItems: MenuItemData[] = [
 
 interface MenuProps {
   onAddToCart: (item: MenuItemData) => void;
+  activeCategory?: string;
+  setActiveCategory?: (category: string) => void;
 }
 
-const Menu = ({ onAddToCart }: MenuProps) => {
-  const [activeCategory, setActiveCategory] = useState("all");
+const Menu = ({ onAddToCart, activeCategory: propActiveCategory, setActiveCategory: propSetActiveCategory }: MenuProps) => {
+  const [internalCategory, setInternalCategory] = useState("all");
+
+  const activeCategory = propActiveCategory ?? internalCategory;
+  const setActiveCategory = propSetActiveCategory ?? setInternalCategory;
 
   const filteredItems = activeCategory === "all" 
     ? menuItems 

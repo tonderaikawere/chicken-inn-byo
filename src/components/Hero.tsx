@@ -102,53 +102,50 @@ const Hero = ({ onOrderClick }: HeroProps) => {
           {/* Text Content - Mobile First */}
           <div className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1">
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              <span className="text-primary">
-                LUV DAT
-              </span>{" "}
-              Chicken!
-            </h1>
+            <div className="space-y-3">
+              <span className="text-sm font-black uppercase tracking-widest text-primary bg-primary/10 px-3.5 py-1.5 rounded-full border border-primary/20">
+                Bulawayo's Number One
+              </span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight leading-none text-foreground">
+                LUV DAT <br />
+                <span className="text-primary font-black">CHICKEN!</span>
+              </h1>
+            </div>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-md mx-auto lg:mx-0 leading-relaxed">
-              Zimbabwe's favorite chicken. Crispy on the outside, 
-              juicy on the inside. Fresh, hot & delicious!
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-md mx-auto lg:mx-0 leading-relaxed font-medium">
+              Crispy on the outside, tender and juicy on the inside. Fresh, hot, and made daily in Bulawayo!
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
-                variant="hero" 
+                variant="default" 
                 size="lg" 
                 onClick={() => navigate('/order-now')} 
-                className="shadow-2xl btn-glow text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
+                className="bg-primary hover:bg-primary/95 text-white font-black uppercase tracking-wider text-base md:text-lg px-8 py-6 rounded-xl border-b-4 border-red-800 active:border-b-0 active:translate-y-[4px] shadow-lg transition-all"
               >
-                Order Now & Save
+                Order Online
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
                 onClick={() => navigate('/full-menu')}
-                className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
+                className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-black uppercase tracking-wider text-base md:text-lg px-8 py-6 rounded-xl shadow-md transition-colors"
               >
-                View Full Menu
+                View Menu
               </Button>
             </div>
             
-            {/* Stats - Responsive with Animated Counters */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 md:gap-6 pt-4 md:pt-6">
-              <div className="text-center">
-                <p ref={outletsCounter.ref} className="text-2xl md:text-3xl font-bold text-primary">{outletsCounter.value}</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Outlets</p>
-              </div>
-              <div className="h-8 md:h-12 w-px bg-border"></div>
-              <div className="text-center">
-                <p ref={yearsCounter.ref} className="text-2xl md:text-3xl font-bold text-primary">{yearsCounter.value}</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Years</p>
-              </div>
-              <div className="h-8 md:h-12 w-px bg-border"></div>
-              <div className="text-center">
-                <p ref={customersCounter.ref} className="text-2xl md:text-3xl font-bold text-primary">{customersCounter.value.replace('1,000,000+', '1M+')}</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Happy Customers</p>
-              </div>
+            {/* Promo Badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-4">
+              <span className="bg-primary/5 text-primary text-[10px] md:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-lg border border-primary/10">
+                🍗 A-Grade Zimbabwe Poultry
+              </span>
+              <span className="bg-muted text-foreground text-[10px] md:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-lg border border-border">
+                🍟 Hand-Cut Chips Daily
+              </span>
+              <span className="bg-yellow-500/10 text-yellow-600 dark:text-yellow-500 text-[10px] md:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-lg border border-yellow-500/20">
+                ⭐ Loyalty Stars Reward
+              </span>
             </div>
           </div>
 

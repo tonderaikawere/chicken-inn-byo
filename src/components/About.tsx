@@ -1,51 +1,86 @@
-import { Award, Heart, ShieldCheck } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import chickenWings from "@/assets/chicken-wings.jpg";
+import chickenBurger from "@/assets/chicken-burger.jpg";
 
 const About = () => {
-  const features = [
-    {
-      icon: Award,
-      title: "Meal of the People",
-      description: "Our legendary 2-Piecer stands alone as the quick service meal of the people.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Value for Money",
-      description: "Broad-spectrum menu using only the best A-grade chicken and premium spices.",
-    },
-    {
-      icon: Heart,
-      title: "Fresh & Local Since 1987",
-      description: "Inaugural Harare outlet opened in 1987. Hand-cut chips and chicken made daily.",
-    },
-  ];
-
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">
-            About <span className="text-primary">Chicken Inn</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Every great story has a beginning. Chicken Inn’s story began when the inaugural outlet opened in Zimbabwe in 1987. 
-            Our commitment to providing our customers the guaranteed distinctive taste synonymous with the brand is the key to our success. 
-            The famous hand-cut chips, burgers, and crispy pieces are the reasons we have grown to over 120 outlets in Africa.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-          {features.map((feature, index) => (
-            <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
-              <CardContent className="pt-6 text-center">
-                <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                  <feature.icon className="h-8 w-8 text-white fill-current" />
+    <section id="about" className="py-24 bg-card border-t">
+      <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Images Mosaic Column */}
+          <div className="lg:col-span-5 relative order-2 lg:order-1">
+            <div className="absolute -inset-4 bg-primary/10 rounded-3xl -rotate-2"></div>
+            <div className="relative grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <img 
+                  src={chickenWings} 
+                  alt="Crispy Fried Chicken" 
+                  className="rounded-2xl border-4 border-card shadow-lg object-cover h-48 w-full transform hover:scale-105 transition-transform duration-300"
+                />
+                <div className="bg-primary text-white p-6 rounded-2xl border-4 border-card shadow-lg text-center">
+                  <span className="block text-4xl font-black">1987</span>
+                  <span className="text-xs uppercase font-extrabold tracking-widest text-white/95">Established</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+              <div className="space-y-4 pt-8">
+                <div className="bg-secondary text-white p-6 rounded-2xl border-4 border-card shadow-lg text-center">
+                  <span className="block text-xl font-black">BULAWAYO</span>
+                  <span className="text-[10px] uppercase font-extrabold tracking-wider text-primary">8 Branches</span>
+                </div>
+                <img 
+                  src={chickenBurger} 
+                  alt="Delicious Chicken Burger" 
+                  className="rounded-2xl border-4 border-card shadow-lg object-cover h-48 w-full transform hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Narrative Content Column */}
+          <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-primary bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
+                Our Legacy
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-foreground leading-none">
+              Meal of the <span className="text-primary">People</span>
+            </h2>
+            <p className="text-lg text-foreground font-semibold leading-relaxed">
+              Every great story has a beginning. Simbisa Brands’ story began when the inaugural Chicken Inn outlet opened in Zimbabwe in 1987.
+            </p>
+            <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
+              <p>
+                From day one, the brand's focus was on using the freshest, locally sourced ingredients to produce a delicious and aﬀordable menu. 
+                Our signature blend of secret spices, crispy coating, and tender juicy chicken instantly resonated with customers.
+              </p>
+              <p>
+                The renowned fried chicken pieces, crispy chicken burgers, fresh rotisserie chicken, spicy chicken wings, and our famous hand-cut chips 
+                that are prepared daily are the reasons why this brand has grown to be Zimbabwe's largest quick-service restaurant.
+              </p>
+              <p>
+                That same focus on quality, value, and friendly service continues today in every outlet across Africa, keeping the "Luv Dat Chicken" taste alive.
+              </p>
+            </div>
+            
+            <div className="pt-4 border-t flex flex-wrap gap-6">
+              <div>
+                <span className="text-2xl font-black text-primary block">100%</span>
+                <span className="text-xs font-bold text-muted-foreground">Fresh Ingredients</span>
+              </div>
+              <div className="border-r border-border h-10 my-auto"></div>
+              <div>
+                <span className="text-2xl font-black text-primary block">Daily</span>
+                <span className="text-xs font-bold text-muted-foreground">Hand-Cut Chips</span>
+              </div>
+              <div className="border-r border-border h-10 my-auto"></div>
+              <div>
+                <span className="text-2xl font-black text-primary block">Local</span>
+                <span className="text-xs font-bold text-muted-foreground">A-Grade Poultry</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

@@ -1,30 +1,37 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import CategoryBar from "@/components/CategoryBar";
 import About from "@/components/About";
 import Menu from "@/components/Menu";
-import WhyChooseUs from "@/components/WhyChooseUs";
 import PromoBanner from "@/components/PromoBanner";
 import DeliveryZones from "@/components/DeliveryZones";
 import LocationsSection from "@/components/LocationsSection";
-import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { useCart } from "@/hooks/useCart";
 
 const Index = () => {
   const { addToCart } = useCart();
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const handleCategorySelect = (category: string) => {
+    setActiveCategory(category);
+    setTimeout(() => {
+      document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <Hero onOrderClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })} />
+        <Hero onOrderClick={() => handleCategorySelect("all")} />
+        <CategoryBar activeCategory={activeCategory} setActiveCategory={handleCategorySelect} />
         <About />
-        <Menu onAddToCart={addToCart} />
+        <Menu onAddToCart={addToCart} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         <PromoBanner />
-        <WhyChooseUs />
         <DeliveryZones />
         <LocationsSection />
-        <Testimonials />
       </main>
       <Footer />
     </div>
