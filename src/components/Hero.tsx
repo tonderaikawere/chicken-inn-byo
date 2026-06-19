@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState, useCallback } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-chicken.jpg";
 import chickenWings from "@/assets/chicken-wings.jpg";
 import chickenBurger from "@/assets/chicken-burger.jpg";
@@ -12,10 +13,11 @@ interface HeroProps {
 
 const Hero = ({ onOrderClick }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
   
-  // Animated counters
-  const outletsCounter = useCountUp({ end: 50, suffix: '+', duration: 2500 });
-  const yearsCounter = useCountUp({ end: 35, suffix: '+', duration: 2000 });
+  // Animated counters - updated to match Simbisa brand data (121 outlets in Africa, since 1987 = 39 years)
+  const outletsCounter = useCountUp({ end: 121, suffix: '+', duration: 2500 });
+  const yearsCounter = useCountUp({ end: 39, suffix: '+', duration: 2000 });
   const customersCounter = useCountUp({ end: 1000000, suffix: '+', duration: 3000 });
 
   const carouselItems = [
@@ -59,7 +61,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-secondary/10 min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-muted/10 min-h-screen flex items-center">
       {/* Chicken Illustrations Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-20 h-20 md:w-32 md:h-32 animate-float">
@@ -101,14 +103,14 @@ const Hero = ({ onOrderClick }: HeroProps) => {
           <div className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1">
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              <span className="bg-gradient-hero bg-clip-text text-transparent">
+              <span className="text-primary">
                 LUV DAT
               </span>{" "}
               Chicken!
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-md mx-auto lg:mx-0 leading-relaxed">
-              Zimbabwe's favorite Kentucky fried chicken. Crispy on the outside, 
+              Zimbabwe's favorite chicken. Crispy on the outside, 
               juicy on the inside. Fresh, hot & delicious!
             </p>
             
@@ -116,7 +118,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
               <Button 
                 variant="hero" 
                 size="lg" 
-                onClick={() => window.location.href = '/order-now'} 
+                onClick={() => navigate('/order-now')} 
                 className="shadow-2xl btn-glow text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
               >
                 Order Now & Save
@@ -124,7 +126,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                onClick={() => window.location.href = '/full-menu'}
+                onClick={() => navigate('/full-menu')}
                 className="text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
               >
                 View Full Menu
@@ -152,7 +154,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
 
           {/* Carousel - Mobile First */}
           <div className="relative animate-scale-in order-1 lg:order-2">
-            <div className="absolute inset-0 bg-gradient-hero opacity-20 md:opacity-30 blur-2xl md:blur-3xl rounded-full"></div>
+            <div className="absolute inset-0 bg-primary/10 opacity-20 md:opacity-30 blur-2xl md:blur-3xl rounded-full"></div>
             
             {/* Manual Carousel Implementation for Better Control */}
             <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto">
