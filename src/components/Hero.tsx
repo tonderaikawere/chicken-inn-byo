@@ -125,11 +125,27 @@ const Hero = ({ onOrderClick }: HeroProps) => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                onClick={() => navigate('/full-menu')}
+                onClick={() => navigate('/menu')}
                 className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-black uppercase tracking-wider text-base md:text-lg px-8 py-6 rounded-xl shadow-md transition-colors"
               >
                 View Menu
               </Button>
+            </div>
+
+            {/* Simbisa brand statistics counter grid */}
+            <div className="pt-8 border-t border-border/50 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+              <div>
+                <span className="block text-2xl md:text-3xl font-black text-primary">{outletsCounter}</span>
+                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Outlets</span>
+              </div>
+              <div>
+                <span className="block text-2xl md:text-3xl font-black text-primary">{yearsCounter}</span>
+                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Years Legacy</span>
+              </div>
+              <div>
+                <span className="block text-2xl md:text-3xl font-black text-primary">{customersCounter}</span>
+                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Customers</span>
+              </div>
             </div>
           </div>
 

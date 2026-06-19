@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
-import MenuPage from "./pages/MenuPage";
 import ApplyNow from "./pages/ApplyNow";
 import OrderNow from "./pages/OrderNow";
 import FullMenu from "./pages/FullMenu";
@@ -18,7 +17,6 @@ import OrderTracker from "./pages/OrderTracker";
 import NotFound from "./pages/NotFound";
 import { CartProvider, useCart } from "./hooks/useCart";
 import Cart from "./components/Cart";
-import Branches from "./components/Branches";
 import ComboCustomizer from "./components/ComboCustomizer";
 
 const queryClient = new QueryClient();
@@ -31,7 +29,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/menu" element={<FullMenu />} />
         <Route path="/full-menu" element={<FullMenu />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />
@@ -45,7 +43,6 @@ const AppContent = () => {
       </Routes>
       <ScrollToTop />
       <Cart />
-      <Branches />
       <ComboCustomizer
         isOpen={isCustomizerOpen}
         onClose={() => setIsCustomizerOpen(false)}

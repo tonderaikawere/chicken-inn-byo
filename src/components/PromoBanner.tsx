@@ -96,7 +96,7 @@ const PromoBanner = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              onClick={() => navigate('/full-menu')}
+              onClick={() => navigate('/menu')}
               className="border-2 border-white text-white hover:bg-white hover:text-primary font-black uppercase tracking-wider text-base px-8 py-6 rounded-xl shadow-md transition-colors"
             >
               View Full Menu

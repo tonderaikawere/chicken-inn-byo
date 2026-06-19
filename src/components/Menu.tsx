@@ -1,6 +1,5 @@
 import { useState } from "react";
 import MenuItem, { MenuItemData } from "./MenuItem";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import chickenWings from "@/assets/chicken-wings.jpg";
 import chickenBurger from "@/assets/chicken-burger.jpg";
 import chickenNuggets from "@/assets/chicken-nuggets.jpg";
@@ -62,6 +61,22 @@ const menuItems: MenuItemData[] = [
     image: chickenNuggets,
     category: "sides",
   },
+  {
+    id: 15,
+    name: "Coca-Cola (500ml)",
+    description: "Classic ice-cold Coca-Cola soft drink",
+    price: 1.29,
+    image: chickenNuggets,
+    category: "drinks",
+  },
+  {
+    id: 16,
+    name: "Fresh Orange Juice",
+    description: "Freshly squeezed juice, rich in Vitamin C",
+    price: 2.49,
+    image: chickenNuggets,
+    category: "drinks",
+  }
 ];
 
 interface MenuProps {
@@ -70,11 +85,8 @@ interface MenuProps {
   setActiveCategory?: (category: string) => void;
 }
 
-const Menu = ({ onAddToCart, activeCategory: propActiveCategory, setActiveCategory: propSetActiveCategory }: MenuProps) => {
-  const [internalCategory, setInternalCategory] = useState("all");
-
-  const activeCategory = propActiveCategory ?? internalCategory;
-  const setActiveCategory = propSetActiveCategory ?? setInternalCategory;
+const Menu = ({ onAddToCart, activeCategory: propActiveCategory }: MenuProps) => {
+  const activeCategory = propActiveCategory ?? "all";
 
   const filteredItems = activeCategory === "all" 
     ? menuItems 
@@ -90,24 +102,11 @@ const Menu = ({ onAddToCart, activeCategory: propActiveCategory, setActiveCatego
           </p>
         </div>
 
-        <Tabs defaultValue="all" className="w-full" onValueChange={setActiveCategory}>
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-6 mb-8">
-            <TabsTrigger value="all">All</TabsTrigger>
-            <TabsTrigger value="chicken">Chicken</TabsTrigger>
-            <TabsTrigger value="wings">Wings</TabsTrigger>
-            <TabsTrigger value="burgers">Burgers</TabsTrigger>
-            <TabsTrigger value="nuggets">Nuggets</TabsTrigger>
-            <TabsTrigger value="sides">Sides</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value={activeCategory} className="animate-fade-in">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredItems.map((item) => (
-                <MenuItem key={item.id} item={item} onAddToCart={onAddToCart} />
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+          {filteredItems.map((item) => (
+            <MenuItem key={item.id} item={item} onAddToCart={onAddToCart} />
+          ))}
+        </div>
       </div>
     </section>
   );

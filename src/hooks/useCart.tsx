@@ -33,8 +33,6 @@ interface CartContextType {
   clearCart: () => void;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
-  isBranchesOpen: boolean;
-  setIsBranchesOpen: (open: boolean) => void;
   pastOrders: PastOrder[];
   addPastOrder: (order: {
     items: CartItem[];
@@ -72,7 +70,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   });
 
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isBranchesOpen, setIsBranchesOpen] = useState(false);
   const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
   const [customizerItem, setCustomizerItem] = useState<MenuItemData | null>(null);
 
@@ -212,8 +209,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         clearCart,
         isCartOpen,
         setIsCartOpen,
-        isBranchesOpen,
-        setIsBranchesOpen,
         pastOrders,
         addPastOrder,
         starsPoints,

@@ -6,13 +6,12 @@ import logo from "@/assets/chickeninn-logo.png";
 import { useCart } from "@/hooks/useCart";
 
 const Header = () => {
-  const { cartItems, setIsCartOpen, setIsBranchesOpen, starsPoints, pastOrders } = useCart();
+  const { cartItems, setIsCartOpen, starsPoints, pastOrders } = useCart();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const onCartClick = () => setIsCartOpen(true);
-  const onBranchesClick = () => setIsBranchesOpen(true);
 
   
   const isActive = (path: string) => {
@@ -70,12 +69,14 @@ const Header = () => {
             >
               Menu
             </Link>
-            <button 
-              onClick={onBranchesClick}
-              className="text-sm xl:text-base text-foreground hover:text-primary transition-colors font-medium"
+            <Link 
+              to="/locations"
+              className={`text-sm xl:text-base text-foreground hover:text-primary transition-colors font-medium ${
+                isActive("/locations") ? "text-primary font-semibold" : ""
+              }`}
             >
               Locations
-            </button>
+            </Link>
             <Link 
               to="/contact" 
               className={`text-sm xl:text-base text-foreground hover:text-primary transition-colors font-medium ${
@@ -114,12 +115,14 @@ const Header = () => {
             >
               Menu
             </Link>
-            <button 
-              onClick={onBranchesClick}
-              className="text-sm text-foreground hover:text-primary transition-colors font-medium"
+            <Link 
+              to="/locations"
+              className={`text-sm text-foreground hover:text-primary transition-colors font-medium ${
+                isActive("/locations") ? "text-primary font-semibold" : ""
+              }`}
             >
               Locations
-            </button>
+            </Link>
           </nav>
 
           {/* Action Buttons - Responsive */}
@@ -197,15 +200,15 @@ const Header = () => {
                 >
                   Menu
                 </Link>
-                <button 
-                  onClick={() => {
-                    onBranchesClick();
-                    closeMobileMenu();
-                  }}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
+                <Link 
+                  to="/locations"
+                  onClick={closeMobileMenu}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    isActive("/locations") ? "text-primary font-semibold" : "text-foreground"
+                  }`}
                 >
                   Locations
-                </button>
+                </Link>
                 <Link 
                   to="/contact" 
                   onClick={closeMobileMenu}

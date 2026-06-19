@@ -27,8 +27,8 @@ const Index = () => {
       <main className="flex-1">
         <Hero onOrderClick={() => handleCategorySelect("all")} />
         <CategoryBar activeCategory={activeCategory} setActiveCategory={handleCategorySelect} />
-        <About />
         <Menu onAddToCart={addToCart} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+        <About />
         <PromoBanner />
         <DeliveryZones />
         <LocationsSection />

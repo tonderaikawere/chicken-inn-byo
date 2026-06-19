@@ -247,15 +247,15 @@ const AllLocations = () => {
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
-                        <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <MapPin className="h-4 w-4 text-primary fill-primary mt-0.5 flex-shrink-0" />
                         <span className="text-sm">{location.address}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-primary" />
+                        <Phone className="h-4 w-4 text-primary fill-primary" />
                         <span className="text-sm">{location.phone}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-primary" />
+                        <Clock className="h-4 w-4 text-primary fill-primary" />
                         <span className="text-sm">{location.hours}</span>
                       </div>
                     </div>
@@ -277,7 +277,7 @@ const AllLocations = () => {
                     {location.services.includes("delivery") && (
                       <div className="bg-muted/50 rounded-lg p-3">
                         <p className="text-xs text-muted-foreground">
-                          <Truck className="h-3 w-3 inline mr-1 text-primary" />
+                          <Truck className="h-3 w-3 inline mr-1 text-primary fill-primary" />
                           Delivery radius: {location.deliveryRadius}
                         </p>
                       </div>
@@ -285,12 +285,12 @@ const AllLocations = () => {
 
                     <div className="flex gap-2">
                       <Button className="flex-1 font-semibold" size="sm">
-                        <Navigation className="h-4 w-4 mr-2" />
+                        <Navigation className="h-4 w-4 mr-2 fill-current" />
                         Get Directions
                       </Button>
                       <Button variant="outline" size="sm" asChild>
                         <a href={`tel:${location.phone}`} className="font-semibold">
-                          <Phone className="h-4 w-4 mr-2" />
+                          <Phone className="h-4 w-4 mr-2 fill-current" />
                           Call
                         </a>
                       </Button>

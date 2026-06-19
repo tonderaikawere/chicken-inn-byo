@@ -90,17 +90,17 @@ const LocationsSection = () => {
               </CardHeader>
               <CardContent className="space-y-3.5 p-5">
                 <div className="flex items-start gap-2.5 text-sm font-semibold">
-                  <MapPin className="h-4.5 w-4.5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <MapPin className="h-4.5 w-4.5 text-primary fill-primary mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground leading-relaxed">{location.address}</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold">
-                  <Phone className="h-4.5 w-4.5 text-muted-foreground" />
+                  <Phone className="h-4.5 w-4.5 text-primary fill-primary" />
                   <a href={`tel:${location.phone}`} className="text-muted-foreground hover:text-primary transition-colors">
                     {location.phone}
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold">
-                  <Clock className="h-4.5 w-4.5 text-muted-foreground" />
+                  <Clock className="h-4.5 w-4.5 text-primary fill-primary" />
                   <span className="text-muted-foreground">{location.hours}</span>
                 </div>
               </CardContent>
@@ -115,7 +115,7 @@ const LocationsSection = () => {
             className="border-2 border-primary text-primary hover:bg-primary hover:text-white font-extrabold uppercase tracking-wide px-8 py-6 rounded-xl transition-all"
             onClick={() => navigate('/all-locations')}
           >
-            <MapPin className="h-5 w-5 mr-2" />
+            <MapPin className="h-5 w-5 mr-2 fill-current" />
             View All Bulawayo Branches
           </Button>
         </div>
