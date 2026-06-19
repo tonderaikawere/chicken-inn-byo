@@ -67,7 +67,7 @@ const About = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="text-center mb-16">
+        <section className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             About <span className="bg-gradient-hero bg-clip-text text-transparent">Chicken Inn</span>
           </h1>
@@ -76,6 +76,53 @@ const About = () => {
             serving millions of satisfied customers with our signature blend of quality, 
             flavor, and affordability.
           </p>
+        </section>
+
+        {/* Brand Story Section */}
+        <section className="grid md:grid-cols-2 gap-8 mb-16">
+          <Card className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-gradient-card">
+            <CardContent className="p-8 space-y-4">
+              <h2 className="text-2xl font-black text-primary">Meal of the People</h2>
+              <div className="space-y-3 text-foreground/80 leading-relaxed text-sm">
+                <p>
+                  Every great story has a beginning. Simbisa Brands’ story began when the inaugural 
+                  Chicken Inn outlet opened in Harare, Zimbabwe in 1987. Its focus was on using the 
+                  freshest, locally sourced ingredients to produce a delicious and aﬀordable menu. 
+                  The renowned fried chicken pieces, fried chicken burgers, fresh rotisserie chicken, 
+                  spicy chicken wings and the famous hand cut chips that are made daily in our Chicken 
+                  Inn outlets are the reasons why this brand has grown exponentially over the years. 
+                  That same focus continues today in every outlet across Africa, making Chicken Inn one 
+                  of the most recognisable brands on the continent.
+                </p>
+                <p>
+                  Chicken Inn’s commitment to providing their customers the guaranteed distinctive taste 
+                  synonymous with the brand is the key to our success. The popular 2-Piecer stands 
+                  alone as the “meal of the people.” As one of our top sellers, this delectable option 
+                  satisﬁes thousands of on-the-go consumers daily.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-gradient-card">
+            <CardContent className="p-8 space-y-4">
+              <h2 className="text-2xl font-black text-primary">Value for Money</h2>
+              <div className="space-y-3 text-foreground/80 leading-relaxed text-sm">
+                <p>
+                  Three decades later, Chicken Inn continues to oﬀer value for money with a broad- 
+                  spectrum menu that appeals to individuals as well as families. We have convenient 
+                  drive-through services in multiple locations in Africa. Only the best A-grade chicken 
+                  and premium spices are used to ensure the quality taste that the brand is famous for.
+                </p>
+                <p>
+                  As a proudly Zimbabwean brand, Chicken Inn currently boasts 121 outlets throughout 
+                  Africa, including Zimbabwe, Kenya, Zambia, Ghana, Swaziland, Namibia, Malawi and DRC. 
+                  The ever-increasing footprint of Chicken Inn and Simbisa Brands provides the people of 
+                  Africa with aﬀordable, uniquely ﬂavoured and high-quality quick service meals.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </section>
 
         {/* Timeline Section */}
