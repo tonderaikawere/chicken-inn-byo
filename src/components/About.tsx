@@ -4,7 +4,7 @@ import chickenBurger from "@/assets/chicken-burger.jpg";
 const About = () => {
   return (
     <section id="about" className="py-24 bg-card border-t">
-      <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
           {/* Images Mosaic Column */}

@@ -50,7 +50,7 @@ const DeliveryZones = () => {
 
   return (
     <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-4">
             Bulawayo <span className="text-primary">Delivery Zones</span>
@@ -113,9 +113,6 @@ const DeliveryZones = () => {
                     <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
                     {zone.name}
                   </CardTitle>
-                  <Badge variant="outline" className="text-green-600 bg-green-50 border-green-200 uppercase font-bold text-[10px]">
-                    Active
-                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4 pt-0">

@@ -227,7 +227,7 @@ const MenuPage = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-20 bg-primary/5">
-          <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 Our <span className="text-primary">Menu</span>
@@ -242,15 +242,12 @@ const MenuPage = () => {
 
         {/* Menu Section */}
         <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveCategory}>
               <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-3 lg:grid-cols-7 mb-12">
                 {categories.map((category) => (
-                  <TabsTrigger key={category.id} value={category.id} className="text-xs lg:text-sm">
+                  <TabsTrigger key={category.id} value={category.id} className="text-xs lg:text-sm font-extrabold">
                     {category.name}
-                    <Badge variant="secondary" className="ml-1 text-xs">
-                      {category.count}
-                    </Badge>
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -266,18 +263,7 @@ const MenuPage = () => {
                             alt={item.name}
                             className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                           />
-                          {item.category === "chicken" && (
-                            <Badge className="absolute top-3 left-3 bg-primary">
-                              <Star className="h-3 w-3 mr-1 fill-current" />
-                              Signature
-                            </Badge>
-                          )}
-                          {item.name.includes("Spicy") && (
-                            <Badge className="absolute top-3 right-3 bg-red-500">
-                              <Flame className="h-3 w-3 mr-1" />
-                              Spicy
-                            </Badge>
-                          )}
+                          {/* Clean visual image */}
                         </div>
                       </CardHeader>
                       <CardContent className="p-4">

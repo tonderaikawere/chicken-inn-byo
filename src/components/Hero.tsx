@@ -97,15 +97,12 @@ const Hero = ({ onOrderClick }: HeroProps) => {
         </div>
       </div>
       
-      <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 py-8 relative w-full">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-8 relative w-full">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[80vh]">
           {/* Text Content - Mobile First */}
           <div className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1">
             
             <div className="space-y-3">
-              <span className="text-sm font-black uppercase tracking-widest text-primary bg-primary/10 px-3.5 py-1.5 rounded-full border border-primary/20">
-                Bulawayo's Number One
-              </span>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight leading-none text-foreground">
                 LUV DAT <br />
                 <span className="text-primary font-black">CHICKEN!</span>
@@ -134,19 +131,6 @@ const Hero = ({ onOrderClick }: HeroProps) => {
                 View Menu
               </Button>
             </div>
-            
-            {/* Promo Badges */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-4">
-              <span className="bg-primary/5 text-primary text-[10px] md:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-lg border border-primary/10">
-                🍗 A-Grade Zimbabwe Poultry
-              </span>
-              <span className="bg-muted text-foreground text-[10px] md:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-lg border border-border">
-                🍟 Hand-Cut Chips Daily
-              </span>
-              <span className="bg-yellow-500/10 text-yellow-600 dark:text-yellow-500 text-[10px] md:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-lg border border-yellow-500/20">
-                ⭐ Loyalty Stars Reward
-              </span>
-            </div>
           </div>
 
           {/* Carousel - Mobile First */}
@@ -168,17 +152,6 @@ const Hero = ({ onOrderClick }: HeroProps) => {
                         className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover border-2 md:border-4 border-primary/20"
                         loading={index === 0 ? "eager" : "lazy"}
                       />
-                      
-                      {/* Badge - Responsive */}
-                      <div className="absolute -bottom-3 md:-bottom-6 -right-3 md:-right-6 bg-primary text-white px-3 py-2 md:px-6 md:py-4 rounded-xl md:rounded-2xl shadow-elegant">
-                        <p className="text-xs md:text-sm font-semibold">{item.badge}</p>
-                        <p className="text-sm md:text-lg font-bold">{item.title}</p>
-                      </div>
-                      
-                      {/* Subtitle - Responsive */}
-                      <div className="absolute top-3 md:top-6 left-3 md:left-6 bg-background/90 backdrop-blur-sm text-foreground px-2 py-1 md:px-4 md:py-2 rounded-lg md:rounded-xl">
-                        <p className="text-xs md:text-sm font-semibold">{item.subtitle}</p>
-                      </div>
                     </div>
                   ))}
                 </div>

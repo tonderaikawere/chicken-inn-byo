@@ -1,7 +1,6 @@
 import { MapPin, Phone, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
 
 interface Location {
@@ -69,7 +68,7 @@ const LocationsSection = () => {
 
   return (
     <section id="locations" className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
             Our <span className="text-primary">Bulawayo Branches</span>
@@ -87,9 +86,7 @@ const LocationsSection = () => {
                   <MapPin className="h-5 w-5 text-primary fill-primary" />
                   {location.name}
                 </CardTitle>
-                <Badge className="bg-primary hover:bg-primary text-white text-[10px] font-black uppercase tracking-widest w-fit mt-1.5">
-                  {location.city}
-                </Badge>
+                {/* Clean header */}
               </CardHeader>
               <CardContent className="space-y-3.5 p-5">
                 <div className="flex items-start gap-2.5 text-sm font-semibold">

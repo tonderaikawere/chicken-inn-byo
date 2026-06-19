@@ -43,14 +43,10 @@ const PromoBanner = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSI0Ii8+PC9nPjwvZz48L3N2Zz4=')] animate-pulse-slow"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full relative">
         <div className="text-center text-white">
           {/* Main Offer */}
           <div className="mb-8">
-            <Badge className="bg-white/20 text-white border-white/30 mb-4 animate-bounce-slow font-black uppercase">
-              <Gift className="h-4 w-4 mr-2" />
-              Limited Time Coupon
-            </Badge>
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4 text-shadow">
               FREE DELIVERY
             </h2>

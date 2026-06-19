@@ -81,10 +81,10 @@ const Menu = ({ onAddToCart, activeCategory: propActiveCategory, setActiveCatego
     : menuItems.filter(item => item.category === activeCategory);
 
   return (
-    <section id="menu" className="py-16 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Menu</h2>
+    <section id="menu" className="py-24 bg-muted/30">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Our Menu</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our delicious selection of chicken dishes, made fresh to order
           </p>

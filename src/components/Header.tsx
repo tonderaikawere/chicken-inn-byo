@@ -1,13 +1,12 @@
 import { ShoppingCart, MapPin, Menu, X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "@/assets/chickeninn-logo.png";
 import { useCart } from "@/hooks/useCart";
 
 const Header = () => {
-  const { cartItems, setIsCartOpen, setIsBranchesOpen, starsPoints } = useCart();
+  const { cartItems, setIsCartOpen, setIsBranchesOpen, starsPoints, pastOrders } = useCart();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -32,7 +31,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo - Responsive */}
           <div className="flex items-center gap-3">
@@ -93,14 +92,16 @@ const Header = () => {
             >
               Careers
             </Link>
-            <Link 
-              to="/past-orders" 
-              className={`text-sm xl:text-base text-foreground hover:text-primary transition-colors font-medium ${
-                isActive("/past-orders") ? "text-primary font-semibold" : ""
-              }`}
-            >
-              Order History
-            </Link>
+            {pastOrders && pastOrders.length > 0 && (
+              <Link 
+                to="/past-orders" 
+                className={`text-sm xl:text-base text-foreground hover:text-primary transition-colors font-medium ${
+                  isActive("/past-orders") ? "text-primary font-semibold" : ""
+                }`}
+              >
+                Order History
+              </Link>
+            )}
           </nav>
 
           {/* Mobile Navigation Menu - Hidden for now, can be expanded */}
@@ -123,13 +124,15 @@ const Header = () => {
 
           {/* Action Buttons - Responsive */}
           <div className="flex items-center gap-2">
-            <Link 
-              to="/past-orders"
-              className="flex items-center gap-1.5 bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-600 dark:text-yellow-500 px-3 py-1.5 rounded-full border border-yellow-500/20 font-bold text-xs md:text-sm transition-all mr-1"
-            >
-              <Star className="h-3.5 w-3.5 fill-yellow-500 text-yellow-500" />
-              <span>{starsPoints} <span className="hidden sm:inline">Stars</span></span>
-            </Link>
+            {pastOrders && pastOrders.length > 0 && (
+              <Link 
+                to="/past-orders"
+                className="flex items-center gap-1.5 bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-600 dark:text-yellow-500 px-3 py-1.5 rounded-full border border-yellow-500/20 font-bold text-xs md:text-sm transition-all mr-1"
+              >
+                <Star className="h-3.5 w-3.5 fill-yellow-500 text-yellow-500" />
+                <span>{starsPoints} <span className="hidden sm:inline">Stars</span></span>
+              </Link>
+            )}
 
             <Button 
               variant="outline" 
@@ -221,15 +224,17 @@ const Header = () => {
                 >
                   Careers
                 </Link>
-                <Link 
-                  to="/past-orders" 
-                  onClick={closeMobileMenu}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive("/past-orders") ? "text-primary font-semibold" : "text-foreground"
-                  }`}
-                >
-                  Order History & Rewards
-                </Link>
+                {pastOrders && pastOrders.length > 0 && (
+                  <Link 
+                    to="/past-orders" 
+                    onClick={closeMobileMenu}
+                    className={`text-sm font-medium transition-colors hover:text-primary ${
+                      isActive("/past-orders") ? "text-primary font-semibold" : "text-foreground"
+                    }`}
+                  >
+                    Order History & Rewards
+                  </Link>
+                )}
               </div>
             </nav>
           </div>

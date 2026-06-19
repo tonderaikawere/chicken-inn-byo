@@ -18,7 +18,7 @@ const categories = [
 const CategoryBar = ({ activeCategory, setActiveCategory }: CategoryBarProps) => {
   return (
     <section className="py-8 bg-zinc-50 dark:bg-zinc-900/50 border-y border-border">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
         <h3 className="text-center text-xs font-black uppercase tracking-widest text-muted-foreground mb-6">
           What are you craving today?
         </h3>
@@ -30,13 +30,12 @@ const CategoryBar = ({ activeCategory, setActiveCategory }: CategoryBarProps) =>
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2.5 rounded-full border-2 text-sm font-extrabold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-sm",
+                  "flex items-center px-5 py-2.5 rounded-full border-2 text-sm font-extrabold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-sm",
                   isActive
                     ? "bg-primary border-primary text-white scale-105 shadow-md font-black"
                     : "bg-card text-foreground border-border"
                 )}
               >
-                <span className="text-lg md:text-xl leading-none">{cat.emoji}</span>
                 <span>{cat.name}</span>
               </button>
             );
