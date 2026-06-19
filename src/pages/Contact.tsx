@@ -67,11 +67,11 @@ const Contact = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <section className="py-20 bg-primary/5">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Contact <span className="bg-gradient-hero bg-clip-text text-transparent">Us</span>
+                Contact <span className="text-primary">Us</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
                 We'd love to hear from you! Get in touch with us for orders, feedback, 
@@ -86,9 +86,9 @@ const Contact = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="text-center border-2 hover:border-primary transition-all hover:shadow-elegant">
+                <Card key={index} className="text-center border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
                   <CardHeader>
-                    <div className="mx-auto w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mb-4">
+                    <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
                       <info.icon className="h-8 w-8 text-white" />
                     </div>
                     <CardTitle className="text-xl">{info.title}</CardTitle>

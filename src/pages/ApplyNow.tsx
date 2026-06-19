@@ -89,7 +89,7 @@ const ApplyNow = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
         <div className="mb-6">
@@ -99,7 +99,7 @@ const ApplyNow = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Join the <span className="bg-gradient-hero bg-clip-text text-transparent">Chicken Inn</span> Family
+            Join the <span className="text-primary">Chicken Inn</span> Family
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Be part of Zimbabwe's favorite chicken restaurant. Apply now and start your career with us!

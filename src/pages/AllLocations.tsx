@@ -169,7 +169,7 @@ const AllLocations = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <div className="flex-1 container mx-auto px-4 py-8">
         {/* Back Button */}
@@ -180,7 +180,7 @@ const AllLocations = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Bulawayo <span className="bg-gradient-hero bg-clip-text text-transparent">Branches</span>
+            Bulawayo <span className="text-primary">Branches</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Find your nearest Chicken Inn outlet across Bulawayo, Zimbabwe

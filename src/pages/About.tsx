@@ -57,7 +57,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+    <div className="min-h-screen bg-background">
       <Header />
       
       <main className="container mx-auto px-4 py-8">
@@ -69,10 +69,10 @@ const About = () => {
         {/* Hero Section */}
         <section className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            About <span className="bg-gradient-hero bg-clip-text text-transparent">Chicken Inn</span>
+            About <span className="text-primary">Chicken Inn</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            For over three decades, we've been Zimbabwe's favorite chicken destination, 
+            For over three decades, we've been Bulawayo's favorite chicken destination, 
             serving millions of satisfied customers with our signature blend of quality, 
             flavor, and affordability.
           </p>
@@ -80,7 +80,7 @@ const About = () => {
 
         {/* Brand Story Section */}
         <section className="grid md:grid-cols-2 gap-8 mb-16">
-          <Card className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-gradient-card">
+          <Card className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
             <CardContent className="p-8 space-y-4">
               <h2 className="text-2xl font-black text-primary">Meal of the People</h2>
               <div className="space-y-3 text-foreground/80 leading-relaxed text-sm">
@@ -104,7 +104,7 @@ const About = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-gradient-card">
+          <Card className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
             <CardContent className="p-8 space-y-4">
               <h2 className="text-2xl font-black text-primary">Value for Money</h2>
               <div className="space-y-3 text-foreground/80 leading-relaxed text-sm">
@@ -137,7 +137,7 @@ const About = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {milestones.map((milestone, index) => (
-                <Card key={index} className="hover:shadow-elegant transition-all">
+                <Card key={index} className="hover:shadow-elegant transition-all bg-card">
                   <CardContent className="p-8">
                     <div className="text-3xl font-bold text-primary mb-2">{milestone.year}</div>
                     <h3 className="text-xl font-bold mb-3">{milestone.title}</h3>
@@ -161,7 +161,7 @@ const About = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {values.map((value, index) => (
-                <Card key={index} className="text-center hover:shadow-elegant transition-all">
+                <Card key={index} className="text-center hover:shadow-elegant transition-all bg-card">
                   <CardContent className="p-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
                       <value.icon className="h-8 w-8 text-primary" />
@@ -177,7 +177,7 @@ const About = () => {
 
         {/* Contact Section */}
         <section className="py-20">
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-8 md:p-12">
+          <div className="bg-primary/5 border border-primary/10 rounded-3xl p-8 md:p-12">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
               <p className="text-lg text-muted-foreground">
@@ -188,11 +188,11 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
               <div className="flex items-center justify-center gap-3">
                 <Phone className="h-6 w-6 text-primary" />
-                <span className="text-lg">+263 4 123 456</span>
+                <span className="text-lg">073 120 0040</span>
               </div>
               <div className="flex items-center justify-center gap-3">
                 <MapPin className="h-6 w-6 text-primary" />
-                <span className="text-lg">123 Samora Machel Ave, Harare</span>
+                <span className="text-lg">10 9th Avenue, Bulawayo CBD</span>
               </div>
             </div>
           </div>

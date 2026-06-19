@@ -93,11 +93,11 @@ const Careers = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <section className="py-20 bg-primary/5">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Join Our <span className="bg-gradient-hero bg-clip-text text-transparent">Team</span>
+                Join Our <span className="text-primary">Team</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
                 Be part of Zimbabwe's favorite chicken restaurant family. We're looking for 
@@ -124,7 +124,7 @@ const Careers = () => {
               {benefits.map((benefit, index) => (
                 <Card key={index} className="text-center border-2 hover:border-primary transition-all hover:shadow-elegant">
                   <CardHeader>
-                    <div className="mx-auto w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mb-4">
+                    <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
                       <benefit.icon className="h-8 w-8 text-white" />
                     </div>
                     <CardTitle className="text-xl">{benefit.title}</CardTitle>
@@ -213,7 +213,7 @@ const Careers = () => {
                 { step: "4", title: "Welcome Aboard", description: "Join our team and start your comprehensive training program" }
               ].map((process, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl font-bold text-white">{process.step}</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">{process.title}</h3>
