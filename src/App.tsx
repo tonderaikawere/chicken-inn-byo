@@ -13,12 +13,52 @@ import ApplyNow from "./pages/ApplyNow";
 import OrderNow from "./pages/OrderNow";
 import FullMenu from "./pages/FullMenu";
 import AllLocations from "./pages/AllLocations";
+import PastOrders from "./pages/PastOrders";
+import OrderTracker from "./pages/OrderTracker";
 import NotFound from "./pages/NotFound";
-import { CartProvider } from "./hooks/useCart";
+import { CartProvider, useCart } from "./hooks/useCart";
 import Cart from "./components/Cart";
 import Branches from "./components/Branches";
+import ComboCustomizer from "./components/ComboCustomizer";
 
 const queryClient = new QueryClient();
+
+const AppContent = () => {
+  const { isCustomizerOpen, setIsCustomizerOpen, customizerItem, addToCart } = useCart();
+  
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/full-menu" element={<FullMenu />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/apply-now" element={<ApplyNow />} />
+        <Route path="/order-now" element={<OrderNow />} />
+        <Route path="/past-orders" element={<PastOrders />} />
+        <Route path="/track-order/:id" element={<OrderTracker />} />
+        <Route path="/locations" element={<AllLocations />} />
+        <Route path="/all-locations" element={<AllLocations />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <ScrollToTop />
+      <Cart />
+      <Branches />
+      <ComboCustomizer
+        isOpen={isCustomizerOpen}
+        onClose={() => setIsCustomizerOpen(false)}
+        item={customizerItem}
+        onConfirm={(customizations) => {
+          if (customizerItem) {
+            addToCart(customizerItem, customizations);
+          }
+        }}
+      />
+    </BrowserRouter>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -26,24 +66,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <CartProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/menu" element={<MenuPage />} />
-            <Route path="/full-menu" element={<FullMenu />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/apply-now" element={<ApplyNow />} />
-            <Route path="/order-now" element={<OrderNow />} />
-            <Route path="/locations" element={<AllLocations />} />
-            <Route path="/all-locations" element={<AllLocations />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <ScrollToTop />
-          <Cart />
-          <Branches />
-        </BrowserRouter>
+        <AppContent />
       </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>

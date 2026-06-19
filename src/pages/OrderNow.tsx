@@ -28,7 +28,7 @@ import chickenBurger from "@/assets/chicken-burger.jpg";
 import chickenNuggets from "@/assets/chicken-nuggets.jpg";
 
 const OrderNow = () => {
-  const { cartItems, addToCart, updateQuantity, removeFromCart, clearCart } = useCart();
+  const { cartItems, addToCart, updateQuantity, removeFromCart, clearCart, addPastOrder } = useCart();
   const navigate = useNavigate();
 
   const [orderType, setOrderType] = useState<"delivery" | "pickup">("delivery");
@@ -44,11 +44,6 @@ const OrderNow = () => {
   const [pickupOutlet, setPickupOutlet] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
   const [instructions, setInstructions] = useState("");
-
-  // Order success modal state
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
-  const [orderId, setOrderId] = useState("");
-  const [orderPrepTime, setOrderPrepTime] = useState("");
 
   const featuredDeals = [
     {
@@ -228,19 +223,23 @@ const OrderNow = () => {
       return;
     }
 
-    // Process order simulation
-    const randomOrderId = "CI-" + Math.floor(100000 + Math.random() * 900000);
-    const estTime = orderType === "delivery" ? "25-35 minutes" : "10-15 minutes";
+    // Process order and save to past orders
+    const placedOrderId = addPastOrder({
+      items: cartItems,
+      total: getTotal(),
+      orderType: orderType,
+      address: orderType === "delivery" ? `${address}, ${deliveryZone}` : undefined,
+      phone: phone,
+      branchName: orderType === "pickup" ? pickupOutlet : undefined
+    });
     
-    setOrderId(randomOrderId);
-    setOrderPrepTime(estTime);
-    setIsSuccessOpen(true);
-  };
-
-  const handleCloseSuccessModal = () => {
-    setIsSuccessOpen(false);
+    toast({
+      title: "Order Placed Successfully!",
+      description: `Luv Dat Chicken! Order ${placedOrderId} is being prepared.`,
+    });
+    
     clearCart();
-    navigate("/");
+    navigate(`/track-order/${placedOrderId}`);
   };
 
   return (
@@ -665,56 +664,7 @@ const OrderNow = () => {
 
       <Footer />
 
-      {/* Order Success Dialog */}
-      <Dialog open={isSuccessOpen} onOpenChange={setIsSuccessOpen}>
-        <DialogContent className="max-w-md text-center p-6 border-2 border-primary">
-          <DialogHeader>
-            <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <CheckCircle className="h-10 w-10 text-green-600" />
-            </div>
-            <DialogTitle className="text-3xl font-black text-primary">Order Placed Successfully!</DialogTitle>
-            <DialogDescription className="text-md text-muted-foreground font-semibold">
-              Thank you for ordering with Chicken Inn. Luv Dat Chicken! 🍗🇿🇼
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="my-6 p-4 bg-muted rounded-xl border border-border text-left space-y-3">
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Order ID:</span>
-              <span className="font-mono font-bold text-foreground">{orderId}</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Estimated Time:</span>
-              <span className="font-bold text-foreground">{orderPrepTime}</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Status:</span>
-              <span className="font-bold text-primary flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 bg-primary rounded-full animate-ping"></span>
-                Preparing your chicken...
-              </span>
-            </div>
-            <Separator />
-            <div className="space-y-1.5">
-              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wide">Summary:</span>
-              {cartItems.map((item) => (
-                <div key={item.id} className="flex justify-between text-xs">
-                  <span>{item.quantity}x {item.name}</span>
-                  <span className="font-semibold">${(item.price * item.quantity).toFixed(2)}</span>
-                </div>
-              ))}
-              <div className="flex justify-between text-sm font-bold pt-2 border-t mt-2">
-                <span>Total Amount:</span>
-                <span className="text-primary">${getTotal().toFixed(2)}</span>
-              </div>
-            </div>
-          </div>
-
-          <Button onClick={handleCloseSuccessModal} className="w-full text-md font-bold py-5">
-            Back to Home Page
-          </Button>
-        </DialogContent>
-      </Dialog>
+      {/* Checkout Success Direct Redirect Handled above */}
     </div>
   );
 };
