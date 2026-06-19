@@ -63,7 +63,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header cartItemCount={0} onCartClick={() => {}} onBranchesClick={() => {}} />
+      <Header />
       
       <main className="flex-1">
         {/* Hero Section */}

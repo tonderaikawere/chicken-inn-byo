@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 const Careers = () => {
   const benefits = [
@@ -88,7 +89,7 @@ const Careers = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header cartItemCount={0} onCartClick={() => {}} onBranchesClick={() => {}} />
+      <Header />
       
       <main className="flex-1">
         {/* Hero Section */}
@@ -184,8 +185,8 @@ const Careers = () => {
                       </ul>
                     </div>
                     
-                    <Button className="w-full" onClick={() => window.location.href = '/apply-now'}>
-                      Apply Now
+                    <Button className="w-full font-semibold" asChild>
+                      <Link to="/apply-now">Apply Now</Link>
                     </Button>
                   </CardContent>
                 </Card>

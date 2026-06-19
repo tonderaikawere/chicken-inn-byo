@@ -7,6 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MapPin, Phone, Clock, Navigation, Search, Filter, Star, Truck } from "lucide-react";
 import { useState } from "react";
 import BackButton from "@/components/BackButton";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const AllLocations = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -217,8 +219,9 @@ const AllLocations = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/10">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+      <Header />
+      <div className="flex-1 container mx-auto px-4 py-8">
         {/* Back Button */}
         <div className="mb-6">
           <BackButton />
@@ -439,10 +442,10 @@ const AllLocations = () => {
                   Contact Support
                 </Button>
               </CardContent>
-            </Card>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

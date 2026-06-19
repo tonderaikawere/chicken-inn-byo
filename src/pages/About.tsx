@@ -58,7 +58,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/10">
-      <Header cartItemCount={0} onCartClick={() => {}} onBranchesClick={() => {}} />
+      <Header />
       
       <main className="container mx-auto px-4 py-8">
         {/* Back Button */}
