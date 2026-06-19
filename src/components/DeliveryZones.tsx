@@ -3,75 +3,47 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const DeliveryZones = () => {
-  const provinces = [
+  const zones = [
     {
-      name: "Harare Province",
-      cities: ["Harare", "Chitungwiza", "Epworth", "Ruwa"],
-      deliveryTime: "30-45 min",
+      name: "Bulawayo CBD / City Centre",
+      areas: ["9th Avenue", "Fife Street", "Fort Street", "Jason Moyo St"],
+      deliveryTime: "15-25 min",
+      fee: "$1.50",
+      status: "active"
+    },
+    {
+      name: "Hillside & Stafford",
+      areas: ["Stafford Ave", "Hillside Suburbs", "Greenhill", "Southburn"],
+      deliveryTime: "20-30 min",
       fee: "$2.00",
       status: "active"
     },
     {
-      name: "Bulawayo Province", 
-      cities: ["Bulawayo", "Plumtree", "Hwange"],
-      deliveryTime: "35-50 min",
+      name: "Suburbs & GVL Area",
+      areas: ["GVL Suburb", "Khami Road Areas", "Athlone", "Northvale"],
+      deliveryTime: "20-30 min",
+      fee: "$2.00",
+      status: "active"
+    },
+    {
+      name: "Ascot & Kumalo",
+      areas: ["Ascot Mall Area", "Kumalo Suburb", "Matsheumhlope"],
+      deliveryTime: "25-35 min",
       fee: "$2.50",
       status: "active"
     },
     {
-      name: "Manicaland Province",
-      cities: ["Mutare", "Rusape", "Chipinge", "Nyanga"],
-      deliveryTime: "40-60 min",
-      fee: "$3.00",
+      name: "Northend & Sauerstown",
+      areas: ["Northend Suburb", "Sauerstown", "Kenilworth"],
+      deliveryTime: "25-35 min",
+      fee: "$2.50",
       status: "active"
     },
     {
-      name: "Mashonaland Central",
-      cities: ["Bindura", "Shamva", "Guruve", "Mazowe"],
-      deliveryTime: "45-65 min",
-      fee: "$3.50",
-      status: "active"
-    },
-    {
-      name: "Mashonaland East",
-      cities: ["Marondera", "Macheke", "Wedza", "Murehwa"],
-      deliveryTime: "40-60 min",
-      fee: "$3.00",
-      status: "active"
-    },
-    {
-      name: "Mashonaland West",
-      cities: ["Chinhoyi", "Karoi", "Mhangura", "Alaska"],
-      deliveryTime: "45-65 min",
-      fee: "$3.50",
-      status: "active"
-    },
-    {
-      name: "Masvingo Province",
-      cities: ["Masvingo", "Chiredzi", "Triangle", "Bikita"],
-      deliveryTime: "50-70 min",
-      fee: "$4.00",
-      status: "active"
-    },
-    {
-      name: "Midlands Province",
-      cities: ["Gweru", "Kwekwe", "Shurugwi", "Gokwe"],
-      deliveryTime: "45-65 min",
-      fee: "$3.50",
-      status: "active"
-    },
-    {
-      name: "Matabeleland North",
-      cities: ["Victoria Falls", "Lupane", "Binga", "Tsholotsho"],
-      deliveryTime: "60-90 min",
-      fee: "$5.00",
-      status: "active"
-    },
-    {
-      name: "Matabeleland South",
-      cities: ["Gwanda", "Beitbridge", "Filabusi", "Esigodini"],
-      deliveryTime: "55-80 min",
-      fee: "$4.50",
+      name: "Paddonhurst & Sunnyside",
+      areas: ["Paddonhurst", "Sunnyside", "Romney Park"],
+      deliveryTime: "20-30 min",
+      fee: "$2.00",
       status: "active"
     }
   ];
@@ -80,135 +52,97 @@ const DeliveryZones = () => {
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Nationwide <span className="bg-gradient-hero bg-clip-text text-transparent">Delivery</span>
+          <h2 className="text-4xl md:text-5xl font-black mb-4">
+            Bulawayo <span className="text-primary">Delivery Zones</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Order your favorite chicken from anywhere in Zimbabwe. We deliver to all 10 provinces!
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Fast, hot delivery straight from our Bulawayo branches to your doorstep!
           </p>
         </div>
 
         {/* Delivery Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <Card className="text-center border-2 hover:border-primary transition-all">
+          <Card className="text-center border-2 hover:border-primary transition-all bg-card">
             <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-primary">10</h3>
-              <p className="text-muted-foreground">Provinces Covered</p>
+              <h3 className="text-2xl font-black text-primary">8</h3>
+              <p className="text-muted-foreground font-semibold text-sm">Outlets in Bulawayo</p>
             </CardContent>
           </Card>
           
-          <Card className="text-center border-2 hover:border-primary transition-all">
+          <Card className="text-center border-2 hover:border-primary transition-all bg-card">
             <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Truck className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-primary">100+</h3>
-              <p className="text-muted-foreground">Cities & Towns</p>
+              <h3 className="text-2xl font-black text-primary">25+</h3>
+              <p className="text-muted-foreground font-semibold text-sm">Suburbs Covered</p>
             </CardContent>
           </Card>
           
-          <Card className="text-center border-2 hover:border-primary transition-all">
+          <Card className="text-center border-2 hover:border-primary transition-all bg-card">
             <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-primary">30-90</h3>
-              <p className="text-muted-foreground">Minutes Delivery</p>
+              <h3 className="text-2xl font-black text-primary">15-35</h3>
+              <p className="text-muted-foreground font-semibold text-sm">Minutes Delivery</p>
             </CardContent>
           </Card>
           
-          <Card className="text-center border-2 hover:border-primary transition-all">
+          <Card className="text-center border-2 hover:border-primary transition-all bg-card">
             <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-primary">99%</h3>
-              <p className="text-muted-foreground">On-Time Delivery</p>
+              <h3 className="text-2xl font-black text-primary">99%</h3>
+              <p className="text-muted-foreground font-semibold text-sm">On-Time Delivery</p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Province Cards */}
+        {/* Zone Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {provinces.map((province, index) => (
-            <Card key={index} className="hover:shadow-elegant transition-all border-2 hover:border-primary">
+          {zones.map((zone, index) => (
+            <Card key={index} className="hover:shadow-elegant transition-all border-2 hover:border-primary bg-card flex flex-col justify-between">
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    {province.name}
+                  <CardTitle className="text-xl flex items-center gap-2 font-bold text-foreground">
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    {zone.name}
                   </CardTitle>
-                  <Badge className="bg-green-500">
-                    <CheckCircle className="h-3 w-3 mr-1" />
-                    Available
+                  <Badge variant="outline" className="text-green-600 bg-green-50 border-green-200 uppercase font-bold text-[10px]">
+                    Active
                   </Badge>
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-sm font-semibold mb-1">Major Cities:</p>
-                    <p className="text-sm text-muted-foreground">
-                      {province.cities.join(", ")}
-                    </p>
+              <CardContent className="space-y-4 pt-0">
+                <div>
+                  <h4 className="font-semibold text-sm mb-2 text-foreground/80">Covered Sub-areas:</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {zone.areas.map((area) => (
+                      <span key={area} className="text-xs bg-muted px-2 py-1 rounded text-muted-foreground font-medium">
+                        {area}
+                      </span>
+                    ))}
                   </div>
-                  
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4 text-primary" />
-                      <span className="font-semibold">{province.deliveryTime}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Truck className="h-4 w-4 text-primary" />
-                      <span className="font-semibold">{province.fee}</span>
-                    </div>
+                </div>
+
+                <div className="border-t pt-3 flex justify-between items-center text-sm">
+                  <div className="flex items-center gap-1 text-muted-foreground font-medium">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <span>{zone.deliveryTime}</span>
+                  </div>
+                  <div className="flex items-center gap-1 font-bold text-foreground">
+                    <span>Fee:</span>
+                    <span className="text-primary">{zone.fee}</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Delivery Info */}
-        <div className="mt-16 bg-background rounded-2xl p-8">
-          <h3 className="text-2xl font-bold mb-6 text-center">Delivery Information</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-primary" />
-              </div>
-              <h4 className="font-semibold mb-2">Operating Hours</h4>
-              <p className="text-muted-foreground text-sm">
-                Monday - Sunday<br />
-                9:00 AM - 9:00 PM
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="h-8 w-8 text-primary" />
-              </div>
-              <h4 className="font-semibold mb-2">Free Delivery</h4>
-              <p className="text-muted-foreground text-sm">
-                Orders over $15<br />
-                Within city limits
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="h-8 w-8 text-primary" />
-              </div>
-              <h4 className="font-semibold mb-2">Fresh Guarantee</h4>
-              <p className="text-muted-foreground text-sm">
-                Hot & fresh delivery<br />
-                Or your money back
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
