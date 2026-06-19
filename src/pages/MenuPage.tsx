@@ -6,20 +6,14 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Cart from "@/components/Cart";
 import { MenuItemData } from "@/components/MenuItem";
-import { toast } from "@/hooks/use-toast";
+import { useCart } from "@/hooks/useCart";
 import chickenWings from "@/assets/chicken-wings.jpg";
 import chickenBurger from "@/assets/chicken-burger.jpg";
 import chickenNuggets from "@/assets/chicken-nuggets.jpg";
 
-interface CartItem extends MenuItemData {
-  quantity: number;
-}
-
 const MenuPage = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { addToCart } = useCart();
   const [activeCategory, setActiveCategory] = useState("all");
 
   const menuItems: MenuItemData[] = [
@@ -218,54 +212,9 @@ const MenuPage = () => {
     ? menuItems 
     : menuItems.filter(item => item.category === activeCategory);
 
-  const handleAddToCart = (item: MenuItemData) => {
-    setCartItems((prev) => {
-      const existingItem = prev.find((i) => i.id === item.id);
-      if (existingItem) {
-        return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
-      }
-      return [...prev, { ...item, quantity: 1 }];
-    });
-    toast({
-      title: "Added to cart!",
-      description: `${item.name} has been added to your cart.`,
-    });
-  };
-
-  const handleUpdateQuantity = (id: number, quantity: number) => {
-    setCartItems((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, quantity } : item))
-    );
-  };
-
-  const handleRemoveItem = (id: number) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-    toast({
-      title: "Removed from cart",
-      description: "Item has been removed from your cart.",
-    });
-  };
-
-  const handleCheckout = () => {
-    toast({
-      title: "Order placed!",
-      description: "Your order is being prepared. We'll notify you when it's ready!",
-    });
-    setCartItems([]);
-    setIsCartOpen(false);
-  };
-
-  const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
   return (
     <div className="min-h-screen flex flex-col">
-      <Header
-        cartItemCount={cartItemCount}
-        onCartClick={() => setIsCartOpen(true)}
-        onBranchesClick={() => {}}
-      />
+      <Header />
       
       <main className="flex-1">
         {/* Hero Section */}
@@ -335,8 +284,8 @@ const MenuPage = () => {
                         </div>
                         <Button
                           variant="default"
-                          className="w-full"
-                          onClick={() => handleAddToCart(item)}
+                          className="w-full font-semibold"
+                          onClick={() => addToCart(item)}
                         >
                           <Plus className="h-4 w-4 mr-2" />
                           Add to Cart
@@ -352,15 +301,6 @@ const MenuPage = () => {
       </main>
 
       <Footer />
-      
-      <Cart
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        items={cartItems}
-        onUpdateQuantity={handleUpdateQuantity}
-        onRemoveItem={handleRemoveItem}
-        onCheckout={handleCheckout}
-      />
     </div>
   );
 };

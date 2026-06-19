@@ -6,11 +6,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search, Star, Flame, Clock, Plus, Filter } from "lucide-react";
 import { useState } from "react";
 import BackButton from "@/components/BackButton";
+import { useCart } from "@/hooks/useCart";
 
 const FullMenu = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [cart, setCart] = useState<any[]>([]);
+  const { cartItems: cart, addToCart, setIsCartOpen } = useCart();
+
 
   const menuCategories = [
     { id: "all", name: "All Items", count: 45 },
@@ -236,9 +238,6 @@ const FullMenu = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const addToCart = (item: any) => {
-    setCart(prev => [...prev, item]);
-  };
 
   const getBadgeVariant = (badge: string) => {
     switch (badge) {
@@ -395,7 +394,7 @@ const FullMenu = () => {
                         <span>${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}</span>
                       </div>
                     </div>
-                    <Button className="w-full" size="lg">
+                    <Button className="w-full" size="lg" onClick={() => setIsCartOpen(true)}>
                       View Cart & Checkout
                     </Button>
                   </div>
