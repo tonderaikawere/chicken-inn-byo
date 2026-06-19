@@ -109,7 +109,7 @@ const WhyChooseUs = () => {
             <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary/20 bg-card">
               <CardContent className="p-6 text-center">
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <feature.icon className={`h-8 w-8 ${feature.color}`} />
+                  <feature.icon className={`h-8 w-8 fill-current ${feature.color}`} />
                 </div>
                 <Badge variant="secondary" className="mb-3 text-xs bg-muted text-foreground">
                   {feature.highlight}
@@ -128,7 +128,7 @@ const WhyChooseUs = () => {
           {stats.map((stat, index) => (
             <div key={index} className="text-center group animate-scale-in" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="bg-primary/5 rounded-2xl p-6 group-hover:shadow-lg transition-all duration-300 border border-primary/10">
-                <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
+                <stat.icon className="h-8 w-8 text-primary fill-current mx-auto mb-3" />
                 <p ref={stat.counter.ref} className="text-4xl md:text-5xl font-bold text-primary mb-2">
                   {stat.counter.value.replace('1,000,000+', '1M+')}
                 </p>

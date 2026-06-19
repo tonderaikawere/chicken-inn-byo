@@ -39,7 +39,7 @@ const About = () => {
             <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
               <CardContent className="pt-6 text-center">
                 <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                  <feature.icon className="h-8 w-8 text-white" />
+                  <feature.icon className="h-8 w-8 text-white fill-current" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>

@@ -89,7 +89,7 @@ const Contact = () => {
                 <Card key={index} className="text-center border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
                   <CardHeader>
                     <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                      <info.icon className="h-8 w-8 text-white" />
+                      <info.icon className="h-8 w-8 text-white fill-current" />
                     </div>
                     <CardTitle className="text-xl">{info.title}</CardTitle>
                   </CardHeader>

@@ -33,7 +33,7 @@ const PromoBanner = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-white" />
+                <Clock className="h-8 w-8 text-white fill-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Fast Delivery</h3>
               <p className="text-white/80">30-90 minutes in Bulawayo</p>
@@ -41,7 +41,7 @@ const PromoBanner = () => {
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="h-8 w-8 text-white" />
+                <Truck className="h-8 w-8 text-white fill-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Bulawayo Wide</h3>
               <p className="text-white/80">Coverage across Bulawayo suburbs</p>
