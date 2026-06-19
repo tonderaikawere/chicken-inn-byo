@@ -18,7 +18,7 @@ interface MenuItemProps {
 
 const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-elegant hover:scale-105 bg-gradient-card border-border">
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-elegant hover:scale-105 bg-card border-border">
       <CardHeader className="p-0">
         <div className="aspect-square overflow-hidden">
           <img

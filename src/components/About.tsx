@@ -25,7 +25,7 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-black mb-4">
-            About <span className="bg-gradient-hero bg-clip-text text-transparent">Chicken Inn</span>
+            About <span className="text-primary">Chicken Inn</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Every great story has a beginning. Chicken Inn’s story began when the inaugural outlet opened in Zimbabwe in 1987. 
@@ -36,9 +36,9 @@ const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
           {features.map((feature, index) => (
-            <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-gradient-card">
+            <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
               <CardContent className="pt-6 text-center">
-                <div className="mx-auto w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mb-4">
+                <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
                   <feature.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{feature.title}</h3>

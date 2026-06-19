@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 const PromoBanner = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-primary via-primary/90 to-secondary py-16">
+    <section className="relative overflow-hidden bg-primary py-16">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSI0Ii8+PC9nPjwvZz48L3N2Zz4=')] animate-pulse-slow"></div>
@@ -22,7 +22,7 @@ const PromoBanner = () => {
               FREE DELIVERY
             </h2>
             <p className="text-xl md:text-2xl mb-2 text-white/90">
-              On orders over $15 • All across Zimbabwe
+              On orders over $15 • Across Bulawayo
             </p>
             <p className="text-lg text-white/80">
               Valid until December 31st, 2025
@@ -36,20 +36,20 @@ const PromoBanner = () => {
                 <Clock className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Fast Delivery</h3>
-              <p className="text-white/80">30-90 minutes nationwide</p>
+              <p className="text-white/80">30-90 minutes in Bulawayo</p>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Truck className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">All Provinces</h3>
-              <p className="text-white/80">Coverage in all 10 provinces</p>
+              <h3 className="text-xl font-bold mb-2">Bulawayo Wide</h3>
+              <p className="text-white/80">Coverage across Bulawayo suburbs</p>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover-lift">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="h-8 w-8 text-white" />
+                <Star className="h-8 w-8 text-white fill-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Fresh Guarantee</h3>
               <p className="text-white/80">Hot & fresh or money back</p>
