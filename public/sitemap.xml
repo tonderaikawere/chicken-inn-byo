@@ -5,17 +5,17 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://chickeninn.co.zw/</loc>
+    <loc>https://chickeninn-byo.vercel.app/</loc>
     <lastmod>2025-01-01T12:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://chickeninn.co.zw/chickeninn-logo.png</image:loc>
+      <image:loc>https://chickeninn-byo.vercel.app/chickeninn-logo.png</image:loc>
       <image:title>Chicken Inn Zimbabwe Logo</image:title>
       <image:caption>LUV DAT Chicken - Zimbabwe's favorite fried chicken since 1987</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://chickeninn.co.zw/hero-chicken.jpg</image:loc>
+      <image:loc>https://chickeninn-byo.vercel.app/hero-chicken.jpg</image:loc>
       <image:title>Delicious Fried Chicken</image:title>
       <image:caption>Fresh, crispy Kentucky fried chicken made with our secret blend of 11 herbs and spices</image:caption>
     </image:image>
@@ -23,7 +23,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://chickeninn.co.zw/about</loc>
+    <loc>https://chickeninn-byo.vercel.app/about</loc>
     <lastmod>2025-01-01T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -31,22 +31,22 @@
 
   <!-- Menu Page -->
   <url>
-    <loc>https://chickeninn.co.zw/menu</loc>
+    <loc>https://chickeninn-byo.vercel.app/menu</loc>
     <lastmod>2025-01-01T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://chickeninn.co.zw/chicken-wings.jpg</image:loc>
+      <image:loc>https://chickeninn-byo.vercel.app/chicken-wings.jpg</image:loc>
       <image:title>Crispy Chicken Wings</image:title>
       <image:caption>Perfectly seasoned and golden crispy chicken wings</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://chickeninn.co.zw/chicken-burger.jpg</image:loc>
+      <image:loc>https://chickeninn-byo.vercel.app/chicken-burger.jpg</image:loc>
       <image:title>Chicken Burgers</image:title>
       <image:caption>Fresh lettuce and special sauce chicken burgers</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://chickeninn.co.zw/chicken-nuggets.jpg</image:loc>
+      <image:loc>https://chickeninn-byo.vercel.app/chicken-nuggets.jpg</image:loc>
       <image:title>Golden Chicken Nuggets</image:title>
       <image:caption>Bite-sized perfection for everyone</image:caption>
     </image:image>
@@ -54,7 +54,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://chickeninn.co.zw/contact</loc>
+    <loc>https://chickeninn-byo.vercel.app/contact</loc>
     <lastmod>2025-01-01T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -62,7 +62,7 @@
 
   <!-- Careers Page -->
   <url>
-    <loc>https://chickeninn.co.zw/careers</loc>
+    <loc>https://chickeninn-byo.vercel.app/careers</loc>
     <lastmod>2025-01-01T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -70,7 +70,7 @@
 
   <!-- Locations Page -->
   <url>
-    <loc>https://chickeninn.co.zw/locations</loc>
+    <loc>https://chickeninn-byo.vercel.app/locations</loc>
     <lastmod>2025-01-01T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

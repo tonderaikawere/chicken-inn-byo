@@ -1,11 +1,11 @@
 {
   "name": "Chicken Inn Zimbabwe - LUV DAT Chicken",
   "short_name": "Chicken Inn ZW",
-  "description": "Zimbabwe's favorite Kentucky fried chicken since 1987. Order online from 50+ outlets nationwide.",
+  "description": "Zimbabwe's favorite Kentucky fried chicken since 1987. Order online from our Bulawayo branches.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ff8b33",
+  "theme_color": "#e72024",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-ZW",

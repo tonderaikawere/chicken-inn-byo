@@ -1,4 +1,4 @@
-# Chicken Inn Zimbabwe - Robots.txt
+# Chicken Inn Bulawayo - Robots.txt
 # https://www.robotstxt.org/robotstxt.html
 
 # Allow all search engines to crawl everything
@@ -47,7 +47,7 @@ User-agent: WhatsApp
 Allow: /
 
 # Sitemap location
-Sitemap: https://chickeninn.co.zw/sitemap.xml
+Sitemap: https://chickeninn-byo.vercel.app/sitemap.xml
 
 # Host preference (optional)
-Host: chickeninn.co.zw
+Host: chickeninn-byo.vercel.app
