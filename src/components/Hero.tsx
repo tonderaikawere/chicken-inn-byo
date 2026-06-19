@@ -135,15 +135,15 @@ const Hero = ({ onOrderClick }: HeroProps) => {
             {/* Simbisa brand statistics counter grid */}
             <div className="pt-8 border-t border-border/50 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
               <div>
-                <span className="block text-2xl md:text-3xl font-black text-primary">{outletsCounter}</span>
+                <p ref={outletsCounter.ref} className="text-2xl md:text-3xl font-black text-primary">{outletsCounter.value}</p>
                 <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Outlets</span>
               </div>
               <div>
-                <span className="block text-2xl md:text-3xl font-black text-primary">{yearsCounter}</span>
+                <p ref={yearsCounter.ref} className="text-2xl md:text-3xl font-black text-primary">{yearsCounter.value}</p>
                 <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Years Legacy</span>
               </div>
               <div>
-                <span className="block text-2xl md:text-3xl font-black text-primary">{customersCounter}</span>
+                <p ref={customersCounter.ref} className="text-2xl md:text-3xl font-black text-primary">{customersCounter.value}</p>
                 <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Customers</span>
               </div>
             </div>
