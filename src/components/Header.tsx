@@ -4,16 +4,17 @@ import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "@/assets/chickeninn-logo.png";
+import { useCart } from "@/hooks/useCart";
 
-interface HeaderProps {
-  cartItemCount: number;
-  onCartClick: () => void;
-  onBranchesClick: () => void;
-}
-
-const Header = ({ cartItemCount, onCartClick, onBranchesClick }: HeaderProps) => {
+const Header = () => {
+  const { cartItems, setIsCartOpen, setIsBranchesOpen } = useCart();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const onCartClick = () => setIsCartOpen(true);
+  const onBranchesClick = () => setIsBranchesOpen(true);
+
   
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;

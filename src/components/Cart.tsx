@@ -7,36 +7,38 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { MenuItemData } from "./MenuItem";
+import { useCart } from "@/hooks/useCart";
+import { useNavigate } from "react-router-dom";
 
-interface CartItem extends MenuItemData {
-  quantity: number;
-}
+const Cart = () => {
+  const {
+    cartItems,
+    updateQuantity,
+    removeFromCart,
+    isCartOpen,
+    setIsCartOpen,
+  } = useCart();
+  const navigate = useNavigate();
 
-interface CartProps {
-  isOpen: boolean;
-  onClose: () => void;
-  items: CartItem[];
-  onUpdateQuantity: (id: number, quantity: number) => void;
-  onRemoveItem: (id: number) => void;
-  onCheckout: () => void;
-}
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem, onCheckout }: CartProps) => {
-  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const handleCheckoutClick = () => {
+    setIsCartOpen(false);
+    navigate("/order-now");
+  };
 
   return (
-    <Sheet open={isOpen} onOpenChange={onClose}>
+    <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
       <SheetContent className="w-full sm:max-w-lg">
         <SheetHeader>
           <SheetTitle className="text-2xl">Your Cart</SheetTitle>
           <SheetDescription>
-            {items.length === 0 ? "Your cart is empty" : `${items.length} item(s) in cart`}
+            {cartItems.length === 0 ? "Your cart is empty" : `${cartItems.length} item(s) in cart`}
           </SheetDescription>
         </SheetHeader>
 
         <div className="mt-8 space-y-4">
-          {items.length === 0 ? (
+          {cartItems.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
               <ShoppingBag className="h-16 w-16 text-muted-foreground mb-4" />
               <p className="text-muted-foreground">Start adding some delicious items!</p>
@@ -44,7 +46,7 @@ const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem, onChecko
           ) : (
             <>
               <div className="space-y-4 max-h-[60vh] overflow-y-auto">
-                {items.map((item) => (
+                {cartItems.map((item) => (
                   <div key={item.id} className="flex gap-4 p-4 border border-border rounded-lg bg-card">
                     <img
                       src={item.image}
@@ -60,7 +62,7 @@ const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem, onChecko
                         <Button
                           variant="ghost"
                           size="icon"
-                          onClick={() => onRemoveItem(item.id)}
+                          onClick={() => removeFromCart(item.id)}
                         >
                           <X className="h-4 w-4" />
                         </Button>
@@ -70,7 +72,7 @@ const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem, onChecko
                           variant="outline"
                           size="icon"
                           className="h-8 w-8"
-                          onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
                           disabled={item.quantity <= 1}
                         >
                           <Minus className="h-3 w-3" />
@@ -80,7 +82,7 @@ const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem, onChecko
                           variant="outline"
                           size="icon"
                           className="h-8 w-8"
-                          onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         >
                           <Plus className="h-3 w-3" />
                         </Button>
@@ -95,7 +97,7 @@ const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem, onChecko
                   <span>Total:</span>
                   <span className="text-primary">${total.toFixed(2)}</span>
                 </div>
-                <Button className="w-full" size="lg" onClick={onCheckout}>
+                <Button className="w-full" size="lg" onClick={handleCheckoutClick}>
                   Checkout
                 </Button>
               </div>

@@ -7,6 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useCart } from "@/hooks/useCart";
 
 interface Branch {
   id: number;
@@ -19,55 +20,66 @@ interface Branch {
 const branches: Branch[] = [
   {
     id: 1,
-    name: "Downtown ChickenIn",
-    address: "123 Main Street, Downtown, City Center, 10001",
-    phone: "+1 (555) 123-4567",
-    hours: "Mon-Sun: 10:00 AM - 10:00 PM",
+    name: "Chicken Inn Bulawayo Central",
+    address: "Corner 9th Avenue & Fort Street, Bulawayo CBD",
+    phone: "+263 9 876 543",
+    hours: "Mon-Sun: 7:00 AM - 11:00 PM",
   },
   {
     id: 2,
-    name: "Westside ChickenIn",
-    address: "456 West Avenue, Westside District, 10002",
-    phone: "+1 (555) 234-5678",
-    hours: "Mon-Sun: 11:00 AM - 11:00 PM",
+    name: "Chicken Inn Ascot",
+    address: "Ascot Shopping Centre, Bulawayo",
+    phone: "+263 9 765 432",
+    hours: "Mon-Sun: 8:00 AM - 10:00 PM",
   },
   {
     id: 3,
-    name: "North Mall ChickenIn",
-    address: "789 North Plaza, Shopping Mall Level 2, 10003",
-    phone: "+1 (555) 345-6789",
-    hours: "Mon-Sun: 10:00 AM - 9:00 PM",
+    name: "Chicken Inn Samora Machel",
+    address: "123 Samora Machel Avenue, Harare CBD",
+    phone: "+263 4 123 456",
+    hours: "Mon-Sun: 7:00 AM - 11:00 PM",
   },
   {
     id: 4,
-    name: "Airport ChickenIn",
-    address: "Airport Terminal 1, Food Court Area, 10004",
-    phone: "+1 (555) 456-7890",
-    hours: "24/7",
+    name: "Chicken Inn Avondale",
+    address: "Avondale Shopping Centre, Harare",
+    phone: "+263 4 234 567",
+    hours: "Mon-Sun: 8:00 AM - 10:00 PM",
   },
+  {
+    id: 5,
+    name: "Chicken Inn Mutare Main",
+    address: "98 Main Street, Mutare",
+    phone: "+263 20 987 654",
+    hours: "Mon-Sun: 7:30 AM - 10:00 PM",
+  },
+  {
+    id: 6,
+    name: "Chicken Inn Gweru City Center",
+    address: "Robert Mugabe Street, Gweru",
+    phone: "+263 54 321 098",
+    hours: "Mon-Sun: 7:30 AM - 10:30 PM",
+  }
 ];
 
-interface BranchesProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+const Branches = () => {
+  const { isBranchesOpen, setIsBranchesOpen } = useCart();
 
-const Branches = ({ isOpen, onClose }: BranchesProps) => {
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isBranchesOpen} onOpenChange={setIsBranchesOpen}>
       <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-3xl">Our Branches</DialogTitle>
+          <DialogTitle className="text-3xl font-bold">Our Branches</DialogTitle>
           <DialogDescription>
-            Find a ChickenIn location near you
+            Find a Chicken Inn location near you and experience the Luv Dat Chicken taste!
           </DialogDescription>
         </DialogHeader>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
           {branches.map((branch) => (
-            <Card key={branch.id} className="hover:shadow-card-custom transition-shadow">
+            <Card key={branch.id} className="hover:shadow-card-custom transition-shadow border-2 hover:border-primary">
               <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-2">
+                <CardTitle className="text-xl flex items-center gap-2 font-bold text-foreground">
                   <MapPin className="h-5 w-5 text-primary" />
                   {branch.name}
                 </CardTitle>
