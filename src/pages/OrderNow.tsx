@@ -98,7 +98,7 @@ const OrderNow = () => {
   ];
 
   const quickOrder = [
-    { id: 105, name: "2 Piece Meal", price: 4.99, description: "2 chicken pieces + regular chips", category: "quick", image: chickenNuggets },
+    { id: 105, name: "2-Piece Meal (2-Piecer)", price: 4.99, description: "2 pieces of legendary fried chicken + our famous hand-cut chips. Meal of the people!", category: "quick", image: chickenNuggets },
     { id: 106, name: "Chicken Burger", price: 3.99, description: "Classic crispy chicken burger", category: "quick", image: chickenBurger },
     { id: 107, name: "6 Wings", price: 6.99, description: "6 spicy or original wings", category: "quick", image: chickenWings },
     { id: 108, name: "Nuggets (10pc)", price: 5.99, description: "10 golden nuggets with dip", category: "quick", image: chickenNuggets }

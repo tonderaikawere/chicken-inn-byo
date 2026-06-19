@@ -7,6 +7,14 @@ import chickenNuggets from "@/assets/chicken-nuggets.jpg";
 
 const menuItems: MenuItemData[] = [
   {
+    id: 7,
+    name: "2-Piece Meal (2-Piecer)",
+    description: "2 pieces of legendary fried chicken + our famous hand-cut chips. Meal of the people!",
+    price: 4.99,
+    image: chickenWings,
+    category: "chicken",
+  },
+  {
     id: 1,
     name: "Crispy Wings",
     description: "8 pieces of perfectly seasoned chicken wings",
@@ -78,8 +86,9 @@ const Menu = ({ onAddToCart }: MenuProps) => {
         </div>
 
         <Tabs defaultValue="all" className="w-full" onValueChange={setActiveCategory}>
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-5 mb-8">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-6 mb-8">
             <TabsTrigger value="all">All</TabsTrigger>
+            <TabsTrigger value="chicken">Chicken</TabsTrigger>
             <TabsTrigger value="wings">Wings</TabsTrigger>
             <TabsTrigger value="burgers">Burgers</TabsTrigger>
             <TabsTrigger value="nuggets">Nuggets</TabsTrigger>

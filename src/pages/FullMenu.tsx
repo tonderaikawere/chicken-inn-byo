@@ -28,6 +28,18 @@ const FullMenu = () => {
   const menuItems = [
     // Chicken Pieces
     {
+      id: 22,
+      name: "2-Piece Meal (2-Piecer)",
+      category: "chicken",
+      description: "2 pieces of legendary fried chicken + our famous hand-cut chips. The meal of the people!",
+      price: 4.99,
+      image: "/hero-chicken.jpg",
+      badges: ["signature", "bestseller"],
+      prepTime: "10-12 min",
+      spicy: false,
+      calories: 450
+    },
+    {
       id: 1,
       name: "Original Recipe Chicken",
       category: "chicken",

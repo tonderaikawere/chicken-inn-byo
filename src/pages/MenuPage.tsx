@@ -19,6 +19,14 @@ const MenuPage = () => {
   const menuItems: MenuItemData[] = [
     // Chicken Pieces
     {
+      id: 22,
+      name: "2-Piece Meal (2-Piecer)",
+      description: "2 pieces of legendary fried chicken + our famous hand-cut chips. The meal of the people!",
+      price: 4.99,
+      image: chickenWings,
+      category: "chicken",
+    },
+    {
       id: 1,
       name: "Original Recipe Chicken",
       description: "Our signature blend of 11 herbs and spices, crispy outside, juicy inside",
