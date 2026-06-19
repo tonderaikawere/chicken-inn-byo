@@ -38,8 +38,8 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(359 81% 52%), hsl(0 0% 10%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-hero: linear-gradient(0deg, hsl(359 81% 52%), hsl(359 81% 52%));
+    --gradient-card: linear-gradient(0deg, hsl(0 0% 100%), hsl(0 0% 100%));
     --shadow-elegant: 0 10px 40px -10px hsl(359 81% 52% / 0.2);
     --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
   }
@@ -73,8 +73,8 @@ All colors MUST be HSL.
     --input: 0 0% 18%;
     --ring: 359 81% 52%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(359 81% 52%), hsl(0 0% 15%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 5%));
+    --gradient-hero: linear-gradient(0deg, hsl(359 81% 52%), hsl(359 81% 52%));
+    --gradient-card: linear-gradient(0deg, hsl(0 0% 8%), hsl(0 0% 8%));
     --shadow-elegant: 0 10px 40px -10px hsl(359 81% 52% / 0.3);
     --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
   }
@@ -128,10 +128,7 @@ All colors MUST be HSL.
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, hsl(359 81% 52%), hsl(0 0% 10%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: hsl(359 81% 52%);
   }
 
   .card-hover {
@@ -144,12 +141,12 @@ All colors MUST be HSL.
   }
 
   .btn-glow {
-    box-shadow: 0 0 20px rgba(255, 139, 51, 0.3);
+    box-shadow: 0 0 20px rgba(231, 32, 36, 0.3);
     transition: all 0.3s ease;
   }
 
   .btn-glow:hover {
-    box-shadow: 0 0 30px rgba(255, 139, 51, 0.5);
+    box-shadow: 0 0 30px rgba(231, 32, 36, 0.5);
     transform: translateY(-2px);
   }
 }
@@ -299,7 +296,7 @@ All colors MUST be HSL.
   /* High contrast mode support */
   @media (prefers-contrast: high) {
     .bg-gradient-hero {
-      background: #ff8b33;
+      background: #e72024;
     }
     
     .text-muted-foreground {
