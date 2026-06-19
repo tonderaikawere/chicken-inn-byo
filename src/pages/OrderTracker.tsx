@@ -4,7 +4,6 @@ import { useCart } from "@/hooks/useCart";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Truck, Clock, UtensilsCrossed, ChefHat, Award } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
@@ -73,9 +72,9 @@ const OrderTracker = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-3xl">
+      <main className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
         <div className="text-center mb-8">
-          <Badge className="bg-primary hover:bg-primary text-white mb-2">LIVE ORDER TRACKER</Badge>
+          <span className="inline-block bg-primary text-white text-xs px-2.5 py-1 rounded-full font-bold mb-2">LIVE ORDER TRACKER</span>
           <h1 className="text-3xl md:text-4xl font-black text-foreground">Tracking {order.id}</h1>
           <p className="text-muted-foreground text-sm mt-1">
             Checkout complete! Watch your Chicken Inn meal fly to you.

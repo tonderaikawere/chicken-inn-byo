@@ -3,10 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, DollarSign, Users, CheckCircle } from "lucide-react";
 import { useState } from "react";
-import BackButton from "@/components/BackButton";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const ApplyNow = () => {
   const [formData, setFormData] = useState({
@@ -89,12 +89,9 @@ const ApplyNow = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <div className="mb-6">
-          <BackButton />
-        </div>
+    <div className="min-h-screen flex flex-col bg-background">
+      <Header />
+      <main className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
 
         {/* Header */}
         <div className="text-center mb-12">
@@ -259,18 +256,15 @@ const ApplyNow = () => {
                   <div key={position.title} className="border-l-4 border-primary pl-4">
                     <h4 className="font-semibold">{position.title}</h4>
                     <div className="flex flex-wrap gap-2 mt-2">
-                      <Badge variant="secondary" className="text-xs">
-                        <MapPin className="h-3 w-3 mr-1" />
+                      <span className="text-[10px] font-black uppercase tracking-wider bg-muted text-muted-foreground px-2 py-0.5 rounded border border-border">
                         {position.location}
-                      </Badge>
-                      <Badge variant="outline" className="text-xs">
-                        <Clock className="h-3 w-3 mr-1" />
+                      </span>
+                      <span className="text-[10px] font-black uppercase tracking-wider bg-muted text-muted-foreground px-2 py-0.5 rounded border border-border">
                         {position.type}
-                      </Badge>
-                      <Badge variant="default" className="text-xs">
-                        <DollarSign className="h-3 w-3 mr-1" />
+                      </span>
+                      <span className="text-[10px] font-black uppercase tracking-wider bg-primary/5 text-primary px-2 py-0.5 rounded border border-primary/10">
                         {position.salary}
-                      </Badge>
+                      </span>
                     </div>
                     <p className="text-sm text-muted-foreground mt-2">{position.description}</p>
                   </div>
@@ -320,7 +314,8 @@ const ApplyNow = () => {
             </Card>
           </div>
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };

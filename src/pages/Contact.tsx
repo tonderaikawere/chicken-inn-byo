@@ -68,7 +68,7 @@ const Contact = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-20 bg-primary/5">
-          <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 Contact <span className="text-primary">Us</span>
@@ -83,7 +83,7 @@ const Contact = () => {
 
         {/* Contact Info Cards */}
         <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {contactInfo.map((info, index) => (
                 <Card key={index} className="text-center border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">

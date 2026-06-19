@@ -1,7 +1,6 @@
 import { Users, Heart, Award, MapPin, Clock, DollarSign, GraduationCap } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
@@ -94,7 +93,7 @@ const Careers = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-20 bg-primary/5">
-          <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 Join Our <span className="text-primary">Team</span>
@@ -112,7 +111,7 @@ const Careers = () => {
 
         {/* Why Work With Us */}
         <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Choose Chicken Inn?</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -140,7 +139,7 @@ const Careers = () => {
 
         {/* Job Openings */}
         <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Current Openings</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -150,18 +149,18 @@ const Careers = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {jobOpenings.map((job, index) => (
-                <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-elegant">
+                <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-card border-border">
                   <CardHeader>
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <CardTitle className="text-2xl mb-2">{job.title}</CardTitle>
                         <div className="flex flex-wrap gap-2">
-                          <Badge variant="secondary" className="flex items-center gap-1">
+                          <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-secondary text-secondary-foreground font-semibold">
                             <MapPin className="h-3 w-3" />
                             {job.location}
-                          </Badge>
-                          <Badge variant="outline">{job.type}</Badge>
-                          <Badge variant="outline">{job.department}</Badge>
+                          </span>
+                          <span className="inline-flex items-center text-xs px-2 py-0.5 rounded border border-border text-foreground font-semibold bg-transparent">{job.type}</span>
+                          <span className="inline-flex items-center text-xs px-2 py-0.5 rounded border border-border text-foreground font-semibold bg-transparent">{job.department}</span>
                         </div>
                       </div>
                       <div className="text-right">
@@ -197,7 +196,7 @@ const Careers = () => {
 
         {/* Application Process */}
         <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Application Process</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -226,7 +225,7 @@ const Careers = () => {
 
         {/* CTA Section */}
         <section className="py-20 bg-foreground text-background">
-          <div className="container mx-auto px-4 text-center">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Journey?</h2>
             <p className="text-xl text-background/80 mb-8 max-w-2xl mx-auto">
               Join Zimbabwe's most loved chicken restaurant and build a rewarding career with us.

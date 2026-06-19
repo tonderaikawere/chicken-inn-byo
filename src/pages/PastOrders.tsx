@@ -1,9 +1,7 @@
 import { useCart } from "@/hooks/useCart";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackButton from "@/components/BackButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Receipt, RotateCcw, Award, Clock, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -44,10 +42,7 @@ const PastOrders = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-4xl">
-        <div className="mb-6">
-          <BackButton />
-        </div>
+      <main className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
 
         {/* Loyalty Program Header Card */}
         <Card className="border-2 border-primary bg-primary/5 mb-8 relative overflow-hidden shadow-elegant">
@@ -56,9 +51,9 @@ const PastOrders = () => {
           </div>
           <CardContent className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 relative">
             <div className="space-y-3">
-              <Badge className="bg-primary hover:bg-primary/95 text-white font-bold px-3 py-1 text-xs">
+              <span className="inline-block bg-primary text-white font-bold px-3 py-1 text-xs rounded-full">
                 CHICKEN INN STARS™
-              </Badge>
+              </span>
               <h2 className="text-3xl md:text-4xl font-black text-foreground">
                 Your Loyalty Balance: <span className="text-primary font-black">{starsPoints}</span> Stars
               </h2>
@@ -112,12 +107,12 @@ const PastOrders = () => {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <span className="font-black text-foreground text-lg">{order.id}</span>
-                      <Badge className={
+                      <span className={`text-xs px-2 py-0.5 rounded font-semibold text-white ${
                         order.status === "Delivered" ? "bg-green-600" :
                         order.status === "Dispatched" ? "bg-blue-600" : "bg-primary"
-                      }>
+                      }`}>
                         {order.status}
-                      </Badge>
+                      </span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
                       <Calendar className="h-3.5 w-3.5" />
@@ -182,9 +177,9 @@ const PastOrders = () => {
                       <p>Phone Contact: <strong className="text-foreground/80">{order.phone}</strong></p>
                     </div>
 
-                    <Badge variant="outline" className="border-primary/20 text-primary bg-primary/5 font-semibold">
-                      ⭐ +{order.starsEarned} Stars Earned
-                    </Badge>
+                    <span className="text-xs px-2.5 py-0.5 rounded border border-primary/20 text-primary bg-primary/5 font-semibold">
+                      +{order.starsEarned} Stars Earned
+                    </span>
                   </div>
                 </CardContent>
               </Card>

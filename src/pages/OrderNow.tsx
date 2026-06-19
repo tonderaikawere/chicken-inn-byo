@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
@@ -17,7 +16,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Clock, MapPin, Phone, Truck, CreditCard, Percent, Gift, Star, CheckCircle, Flame } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BackButton from "@/components/BackButton";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCart } from "@/hooks/useCart";
@@ -246,11 +244,7 @@ const OrderNow = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
-      <main className="flex-1 container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <div className="mb-6">
-          <BackButton />
-        </div>
+      <main className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
 
         {/* Header */}
         <div className="text-center mb-8">
@@ -314,10 +308,10 @@ const OrderNow = () => {
                       {featuredDeals.map((deal) => (
                         <div key={deal.id} className="relative border border-border rounded-xl p-4 hover:shadow-md transition-shadow bg-card">
                           {deal.popular && (
-                            <Badge className="absolute -top-2 -right-2 bg-primary">
+                            <span className="absolute -top-2 -right-2 bg-primary text-white text-xs px-2 py-0.5 rounded-full font-bold flex items-center gap-1 shadow-md">
                               <Star className="h-3 w-3 mr-1 fill-white" />
                               Popular
-                            </Badge>
+                            </span>
                           )}
                           <div className="flex gap-4">
                             <img

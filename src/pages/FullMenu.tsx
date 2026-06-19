@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search, Star, Flame, Clock, Plus, Filter } from "lucide-react";
 import { useState } from "react";
-import BackButton from "@/components/BackButton";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { useCart } from "@/hooks/useCart";
 
 const FullMenu = () => {
@@ -251,34 +251,19 @@ const FullMenu = () => {
   });
 
 
-  const getBadgeVariant = (badge: string) => {
-    switch (badge) {
-      case "signature": return "default";
-      case "bestseller": return "secondary";
-      case "spicy": return "destructive";
-      case "popular": return "outline";
-      case "family-favorite": return "secondary";
-      case "fresh": return "default";
-      default: return "outline";
-    }
-  };
-
   const getBadgeIcon = (badge: string) => {
     switch (badge) {
-      case "signature": return <Star className="h-3 w-3 fill-current text-primary" />;
-      case "spicy": return <Flame className="h-3 w-3" />;
+      case "signature": return <Star className="h-3 w-3 fill-current text-yellow-500" />;
+      case "spicy": return <Flame className="h-3 w-3 fill-current text-red-500" />;
       default: return null;
     }
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <div className="mb-6">
-          <BackButton />
-        </div>
+    <div className="min-h-screen flex flex-col bg-background">
+      <Header />
 
+      <main className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -312,11 +297,8 @@ const FullMenu = () => {
             <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
               <TabsList className="grid grid-cols-4 md:grid-cols-8 mb-8">
                 {menuCategories.map((category) => (
-                  <TabsTrigger key={category.id} value={category.id} className="text-xs">
+                  <TabsTrigger key={category.id} value={category.id} className="text-xs font-bold">
                     {category.name}
-                    <Badge variant="secondary" className="ml-1 text-xs">
-                      {category.count}
-                    </Badge>
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -324,19 +306,13 @@ const FullMenu = () => {
               <TabsContent value={selectedCategory}>
                 <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                   {filteredItems.map((item) => (
-                    <Card key={item.id} className="shadow-elegant hover:shadow-lg transition-shadow">
+                    <Card key={item.id} className="shadow-elegant hover:shadow-lg transition-shadow bg-card border-border">
                       <div className="relative">
                         <img
                           src={item.image}
                           alt={item.name}
                           className="w-full h-48 object-cover rounded-t-lg"
                         />
-                        {item.spicy && (
-                          <Badge className="absolute top-2 right-2 bg-red-500">
-                            <Flame className="h-3 w-3 mr-1" />
-                            Spicy
-                          </Badge>
-                        )}
                       </div>
                       <CardContent className="p-4">
                         <div className="flex justify-between items-start mb-2">
@@ -348,12 +324,12 @@ const FullMenu = () => {
                           {item.description}
                         </p>
 
-                        <div className="flex flex-wrap gap-1 mb-3">
+                        <div className="flex flex-wrap gap-1.5 mb-3">
                           {item.badges.map((badge) => (
-                            <Badge key={badge} variant={getBadgeVariant(badge)} className="text-xs">
+                            <span key={badge} className="px-2 py-0.5 text-[11px] font-bold rounded bg-secondary text-secondary-foreground flex items-center gap-1">
                               {getBadgeIcon(badge)}
                               {badge.replace("-", " ")}
-                            </Badge>
+                            </span>
                           ))}
                         </div>
 
@@ -380,7 +356,7 @@ const FullMenu = () => {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Cart Summary */}
-            <Card className="shadow-elegant sticky top-4">
+            <Card className="shadow-elegant sticky top-4 border-border">
               <CardHeader>
                 <CardTitle>Your Order ({cart.length})</CardTitle>
               </CardHeader>
@@ -415,7 +391,7 @@ const FullMenu = () => {
             </Card>
 
             {/* Popular Items */}
-            <Card className="shadow-elegant">
+            <Card className="shadow-elegant border-border">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Star className="h-5 w-5 fill-current text-primary" />
@@ -439,7 +415,7 @@ const FullMenu = () => {
             </Card>
 
             {/* Nutritional Info */}
-            <Card className="shadow-elegant">
+            <Card className="shadow-elegant border-border">
               <CardHeader>
                 <CardTitle>Nutritional Info</CardTitle>
               </CardHeader>
@@ -456,7 +432,9 @@ const FullMenu = () => {
             </Card>
           </div>
         </div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };

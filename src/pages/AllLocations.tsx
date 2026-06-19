@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Clock, Navigation, Search, Filter, Star, Truck } from "lucide-react";
 import { useState } from "react";
-import BackButton from "@/components/BackButton";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -171,11 +169,7 @@ const AllLocations = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <div className="flex-1 container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <div className="mb-6">
-          <BackButton />
-        </div>
+      <div className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
 
         {/* Header */}
         <div className="text-center mb-8">
@@ -240,12 +234,6 @@ const AllLocations = () => {
                       <div>
                         <CardTitle className="text-lg flex items-center gap-2 font-bold text-foreground">
                           {location.name}
-                          {location.isFlagship && (
-                            <Badge className="bg-primary">Flagship</Badge>
-                          )}
-                          {location.isNew && (
-                            <Badge variant="secondary">New</Badge>
-                          )}
                         </CardTitle>
                         <p className="text-sm text-muted-foreground mt-1">{location.city}</p>
                       </div>
@@ -280,10 +268,9 @@ const AllLocations = () => {
 
                     <div className="flex flex-wrap gap-2">
                       {location.services.map((service) => (
-                        <Badge key={service} variant="outline" className="text-xs font-semibold">
-                          {getServiceIcon(service)}
+                        <span key={service} className="text-[10px] font-black uppercase tracking-wider bg-muted text-muted-foreground px-2 py-0.5 rounded border border-border">
                           {service.replace("-", " ")}
-                        </Badge>
+                        </span>
                       ))}
                     </div>
 
@@ -323,9 +310,9 @@ const AllLocations = () => {
               </CardHeader>
               <CardContent className="space-y-3">
                 {areas.slice(1).map((area) => (
-                  <div key={area.id} className="flex justify-between items-center text-sm">
-                    <span className="font-medium">{area.name}</span>
-                    <Badge variant="secondary" className="font-bold">{area.count}</Badge>
+                  <div key={area.id} className="flex justify-between items-center text-sm font-semibold text-zinc-600 dark:text-zinc-400">
+                    <span>{area.name}</span>
+                    <span>{area.count}</span>
                   </div>
                 ))}
               </CardContent>
@@ -337,21 +324,21 @@ const AllLocations = () => {
                 <CardTitle className="font-bold">Services Available</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-sm">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Dine-In</span>
-                  <Badge variant="secondary" className="font-bold">8</Badge>
+                <div className="flex justify-between items-center text-zinc-600 dark:text-zinc-400 font-semibold">
+                  <span>Dine-In</span>
+                  <span>8</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Takeaway</span>
-                  <Badge variant="secondary" className="font-bold">8</Badge>
+                <div className="flex justify-between items-center text-zinc-600 dark:text-zinc-400 font-semibold">
+                  <span>Takeaway</span>
+                  <span>8</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Delivery</span>
-                  <Badge variant="secondary" className="font-bold">5</Badge>
+                <div className="flex justify-between items-center text-zinc-600 dark:text-zinc-400 font-semibold">
+                  <span>Delivery</span>
+                  <span>5</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Drive-Thru</span>
-                  <Badge variant="secondary" className="font-bold">1</Badge>
+                <div className="flex justify-between items-center text-zinc-600 dark:text-zinc-400 font-semibold">
+                  <span>Drive-Thru</span>
+                  <span>1</span>
                 </div>
               </CardContent>
             </Card>

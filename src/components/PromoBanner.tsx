@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Star, Clock, Truck, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
 
 const PromoBanner = () => {

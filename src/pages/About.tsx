@@ -2,7 +2,6 @@ import { Award, Heart, Users, Clock, MapPin, Phone } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackButton from "@/components/BackButton";
 
 const About = () => {
   const milestones = [
@@ -60,11 +59,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <div className="mb-6">
-          <BackButton />
-        </div>
+      <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
 
         {/* Hero Section */}
         <section className="text-center mb-12">
@@ -127,7 +122,7 @@ const About = () => {
 
         {/* Timeline Section */}
         <section className="py-20 bg-background rounded-3xl mb-16">
-          <div className="container mx-auto px-4">
+          <div className="w-full">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Journey</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -151,7 +146,7 @@ const About = () => {
 
         {/* Values Section */}
         <section className="py-20 bg-muted/30 rounded-3xl mb-16">
-          <div className="container mx-auto px-4">
+          <div className="w-full">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Values</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
