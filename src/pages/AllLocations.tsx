@@ -442,6 +442,7 @@ const AllLocations = () => {
                   Contact Support
                 </Button>
               </CardContent>
+            </Card>
           </div>
         </div>
       </div>
