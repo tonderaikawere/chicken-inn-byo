@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState, useCallback } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useNavigate } from "react-router-dom";
+import StarRateRounded from "@mui/icons-material/StarRateRounded";
+import KeyboardArrowLeftRounded from "@mui/icons-material/KeyboardArrowLeftRounded";
+import KeyboardArrowRightRounded from "@mui/icons-material/KeyboardArrowRightRounded";
 import heroImage from "@/assets/hero-chicken.jpg";
 import chickenWings from "@/assets/chicken-wings.jpg";
 import chickenBurger from "@/assets/chicken-burger.jpg";
@@ -15,7 +18,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
   
-  // Animated counters - updated to match Simbisa brand data (121 outlets in Africa, since 1987 = 39 years)
+  // Animated counters
   const outletsCounter = useCountUp({ end: 121, suffix: '+', duration: 2500 });
   const yearsCounter = useCountUp({ end: 39, suffix: '+', duration: 2000 });
   const customersCounter = useCountUp({ end: 1000000, suffix: '+', duration: 3000 });
@@ -23,26 +26,26 @@ const Hero = ({ onOrderClick }: HeroProps) => {
   const carouselItems = [
     {
       image: heroImage,
-      title: "Original Recipe",
-      subtitle: "Secret blend of 11 herbs & spices",
+      title: "Original Fried Chicken",
+      subtitle: "Our signature blend of local spices, crispy and golden-fried daily",
       badge: "Signature"
     },
     {
       image: chickenWings,
-      title: "Crispy Wings",
-      subtitle: "Perfectly seasoned & golden crispy",
+      title: "Crispy Spicy Wings",
+      subtitle: "Perfectly seasoned, fiery wings for the ultimate heat lovers",
       badge: "Popular"
     },
     {
       image: chickenBurger,
-      title: "Chicken Burgers",
-      subtitle: "Fresh lettuce & special sauce",
+      title: "Classic Chicken Burger",
+      subtitle: "Crispy chicken fillet with fresh lettuce and our special creamy mayo",
       badge: "Bestseller"
     },
     {
       image: chickenNuggets,
-      title: "Golden Nuggets",
-      subtitle: "Bite-sized perfection for everyone",
+      title: "Golden Chicken Nuggets",
+      subtitle: "Tender, bite-sized chicken nuggets prepared for perfect dipping",
       badge: "Family Favorite"
     }
   ];
@@ -51,7 +54,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [carouselItems.length]);
@@ -60,57 +63,54 @@ const Hero = ({ onOrderClick }: HeroProps) => {
     setCurrentSlide(index);
   }, []);
 
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
+  }, [carouselItems.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + carouselItems.length) % carouselItems.length);
+  }, [carouselItems.length]);
+
   return (
-    <section className="relative overflow-hidden bg-muted/10 min-h-screen flex items-center">
-      {/* Chicken Illustrations Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-20 h-20 md:w-32 md:h-32 animate-float">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary">
-            <path d="M50 10C65 10 75 20 75 35C75 45 70 55 60 60L65 80L55 85L50 70L45 85L35 80L40 60C30 55 25 45 25 35C25 20 35 10 50 10Z" fill="currentColor"/>
-            <circle cx="45" cy="30" r="3" fill="white"/>
-            <path d="M35 35L30 40L35 45" stroke="currentColor" strokeWidth="2" fill="none"/>
-          </svg>
-        </div>
-        <div className="absolute top-32 right-20 w-16 h-16 md:w-24 md:h-24 animate-bounce-slow">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary/60">
-            <ellipse cx="50" cy="70" rx="25" ry="15" fill="currentColor"/>
-            <ellipse cx="50" cy="50" rx="20" ry="25" fill="currentColor"/>
-            <ellipse cx="50" cy="30" rx="15" ry="20" fill="currentColor"/>
-            <circle cx="45" cy="25" r="2" fill="white"/>
-            <path d="M35 30L30 25" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        </div>
-        <div className="absolute bottom-20 left-20 w-24 h-24 md:w-36 md:h-36 animate-pulse-slow">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary/40">
-            <path d="M50 20C60 20 70 30 70 40C70 50 65 60 55 65L60 85L50 90L45 75L40 90L30 85L35 65C25 60 20 50 20 40C20 30 30 20 40 20L50 20Z" fill="currentColor"/>
-            <circle cx="42" cy="35" r="2" fill="white"/>
-            <path d="M25 40L20 35" stroke="currentColor" strokeWidth="2" fill="none"/>
-          </svg>
-        </div>
-        <div className="absolute bottom-32 right-10 w-18 h-18 md:w-28 md:h-28 animate-float" style={{animationDelay: '2s'}}>
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary/30">
-            <ellipse cx="50" cy="60" rx="30" ry="20" fill="currentColor"/>
-            <ellipse cx="50" cy="40" rx="25" ry="30" fill="currentColor"/>
-            <circle cx="45" cy="30" r="3" fill="white"/>
-            <path d="M30 35L25 30L30 40" stroke="currentColor" strokeWidth="2" fill="none"/>
-          </svg>
-        </div>
+    <section className="relative overflow-hidden min-h-screen flex items-center bg-zinc-950 text-white">
+      {/* Immersive Cross-Fading Background Images */}
+      <div className="absolute inset-0 z-0">
+        {carouselItems.map((item, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-all ease-out ${
+              index === currentSlide ? "opacity-45 scale-100" : "opacity-0 scale-105"
+            }`}
+            style={{ transitionDuration: "3000ms" }}
+          >
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        ))}
+        {/* Dark Red Brand Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-black/60 z-10" />
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-8 relative w-full">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[80vh]">
-          {/* Text Content - Mobile First */}
-          <div className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1">
-            
-            <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight leading-none text-foreground">
-                LUV DAT <br />
-                <span className="text-primary font-black">CHICKEN!</span>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 relative w-full z-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[75vh]">
+          {/* Left Column: Text & Actions */}
+          <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
+            <div className="space-y-4">
+              <span className="inline-block text-xs font-black uppercase tracking-widest text-primary bg-primary/15 px-4 py-2 rounded-full border border-primary/25 backdrop-blur-md">
+                🍗 Luv Dat Chicken!
+              </span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black uppercase tracking-tight leading-none text-white">
+                CRISPY, JUICY <br />
+                <span className="text-primary">PERFECTION!</span>
               </h1>
             </div>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-md mx-auto lg:mx-0 leading-relaxed font-medium">
-              Crispy on the outside, tender and juicy on the inside. Fresh, hot, and made daily in Bulawayo!
+            <p className="text-lg md:text-xl text-zinc-300 max-w-md mx-auto lg:mx-0 leading-relaxed font-medium">
+              Made fresh to order daily in Bulawayo using A-grade local poultry. Indulge in Zimbabwe's favorite crispy legacy!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -126,87 +126,94 @@ const Hero = ({ onOrderClick }: HeroProps) => {
                 variant="outline" 
                 size="lg" 
                 onClick={() => navigate('/menu')}
-                className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-black uppercase tracking-wider text-base md:text-lg px-8 py-6 rounded-xl shadow-md transition-colors"
+                className="border-2 border-white text-white hover:bg-white hover:text-black font-black uppercase tracking-wider text-base md:text-lg px-8 py-6 rounded-xl shadow-md transition-all bg-transparent"
               >
-                View Menu
+                Explore Menu
               </Button>
             </div>
 
             {/* Simbisa brand statistics counter grid */}
-            <div className="pt-8 border-t border-border/50 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+            <div className="pt-8 border-t border-white/10 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
               <div>
-                <p ref={outletsCounter.ref} className="text-2xl md:text-3xl font-black text-primary">{outletsCounter.value}</p>
-                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Outlets</span>
+                <p ref={outletsCounter.ref} className="text-3xl md:text-4xl font-black text-primary">{outletsCounter.value}</p>
+                <span className="text-[10px] md:text-xs font-bold text-zinc-400 uppercase tracking-widest">Outlets</span>
               </div>
               <div>
-                <p ref={yearsCounter.ref} className="text-2xl md:text-3xl font-black text-primary">{yearsCounter.value}</p>
-                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Years Legacy</span>
+                <p ref={yearsCounter.ref} className="text-3xl md:text-4xl font-black text-primary">{yearsCounter.value}</p>
+                <span className="text-[10px] md:text-xs font-bold text-zinc-400 uppercase tracking-widest">Years Legacy</span>
               </div>
               <div>
-                <p ref={customersCounter.ref} className="text-2xl md:text-3xl font-black text-primary">{customersCounter.value}</p>
-                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wider">Customers</span>
+                <p ref={customersCounter.ref} className="text-3xl md:text-4xl font-black text-primary">{customersCounter.value}</p>
+                <span className="text-[10px] md:text-xs font-bold text-zinc-400 uppercase tracking-widest">Happy Fans</span>
               </div>
             </div>
           </div>
 
-          {/* Carousel - Mobile First */}
-          <div className="relative animate-scale-in order-1 lg:order-2">
-            <div className="absolute inset-0 bg-primary/10 opacity-20 md:opacity-30 blur-2xl md:blur-3xl rounded-full"></div>
+          {/* Right Column: Feature Yummy Active Item Card */}
+          <div className="relative order-1 lg:order-2 flex flex-col justify-center items-center lg:items-end animate-scale-in">
+            <div className="absolute -inset-4 bg-primary/20 rounded-full blur-3xl opacity-60 z-0"></div>
             
-            {/* Manual Carousel Implementation for Better Control */}
-            <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto">
-              <div className="relative overflow-hidden rounded-2xl md:rounded-3xl">
-                <div 
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                  {carouselItems.map((item, index) => (
-                    <div key={index} className="w-full flex-shrink-0 relative">
-                      <img
-                        src={item.image}
-                        alt={`${item.title} - Chicken Inn Zimbabwe`}
-                        className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover border-2 md:border-4 border-primary/20"
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                    </div>
-                  ))}
+            {/* Food Card */}
+            <div className="relative bg-zinc-950/65 backdrop-blur-lg border border-white/10 p-6 rounded-[2.5rem] max-w-sm sm:max-w-md w-full shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] transition-all duration-500 hover:scale-[1.03] z-10 group">
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden mb-6 relative border-2 border-white/5">
+                <img
+                  src={carouselItems[currentSlide].image}
+                  alt={carouselItems[currentSlide].title}
+                  className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
+                />
+                <span className="absolute top-4 right-4 bg-primary text-white text-[11px] font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg border border-primary/20">
+                  {carouselItems[currentSlide].badge}
+                </span>
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-2xl font-black uppercase text-white tracking-tight leading-none group-hover:text-primary transition-colors">
+                  {carouselItems[currentSlide].title}
+                </h3>
+                <p className="text-zinc-300 text-sm font-medium leading-relaxed">
+                  {carouselItems[currentSlide].subtitle}
+                </p>
+                <div className="flex items-center gap-1.5 pt-2 text-amber-500">
+                  <StarRateRounded className="!h-5 !w-5" />
+                  <StarRateRounded className="!h-5 !w-5" />
+                  <StarRateRounded className="!h-5 !w-5" />
+                  <StarRateRounded className="!h-5 !w-5" />
+                  <StarRateRounded className="!h-5 !w-5" />
+                  <span className="text-xs text-zinc-400 font-bold ml-2">5.0 (Luv'd by customers)</span>
                 </div>
               </div>
-              
-              {/* Navigation Arrows - Hidden on Mobile */}
-              <button
-                onClick={() => goToSlide(currentSlide === 0 ? carouselItems.length - 1 : currentSlide - 1)}
-                className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background text-foreground p-2 rounded-full shadow-lg transition-all hover:scale-110 hidden sm:block"
-                aria-label="Previous image"
-              >
-                <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              
-              <button
-                onClick={() => goToSlide((currentSlide + 1) % carouselItems.length)}
-                className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background text-foreground p-2 rounded-full shadow-lg transition-all hover:scale-110 hidden sm:block"
-                aria-label="Next image"
-              >
-                <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
-            
-            {/* Carousel Indicators - Responsive */}
-            <div className="flex justify-center gap-2 mt-4 md:mt-6">
-              {carouselItems.map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'bg-primary scale-125' : 'bg-primary/30 hover:bg-primary/50'
-                  }`}
-                  onClick={() => goToSlide(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+
+            {/* Slider Controls */}
+            <div className="flex items-center gap-4 mt-6 z-10 relative">
+              <button
+                onClick={prevSlide}
+                className="bg-black/60 hover:bg-primary border border-white/10 hover:border-primary text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 active:scale-95"
+                aria-label="Previous slide"
+              >
+                <KeyboardArrowLeftRounded className="!h-6 !w-6" />
+              </button>
+              
+              {/* Pagination indicators */}
+              <div className="flex gap-2">
+                {carouselItems.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      index === currentSlide ? 'w-8 bg-primary' : 'w-2.5 bg-white/30 hover:bg-white/50'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={nextSlide}
+                className="bg-black/60 hover:bg-primary border border-white/10 hover:border-primary text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 active:scale-95"
+                aria-label="Next slide"
+              >
+                <KeyboardArrowRightRounded className="!h-6 !w-6" />
+              </button>
             </div>
           </div>
         </div>
