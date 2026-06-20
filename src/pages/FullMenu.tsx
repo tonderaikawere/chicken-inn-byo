@@ -351,7 +351,7 @@ const FullMenu = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
       <Header />
 
       {/* 60vh Hero Section */}
