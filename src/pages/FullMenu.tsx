@@ -403,7 +403,7 @@ const FullMenu = () => {
           <div className="lg:col-span-3 space-y-8">
             
             {/* Custom Responsive Horizontal Scrolling Category Pills */}
-            <div className="flex overflow-x-auto pb-3 gap-2.5 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-none">
+            <div className="flex overflow-x-auto pb-3 gap-2.5 w-full scrollbar-none">
               {menuCategories.map((category) => {
                 const isActive = selectedCategory === category.id;
                 return (
