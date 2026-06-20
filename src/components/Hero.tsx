@@ -85,8 +85,8 @@ const Hero = ({ onOrderClick }: HeroProps) => {
           </div>
         ))}
         {/* Dark Red Brand Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-primary/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-black/40 to-transparent z-10" />
       </div>
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-24 pb-8 relative w-full z-20 flex flex-col justify-center h-full">

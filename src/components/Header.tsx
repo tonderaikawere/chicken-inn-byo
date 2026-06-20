@@ -53,13 +53,13 @@ const Header = () => {
 
   return (
     <>
-      {!hasHero && <div className="h-16 md:h-[112px] w-full" />}
+      {!hasHero && <div className="h-16 lg:h-[112px] w-full" />}
       <header 
         className="fixed top-0 left-0 w-full z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300 shadow-sm"
         style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
       >
       {/* Mock Website Warning Alert Bar */}
-      <div className="hidden md:flex bg-amber-500 text-zinc-950 py-2 px-4 text-center text-xs font-black tracking-wide uppercase items-center justify-center gap-2 border-b border-amber-600 shadow-sm">
+      <div className="hidden lg:block bg-amber-500 text-zinc-950 py-2 px-4 text-center text-xs font-black tracking-wide uppercase border-b border-amber-600 shadow-sm">
         <span>⚠️ THIS IS A MOCK DESIGN PROJECT FOR PORTFOLIO DEMONSTRATION. ORDERS ARE SIMULATED AND NOT SENT TO CHICKEN INN.</span>
       </div>
       
