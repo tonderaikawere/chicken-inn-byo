@@ -398,7 +398,7 @@ const FullMenu = () => {
         </div>
 
         {/* Layout Column */}
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Menu Grid & Category selector */}
           <div className="lg:col-span-3 space-y-8">
             
@@ -430,7 +430,7 @@ const FullMenu = () => {
             </div>
 
             {/* Product Cards Loop */}
-            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredItems.map((item) => (
                 <Card key={item.id} className="shadow-card hover:shadow-elegant-hover border border-zinc-200/50 hover:border-primary/20 transition-all duration-300 hover:scale-[1.03] bg-card flex flex-col h-full overflow-hidden group rounded-[2rem]">
                   <div className="relative aspect-[16/10] overflow-hidden">

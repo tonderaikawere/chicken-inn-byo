@@ -87,7 +87,7 @@ const About = () => {
 
       <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-16">
         {/* Brand Story Section */}
-        <section className="grid md:grid-cols-2 gap-8 mb-16">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <Card className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
             <CardContent className="p-8 space-y-4">
               <h2 className="text-2xl font-black text-primary">Meal of the People</h2>

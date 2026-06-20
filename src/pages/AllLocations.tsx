@@ -235,7 +235,7 @@ const AllLocations = () => {
           </Select>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Locations List */}
           <div className="lg:col-span-3">
             <div className="mb-4 flex justify-between items-center">
@@ -244,7 +244,7 @@ const AllLocations = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {filteredLocations.map((location) => (
                 <Card key={location.id} className="shadow-elegant hover:shadow-lg transition-shadow border-2 hover:border-primary flex flex-col justify-between">
                   <CardHeader className="pb-3">
