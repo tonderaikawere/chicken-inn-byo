@@ -116,6 +116,11 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Mock Warning Bar for Mobile Screens Only */}
+        <div className="md:hidden bg-amber-500 text-zinc-950 py-3.5 px-4 rounded-2xl text-center text-[10px] font-black tracking-wide uppercase leading-normal border border-amber-600 shadow-inner mb-8">
+          <span>⚠️ THIS IS A MOCK DESIGN PROJECT FOR PORTFOLIO DEMONSTRATION. ORDERS ARE SIMULATED AND NOT SENT TO CHICKEN INN.</span>
+        </div>
+
         {/* Bottom Section */}
         <div className="border-t border-zinc-800 pt-8 mt-4">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-zinc-500 text-xs font-semibold">
