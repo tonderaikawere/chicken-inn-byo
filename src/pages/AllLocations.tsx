@@ -308,7 +308,7 @@ const AllLocations = () => {
                       </Button>
                       <Button variant="outline" size="sm" asChild>
                         <a href={`tel:${location.phone}`} className="font-semibold">
-                          <Phone className="h-4 w-4 mr-2 fill-current" />
+                          <PhoneRounded className="!h-4 !w-4 mr-2" />
                           Call
                         </a>
                       </Button>

@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState, useCallback } from "react";
-import { useCountUp } from "@/hooks/useCountUp";
 import { useNavigate } from "react-router-dom";
 import StarRateRounded from "@mui/icons-material/StarRateRounded";
 import KeyboardArrowLeftRounded from "@mui/icons-material/KeyboardArrowLeftRounded";
@@ -17,11 +16,6 @@ interface HeroProps {
 const Hero = ({ onOrderClick }: HeroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
-  
-  // Animated counters
-  const outletsCounter = useCountUp({ end: 121, suffix: '+', duration: 2500 });
-  const yearsCounter = useCountUp({ end: 39, suffix: '+', duration: 2000 });
-  const customersCounter = useCountUp({ end: 1000000, suffix: '+', duration: 3000 });
 
   const carouselItems = [
     {
@@ -72,7 +66,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
   }, [carouselItems.length]);
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center bg-zinc-950 text-white">
+    <section className="relative overflow-hidden h-screen flex items-center bg-zinc-950 text-white">
       {/* Immersive Cross-Fading Background Images */}
       <div className="absolute inset-0 z-0">
         {carouselItems.map((item, index) => (
@@ -95,12 +89,12 @@ const Hero = ({ onOrderClick }: HeroProps) => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-black/60 z-10" />
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 relative w-full z-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[75vh]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-28 pb-12 relative w-full z-20 flex flex-col justify-center h-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Text & Actions */}
-          <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
-            <div className="space-y-4">
-              <span className="inline-block text-xs font-black uppercase tracking-widest text-primary bg-primary/15 px-4 py-2 rounded-full border border-primary/25 backdrop-blur-md">
+          <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+            <div className="space-y-3">
+              <span className="inline-block text-sm font-black uppercase tracking-widest text-primary">
                 🍗 Luv Dat Chicken!
               </span>
               <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black uppercase tracking-tight leading-none text-white">
@@ -131,26 +125,10 @@ const Hero = ({ onOrderClick }: HeroProps) => {
                 Explore Menu
               </Button>
             </div>
-
-            {/* Simbisa brand statistics counter grid */}
-            <div className="pt-8 border-t border-white/10 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
-              <div>
-                <p ref={outletsCounter.ref} className="text-3xl md:text-4xl font-black text-primary">{outletsCounter.value}</p>
-                <span className="text-[10px] md:text-xs font-bold text-zinc-400 uppercase tracking-widest">Outlets</span>
-              </div>
-              <div>
-                <p ref={yearsCounter.ref} className="text-3xl md:text-4xl font-black text-primary">{yearsCounter.value}</p>
-                <span className="text-[10px] md:text-xs font-bold text-zinc-400 uppercase tracking-widest">Years Legacy</span>
-              </div>
-              <div>
-                <p ref={customersCounter.ref} className="text-3xl md:text-4xl font-black text-primary">{customersCounter.value}</p>
-                <span className="text-[10px] md:text-xs font-bold text-zinc-400 uppercase tracking-widest">Happy Fans</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Feature Yummy Active Item Card */}
-          <div className="relative order-1 lg:order-2 flex flex-col justify-center items-center lg:items-end animate-scale-in">
+          <div className="relative flex flex-col justify-center items-center lg:items-end animate-scale-in">
             <div className="absolute -inset-4 bg-primary/20 rounded-full blur-3xl opacity-60 z-0"></div>
             
             {/* Food Card */}
@@ -178,7 +156,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
                   <StarRateRounded className="!h-5 !w-5" />
                   <StarRateRounded className="!h-5 !w-5" />
                   <StarRateRounded className="!h-5 !w-5" />
-                  <span className="text-xs text-zinc-400 font-bold ml-2">5.0 (Luv'd by customers)</span>
+                  <span className="text-xs text-zinc-400 font-bold ml-2">5.0 (Customer Favorite)</span>
                 </div>
               </div>
             </div>

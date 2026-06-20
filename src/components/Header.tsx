@@ -4,7 +4,7 @@ import CloseRounded from "@mui/icons-material/CloseRounded";
 import StarRateRounded from "@mui/icons-material/StarRateRounded";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "@/assets/chickeninn-logo.png";
 import { useCart } from "@/hooks/useCart";
 
@@ -12,11 +12,29 @@ const Header = () => {
   const { cartItems, setIsCartOpen, starsPoints, pastOrders } = useCart();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (isMobileMenuOpen) return;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 120) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY, isMobileMenuOpen]);
 
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const onCartClick = () => setIsCartOpen(true);
 
-  
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
     if (path !== "/" && location.pathname.startsWith(path)) return true;
@@ -31,8 +49,15 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const hasHero = ["/", "/menu", "/full-menu", "/about", "/careers", "/locations", "/all-locations", "/contact"].includes(location.pathname);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <>
+      {!hasHero && <div className="h-[96px] sm:h-[104px] md:h-[112px] w-full" />}
+      <header 
+        className="fixed top-0 left-0 w-full z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300 shadow-sm"
+        style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
+      >
       {/* Mock Website Warning Alert Bar */}
       <div className="bg-amber-500 text-zinc-950 py-2 px-4 text-center text-xs font-black tracking-wide uppercase flex items-center justify-center gap-2 border-b border-amber-600 shadow-sm">
         <span>⚠️ THIS IS A MOCK DESIGN PROJECT FOR PORTFOLIO DEMONSTRATION. ORDERS ARE SIMULATED AND NOT SENT TO CHICKEN INN.</span>
@@ -252,7 +277,8 @@ const Header = () => {
         )}
       </div>
     </header>
-  );
+  </>
+);
 };
 
 export default Header;
