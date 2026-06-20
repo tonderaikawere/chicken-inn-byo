@@ -443,12 +443,12 @@ const FullMenu = () => {
                     <div className="space-y-4">
                       {/* Name and Price */}
                       <div className="flex justify-between items-start gap-2 h-14">
-                        <h3 className="font-extrabold text-lg line-clamp-2 leading-snug group-hover:text-primary transition-colors">{item.name}</h3>
+                        <h3 className="font-extrabold text-lg text-zinc-950 dark:text-zinc-50 line-clamp-2 leading-snug group-hover:text-primary transition-colors">{item.name}</h3>
                         <span className="text-xl font-black text-primary whitespace-nowrap bg-primary/5 px-3 py-1 rounded-full border border-primary/10">${item.price.toFixed(2)}</span>
                       </div>
                       
                       {/* Description */}
-                      <p className="text-sm text-muted-foreground line-clamp-2 h-10 flex items-start leading-relaxed">
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2 h-10 flex items-start leading-relaxed">
                         {item.description}
                       </p>
 
