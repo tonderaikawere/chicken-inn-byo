@@ -73,6 +73,7 @@ export default {
       },
       boxShadow: {
         'elegant': 'var(--shadow-elegant)',
+        'elegant-hover': '0 20px 50px -10px hsl(359 81% 52% / 0.3)',
         'card-custom': 'var(--shadow-card)',
       },
       keyframes: {

@@ -66,7 +66,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
   }, [carouselItems.length]);
 
   return (
-    <section className="relative overflow-hidden h-screen flex items-center bg-zinc-950 text-white">
+    <section className="relative overflow-hidden min-h-screen lg:h-screen lg:min-h-[750px] flex items-center bg-zinc-950 text-white">
       {/* Immersive Cross-Fading Background Images */}
       <div className="absolute inset-0 z-0">
         {carouselItems.map((item, index) => (
@@ -89,21 +89,21 @@ const Hero = ({ onOrderClick }: HeroProps) => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-black/60 z-10" />
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-28 pb-12 relative w-full z-20 flex flex-col justify-center h-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-24 pb-8 relative w-full z-20 flex flex-col justify-center h-full">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column: Text & Actions */}
-          <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+          <div className="space-y-6 text-center lg:text-left">
             <div className="space-y-3">
-              <span className="inline-block text-sm font-black uppercase tracking-widest text-primary">
+              <span className="inline-block text-xs font-black uppercase tracking-widest text-primary">
                 🍗 Luv Dat Chicken!
               </span>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black uppercase tracking-tight leading-none text-white">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black uppercase tracking-tight leading-none text-white">
                 CRISPY, JUICY <br />
                 <span className="text-primary">PERFECTION!</span>
               </h1>
             </div>
             
-            <p className="text-lg md:text-xl text-zinc-300 max-w-md mx-auto lg:mx-0 leading-relaxed font-medium">
+            <p className="text-base md:text-lg text-zinc-300 max-w-md mx-auto lg:mx-0 leading-relaxed font-medium">
               Made fresh to order daily in Bulawayo using A-grade local poultry. Indulge in Zimbabwe's favorite crispy legacy!
             </p>
             
@@ -112,7 +112,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
                 variant="default" 
                 size="lg" 
                 onClick={() => navigate('/order-now')} 
-                className="bg-primary hover:bg-primary/95 text-white font-black uppercase tracking-wider text-base md:text-lg px-8 py-6 rounded-xl border-b-4 border-red-800 active:border-b-0 active:translate-y-[4px] shadow-lg transition-all"
+                className="bg-primary hover:bg-primary/95 text-white font-black uppercase tracking-wider text-base md:text-lg px-8 py-5 rounded-xl border-b-4 border-red-800 active:border-b-0 active:translate-y-[4px] shadow-lg transition-all"
               >
                 Order Online
               </Button>
@@ -120,7 +120,7 @@ const Hero = ({ onOrderClick }: HeroProps) => {
                 variant="outline" 
                 size="lg" 
                 onClick={() => navigate('/menu')}
-                className="border-2 border-white text-white hover:bg-white hover:text-black font-black uppercase tracking-wider text-base md:text-lg px-8 py-6 rounded-xl shadow-md transition-all bg-transparent"
+                className="border-2 border-white text-white hover:bg-white hover:text-black font-black uppercase tracking-wider text-base md:text-lg px-8 py-5 rounded-xl shadow-md transition-all bg-transparent"
               >
                 Explore Menu
               </Button>
@@ -132,53 +132,53 @@ const Hero = ({ onOrderClick }: HeroProps) => {
             <div className="absolute -inset-4 bg-primary/20 rounded-full blur-3xl opacity-60 z-0"></div>
             
             {/* Food Card */}
-            <div className="relative bg-zinc-950/65 backdrop-blur-lg border border-white/10 p-6 rounded-[2.5rem] max-w-sm sm:max-w-md w-full shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] transition-all duration-500 hover:scale-[1.03] z-10 group">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden mb-6 relative border-2 border-white/5">
+            <div className="relative bg-zinc-950/70 backdrop-blur-md border border-white/10 p-4 rounded-[2rem] max-w-sm sm:max-w-md w-full shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-all duration-500 hover:scale-[1.02] z-10 group">
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-4 relative border border-white/5">
                 <img
                   src={carouselItems[currentSlide].image}
                   alt={carouselItems[currentSlide].title}
-                  className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <span className="absolute top-4 right-4 bg-primary text-white text-[11px] font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg border border-primary/20">
+                <span className="absolute top-3 right-3 bg-primary text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">
                   {carouselItems[currentSlide].badge}
                 </span>
               </div>
-              <div className="space-y-3">
-                <h3 className="text-2xl font-black uppercase text-white tracking-tight leading-none group-hover:text-primary transition-colors">
+              <div className="space-y-1.5 px-1">
+                <h3 className="text-xl font-black uppercase text-white tracking-tight leading-none group-hover:text-primary transition-colors">
                   {carouselItems[currentSlide].title}
                 </h3>
-                <p className="text-zinc-300 text-sm font-medium leading-relaxed">
+                <p className="text-zinc-300 text-xs font-medium leading-relaxed line-clamp-2">
                   {carouselItems[currentSlide].subtitle}
                 </p>
-                <div className="flex items-center gap-1.5 pt-2 text-amber-500">
-                  <StarRateRounded className="!h-5 !w-5" />
-                  <StarRateRounded className="!h-5 !w-5" />
-                  <StarRateRounded className="!h-5 !w-5" />
-                  <StarRateRounded className="!h-5 !w-5" />
-                  <StarRateRounded className="!h-5 !w-5" />
-                  <span className="text-xs text-zinc-400 font-bold ml-2">5.0 (Customer Favorite)</span>
+                <div className="flex items-center gap-1 pt-1 text-amber-500">
+                  <StarRateRounded className="!h-4 !w-4" />
+                  <StarRateRounded className="!h-4 !w-4" />
+                  <StarRateRounded className="!h-4 !w-4" />
+                  <StarRateRounded className="!h-4 !w-4" />
+                  <StarRateRounded className="!h-4 !w-4" />
+                  <span className="text-[10px] text-zinc-400 font-bold ml-1.5">5.0 (Customer Favorite)</span>
                 </div>
               </div>
             </div>
 
             {/* Slider Controls */}
-            <div className="flex items-center gap-4 mt-6 z-10 relative">
+            <div className="flex items-center gap-3 mt-4 z-10 relative">
               <button
                 onClick={prevSlide}
-                className="bg-black/60 hover:bg-primary border border-white/10 hover:border-primary text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 active:scale-95"
+                className="bg-black/60 hover:bg-primary border border-white/10 hover:border-primary text-white p-2 rounded-full shadow-lg transition-all hover:scale-110 active:scale-95"
                 aria-label="Previous slide"
               >
-                <KeyboardArrowLeftRounded className="!h-6 !w-6" />
+                <KeyboardArrowLeftRounded className="!h-5 !w-5" />
               </button>
               
               {/* Pagination indicators */}
-              <div className="flex gap-2">
+              <div className="flex gap-1.5">
                 {carouselItems.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      index === currentSlide ? 'w-8 bg-primary' : 'w-2.5 bg-white/30 hover:bg-white/50'
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      index === currentSlide ? 'w-6 bg-primary' : 'w-2 bg-white/30 hover:bg-white/50'
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -187,10 +187,10 @@ const Hero = ({ onOrderClick }: HeroProps) => {
 
               <button
                 onClick={nextSlide}
-                className="bg-black/60 hover:bg-primary border border-white/10 hover:border-primary text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 active:scale-95"
+                className="bg-black/60 hover:bg-primary border border-white/10 hover:border-primary text-white p-2 rounded-full shadow-lg transition-all hover:scale-110 active:scale-95"
                 aria-label="Next slide"
               >
-                <KeyboardArrowRightRounded className="!h-6 !w-6" />
+                <KeyboardArrowRightRounded className="!h-5 !w-5" />
               </button>
             </div>
           </div>

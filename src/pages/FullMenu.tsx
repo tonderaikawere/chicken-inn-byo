@@ -214,7 +214,7 @@ const FullMenu = () => {
       category: "sides",
       description: "Crispy potato chips made fresh daily, hand-cut and double-fried.",
       price: 1.99,
-      image: "/hero-chicken.jpg",
+      image: "/chips.jpg",
       badges: ["bestseller"],
       prepTime: "3-5 min",
       spicy: false,
@@ -252,7 +252,7 @@ const FullMenu = () => {
       category: "drinks",
       description: "Ice-cold classic Coca-Cola soft drink bottle.",
       price: 1.29,
-      image: "/hero-chicken.jpg",
+      image: "/coca-cola.jpg",
       badges: [],
       prepTime: "1 min",
       spicy: false,
@@ -264,7 +264,7 @@ const FullMenu = () => {
       category: "drinks",
       description: "Freshly squeezed Bulawayo orange juice, packed with pulp and vitamins.",
       price: 2.49,
-      image: "/hero-chicken.jpg",
+      image: "/orange-juice.jpg",
       badges: ["fresh"],
       prepTime: "2 min",
       spicy: false,
@@ -276,7 +276,7 @@ const FullMenu = () => {
       category: "drinks",
       description: "Refreshing lemon-lime carbonated soda.",
       price: 1.29,
-      image: "/hero-chicken.jpg",
+      image: "/coca-cola.jpg",
       badges: [],
       prepTime: "1 min",
       spicy: false,
@@ -290,7 +290,7 @@ const FullMenu = () => {
       category: "desserts",
       description: "Creamy, rich vanilla soft serve ice cream in a crispy wafer cone.",
       price: 0.99,
-      image: "/hero-chicken.jpg",
+      image: "/ice-cream.jpg",
       badges: ["signature", "popular"],
       prepTime: "2 min",
       spicy: false,
@@ -302,7 +302,7 @@ const FullMenu = () => {
       category: "desserts",
       description: "Vanilla soft serve ice cream loaded with warm chocolate fudge syrup.",
       price: 1.99,
-      image: "/hero-chicken.jpg",
+      image: "/ice-cream.jpg",
       badges: ["family-favorite"],
       prepTime: "2-3 min",
       spicy: false,
@@ -430,8 +430,8 @@ const FullMenu = () => {
             {/* Product Cards Loop */}
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredItems.map((item) => (
-                <Card key={item.id} className="shadow-elegant hover:shadow-elegant-hover hover:border-primary/20 transition-all duration-300 hover:scale-[1.02] bg-card border-border flex flex-col h-full overflow-hidden group">
-                  <div className="relative aspect-video overflow-hidden">
+                <Card key={item.id} className="shadow-card hover:shadow-elegant-hover border border-zinc-200/50 hover:border-primary/20 transition-all duration-300 hover:scale-[1.03] bg-card flex flex-col h-full overflow-hidden group rounded-[2rem]">
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -453,7 +453,16 @@ const FullMenu = () => {
 
                       {/* Badges */}
                       <div className="flex flex-wrap gap-1.5 h-6 overflow-hidden">
-                        {item.badges.map((badge) => (
+                        {(item.badges && item.badges.length > 0
+                          ? item.badges 
+                          : item.category === "drinks" 
+                            ? ["refreshing"] 
+                            : item.category === "sides" 
+                              ? ["freshly made"] 
+                              : item.category === "desserts" 
+                                ? ["sweet treat"]
+                                : ["original recipe"]
+                        ).map((badge) => (
                           <span key={badge} className={`px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider rounded-md flex items-center gap-1 ${getBadgeStyle(badge)}`}>
                             {getBadgeIcon(badge)}
                             {badge.replace("-", " ")}

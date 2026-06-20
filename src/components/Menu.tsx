@@ -10,7 +10,7 @@ const menuItems: MenuItemData[] = [
     name: "2-Piece Meal (2-Piecer)",
     description: "2 pieces of legendary fried chicken + our famous hand-cut chips. Meal of the people!",
     price: 4.99,
-    image: chickenWings,
+    image: "/hero-chicken.jpg",
     category: "chicken",
   },
   {
@@ -58,7 +58,7 @@ const menuItems: MenuItemData[] = [
     name: "Hand-Cut Chips",
     description: "Fresh hand-cut chips made daily",
     price: 2.00,
-    image: chickenNuggets,
+    image: "/chips.jpg",
     category: "sides",
   },
   {
@@ -66,7 +66,7 @@ const menuItems: MenuItemData[] = [
     name: "Coca-Cola (500ml)",
     description: "Classic ice-cold Coca-Cola soft drink",
     price: 1.29,
-    image: chickenNuggets,
+    image: "/coca-cola.jpg",
     category: "drinks",
   },
   {
@@ -74,7 +74,7 @@ const menuItems: MenuItemData[] = [
     name: "Fresh Orange Juice",
     description: "Freshly squeezed juice, rich in Vitamin C",
     price: 2.49,
-    image: chickenNuggets,
+    image: "/orange-juice.jpg",
     category: "drinks",
   }
 ];

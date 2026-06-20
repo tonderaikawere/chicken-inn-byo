@@ -23,8 +23,17 @@ interface MenuItemProps {
 }
 
 const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
-  // Safe fallbacks for homepage items
-  const badges = item.badges || (item.id === 7 || item.id === 1 ? ["signature"] : item.id === 4 ? ["spicy"] : []);
+  // Safe fallbacks for homepage items (ensures badges are never empty)
+  const badges = item.badges && item.badges.length > 0
+    ? item.badges 
+    : item.category === "drinks" 
+      ? ["refreshing"] 
+      : item.category === "sides" 
+        ? ["freshly made"] 
+        : item.category === "desserts" 
+          ? ["sweet treat"]
+          : ["original recipe"];
+
   const prepTime = item.prepTime || "10-12 min";
   const calories = item.calories || 380;
 
@@ -50,8 +59,8 @@ const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
   };
 
   return (
-    <Card className="shadow-elegant hover:shadow-elegant-hover hover:border-primary/20 transition-all duration-300 hover:scale-[1.02] bg-card border-border flex flex-col h-full overflow-hidden group">
-      <div className="relative aspect-video overflow-hidden">
+    <Card className="shadow-card hover:shadow-elegant-hover border border-zinc-200/50 hover:border-primary/20 transition-all duration-300 hover:scale-[1.03] bg-card flex flex-col h-full overflow-hidden group rounded-[2rem]">
+      <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={item.image}
           alt={item.name}
