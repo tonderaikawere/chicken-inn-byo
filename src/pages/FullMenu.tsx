@@ -437,13 +437,14 @@ const FullMenu = () => {
                       alt={item.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <CardContent className="p-5 flex-1 flex flex-col justify-between">
                     <div className="space-y-4">
                       {/* Name and Price */}
                       <div className="flex justify-between items-start gap-2 h-14">
                         <h3 className="font-extrabold text-lg line-clamp-2 leading-snug group-hover:text-primary transition-colors">{item.name}</h3>
-                        <span className="text-xl font-black text-primary whitespace-nowrap">${item.price.toFixed(2)}</span>
+                        <span className="text-xl font-black text-primary whitespace-nowrap bg-primary/5 px-3 py-1 rounded-full border border-primary/10">${item.price.toFixed(2)}</span>
                       </div>
                       
                       {/* Description */}
@@ -482,7 +483,10 @@ const FullMenu = () => {
 
                     {/* Add Button */}
                     <div className="pt-5">
-                      <Button onClick={() => addToCart(item)} className="w-full h-11 font-black uppercase tracking-wider rounded-xl shadow-md border-b-2 border-red-800 active:border-b-0 active:translate-y-[2px] transition-all">
+                      <Button 
+                        onClick={() => addToCart(item)} 
+                        className="w-full h-11 font-black uppercase tracking-wider rounded-xl shadow-md bg-gradient-to-r from-primary to-red-600 hover:from-primary/95 hover:to-red-600/95 text-white border-b-2 border-red-800 active:border-b-0 active:translate-y-[2px] transition-all"
+                      >
                         <AddRounded className="!h-4 !w-4 mr-2" />
                         Add to Cart
                       </Button>
