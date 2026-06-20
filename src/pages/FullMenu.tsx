@@ -2,7 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Search, Star, Flame, Clock, Plus, Filter } from "lucide-react";
+import SearchRounded from "@mui/icons-material/SearchRounded";
+import StarRateRounded from "@mui/icons-material/StarRateRounded";
+import WhatshotRounded from "@mui/icons-material/WhatshotRounded";
+import AccessTimeRounded from "@mui/icons-material/AccessTimeRounded";
+import AddRounded from "@mui/icons-material/AddRounded";
+import FilterListRounded from "@mui/icons-material/FilterListRounded";
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -253,8 +258,8 @@ const FullMenu = () => {
 
   const getBadgeIcon = (badge: string) => {
     switch (badge) {
-      case "signature": return <Star className="h-3 w-3 fill-current text-yellow-500" />;
-      case "spicy": return <Flame className="h-3 w-3 fill-current text-red-500" />;
+      case "signature": return <StarRateRounded className="!h-3 !w-3 text-yellow-500" />;
+      case "spicy": return <WhatshotRounded className="!h-3 !w-3 text-red-500" />;
       default: return null;
     }
   };
@@ -263,21 +268,33 @@ const FullMenu = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
-      <main className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      {/* 60vh Hero Section */}
+      <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-zinc-950 text-white">
+        <div className="absolute inset-0">
+          <img 
+            src="/hero-chicken.jpg" 
+            alt="Chicken Inn Menu" 
+            className="w-full h-full object-cover object-center opacity-40 scale-105" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-primary/40" />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full text-center space-y-4 z-10">
+          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-white">
             Full <span className="text-primary">Menu</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed font-medium">
             Explore our complete menu of delicious chicken dishes, sides, and drinks
           </p>
         </div>
+      </section>
+
+      <main className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-16">
 
         {/* Search and Filter */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <SearchRounded className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search menu items..."
               value={searchTerm}
@@ -286,7 +303,7 @@ const FullMenu = () => {
             />
           </div>
           <Button variant="outline" className="flex items-center gap-2">
-            <Filter className="h-4 w-4" />
+            <FilterListRounded className="!h-4 !w-4" />
             Filters
           </Button>
         </div>
@@ -306,7 +323,7 @@ const FullMenu = () => {
               <TabsContent value={selectedCategory}>
                 <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                   {filteredItems.map((item) => (
-                    <Card key={item.id} className="shadow-elegant hover:shadow-lg transition-shadow bg-card border-border flex flex-col h-full">
+                    <Card key={item.id} className="shadow-elegant hover:shadow-lg transition-all hover:scale-102 bg-card border-border flex flex-col h-full">
                       <div className="relative">
                         <img
                           src={item.image}
@@ -316,16 +333,16 @@ const FullMenu = () => {
                       </div>
                       <CardContent className="p-4 flex-1 flex flex-col justify-between">
                         <div className="space-y-3">
-                          <div className="flex justify-between items-start">
-                            <h3 className="font-semibold text-lg">{item.name}</h3>
-                            <span className="text-xl font-bold text-primary">${item.price}</span>
+                          <div className="flex justify-between items-start gap-2 h-14">
+                            <h3 className="font-semibold text-lg line-clamp-2 leading-snug">{item.name}</h3>
+                            <span className="text-xl font-bold text-primary whitespace-nowrap">${item.price}</span>
                           </div>
                           
-                          <p className="text-sm text-muted-foreground line-clamp-2">
+                          <p className="text-sm text-muted-foreground line-clamp-2 h-10 flex items-start leading-relaxed">
                             {item.description}
                           </p>
-
-                          <div className="flex flex-wrap gap-1.5">
+ 
+                          <div className="flex flex-wrap gap-1.5 h-6 overflow-hidden">
                             {item.badges.map((badge) => (
                               <span key={badge} className="px-2 py-0.5 text-[11px] font-bold rounded bg-secondary text-secondary-foreground flex items-center gap-1">
                                 {getBadgeIcon(badge)}
@@ -333,19 +350,19 @@ const FullMenu = () => {
                               </span>
                             ))}
                           </div>
-
-                          <div className="flex items-center justify-between text-xs text-muted-foreground">
+ 
+                          <div className="flex items-center justify-between text-xs text-muted-foreground h-4">
                             <div className="flex items-center gap-1">
-                              <Clock className="h-3 w-3" />
+                              <AccessTimeRounded className="!h-3 !w-3" />
                               {item.prepTime}
                             </div>
                             <span>{item.calories} cal</span>
                           </div>
                         </div>
-
+ 
                         <div className="pt-4">
                           <Button onClick={() => addToCart(item)} className="w-full">
-                            <Plus className="h-4 w-4 mr-2" />
+                            <AddRounded className="!h-4 !w-4 mr-2" />
                             Add to Cart
                           </Button>
                         </div>

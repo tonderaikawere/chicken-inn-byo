@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import AddRounded from "@mui/icons-material/AddRounded";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
@@ -18,9 +18,9 @@ interface MenuItemProps {
 
 const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-elegant hover:scale-105 bg-card border-border">
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-elegant hover:scale-105 bg-card border-border flex flex-col h-full">
       <CardHeader className="p-0">
-        <div className="aspect-square overflow-hidden">
+        <div className="aspect-video overflow-hidden">
           <img
             src={item.image}
             alt={item.name}
@@ -28,10 +28,14 @@ const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
           />
         </div>
       </CardHeader>
-      <CardContent className="p-4">
-        <h3 className="font-semibold text-lg mb-1">{item.name}</h3>
-        <p className="text-sm text-muted-foreground mb-2">{item.description}</p>
-        <p className="text-xl font-bold text-primary">${item.price.toFixed(2)}</p>
+      <CardContent className="p-4 flex-1 flex flex-col justify-between">
+        <div className="space-y-3">
+          <div className="flex justify-between items-start gap-2 h-14">
+            <h3 className="font-semibold text-lg line-clamp-2 leading-snug">{item.name}</h3>
+            <span className="text-xl font-bold text-primary whitespace-nowrap">${item.price.toFixed(2)}</span>
+          </div>
+          <p className="text-sm text-muted-foreground line-clamp-2 h-10 flex items-start leading-relaxed">{item.description}</p>
+        </div>
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button
@@ -39,7 +43,7 @@ const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
           className="w-full"
           onClick={() => onAddToCart(item)}
         >
-          <Plus className="h-4 w-4 mr-2" />
+          <AddRounded className="!h-4 !w-4 mr-2" />
           Add to Cart
         </Button>
       </CardFooter>

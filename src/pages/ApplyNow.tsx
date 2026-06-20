@@ -3,7 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Clock, DollarSign, Users, CheckCircle } from "lucide-react";
+import PeopleRounded from "@mui/icons-material/PeopleRounded";
+import CheckCircleRounded from "@mui/icons-material/CheckCircleRounded";
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -247,7 +248,7 @@ const ApplyNow = () => {
             <Card className="shadow-elegant">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Users className="h-5 w-5 text-primary" />
+                  <PeopleRounded className="!h-5 !w-5 text-primary" />
                   Available Positions
                 </CardTitle>
               </CardHeader>
@@ -279,7 +280,7 @@ const ApplyNow = () => {
             <Card className="shadow-elegant">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-primary" />
+                  <CheckCircleRounded className="!h-5 !w-5 text-primary" />
                   Employee Benefits
                 </CardTitle>
               </CardHeader>
@@ -287,7 +288,7 @@ const ApplyNow = () => {
                 <ul className="space-y-2">
                   {benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <CheckCircleRounded className="!h-4 !w-4 text-primary mt-0.5 flex-shrink-0" />
                       {benefit}
                     </li>
                   ))}

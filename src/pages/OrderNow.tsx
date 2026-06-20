@@ -13,7 +13,15 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Clock, MapPin, Phone, Truck, CreditCard, Percent, Gift, Star, CheckCircle, Flame } from "lucide-react";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
+import PhoneRounded from "@mui/icons-material/PhoneRounded";
+import AccessTimeRounded from "@mui/icons-material/AccessTimeRounded";
+import LocalShippingRounded from "@mui/icons-material/LocalShippingRounded";
+import CreditCardRounded from "@mui/icons-material/CreditCardRounded";
+import PercentRounded from "@mui/icons-material/PercentRounded";
+import RedeemRounded from "@mui/icons-material/RedeemRounded";
+import StarRateRounded from "@mui/icons-material/StarRateRounded";
+import CheckCircleRounded from "@mui/icons-material/CheckCircleRounded";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
@@ -264,7 +272,7 @@ const OrderNow = () => {
               onClick={() => setOrderType("delivery")}
               className="flex items-center gap-2 font-semibold"
             >
-              <Truck className="h-4 w-4" />
+              <LocalShippingRounded className="!h-4 !w-4" />
               Delivery
             </Button>
             <Button
@@ -272,7 +280,7 @@ const OrderNow = () => {
               onClick={() => setOrderType("pickup")}
               className="flex items-center gap-2 font-semibold"
             >
-              <MapPin className="h-4 w-4" />
+              <PlaceRounded className="!h-4 !w-4" />
               Pickup
             </Button>
           </div>
@@ -297,8 +305,8 @@ const OrderNow = () => {
                 {/* Featured Deals */}
                 <Card className="shadow-elegant border-border">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-2xl font-bold">
-                      <Percent className="h-6 w-6 text-primary" />
+                    <CardTitle className="flex items-center gap-2 text-2xl font-bold font-heading">
+                      <PercentRounded className="!h-6 !w-6 text-primary" />
                       Today's Special Deals
                     </CardTitle>
                     <p className="text-muted-foreground">Limited time offers - Luv Dat Chicken style!</p>
@@ -309,7 +317,7 @@ const OrderNow = () => {
                         <div key={deal.id} className="relative border border-border rounded-xl p-4 hover:shadow-md transition-shadow bg-card">
                           {deal.popular && (
                             <span className="absolute -top-2 -right-2 bg-primary text-white text-xs px-2 py-0.5 rounded-full font-bold flex items-center gap-1 shadow-md">
-                              <Star className="h-3 w-3 mr-1 fill-white" />
+                              <StarRateRounded className="!h-3 !w-3 text-yellow-400" />
                               Popular
                             </span>
                           )}
@@ -344,8 +352,8 @@ const OrderNow = () => {
                 {/* Quick Order */}
                 <Card className="shadow-elegant border-border">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-2xl font-bold">
-                      <Clock className="h-6 w-6 text-primary" />
+                    <CardTitle className="flex items-center gap-2 text-2xl font-bold font-heading">
+                      <AccessTimeRounded className="!h-6 !w-6 text-primary" />
                       Quick Order Add-ons
                     </CardTitle>
                     <p className="text-muted-foreground">Popular items ready in minutes</p>
@@ -371,8 +379,8 @@ const OrderNow = () => {
                 {/* Promo Codes */}
                 <Card className="shadow-elegant border-border">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                      <Gift className="h-5 w-5 text-primary" />
+                    <CardTitle className="flex items-center gap-2 text-xl font-bold font-heading">
+                      <RedeemRounded className="!h-5 !w-5 text-primary" />
                       Available Promo Codes
                     </CardTitle>
                   </CardHeader>
@@ -407,8 +415,8 @@ const OrderNow = () => {
                 <form onSubmit={handlePlaceOrder}>
                   <Card className="shadow-elegant border-border">
                     <CardHeader>
-                      <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                        <CheckCircle className="h-6 w-6 text-primary" />
+                      <CardTitle className="text-2xl font-bold flex items-center gap-2 font-heading">
+                        <CheckCircleRounded className="!h-6 !w-6 text-primary" />
                         {orderType === "delivery" ? "Delivery Details" : "Pickup Details"}
                       </CardTitle>
                       <p className="text-muted-foreground">Fill in details below to receive your order</p>
@@ -529,8 +537,8 @@ const OrderNow = () => {
             {/* Cart Summary */}
             <Card className="shadow-elegant border-border sticky top-4">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl font-bold">
-                  <CreditCard className="h-5 w-5 text-primary" />
+                <CardTitle className="flex items-center gap-2 text-xl font-bold font-heading">
+                  <CreditCardRounded className="!h-5 !w-5 text-primary" />
                   Your Order ({cartItems.reduce((sum, item) => sum + item.quantity, 0)})
                 </CardTitle>
               </CardHeader>
@@ -607,8 +615,8 @@ const OrderNow = () => {
             {/* Delivery Info */}
             <Card className="shadow-elegant border-border">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg font-bold">
-                  <Truck className="h-5 w-5 text-primary" />
+                <CardTitle className="flex items-center gap-2 text-lg font-bold font-heading">
+                  <LocalShippingRounded className="!h-5 !w-5 text-primary" />
                   {orderType === "delivery" ? "Delivery Info" : "Pickup Info"}
                 </CardTitle>
               </CardHeader>
@@ -616,37 +624,37 @@ const OrderNow = () => {
                 {orderType === "delivery" ? (
                   <>
                     <div className="flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-primary" />
+                      <AccessTimeRounded className="!h-4 !w-4 text-primary" />
                       <span className="font-semibold">Delivery: 25-35 minutes</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-primary" />
+                    <div className="flex items-start gap-2">
+                      <PlaceRounded className="!h-4 !w-4 text-primary mt-0.5" />
                       <span>Zimbabwewide delivery - Samora Machel to Ascot!</span>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className="flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-primary" />
+                      <AccessTimeRounded className="!h-4 !w-4 text-primary" />
                       <span className="font-semibold">Ready in: 10-15 minutes</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-primary" />
+                    <div className="flex items-start gap-2">
+                      <PlaceRounded className="!h-4 !w-4 text-primary mt-0.5" />
                       <span>Collect fresh & hot from your nearest outlet</span>
                     </div>
                   </>
                 )}
               </CardContent>
             </Card>
-
+ 
             {/* Support */}
             <Card className="shadow-elegant border-border">
               <CardHeader>
-                <CardTitle className="text-md font-bold">Luv Dat Assistance?</CardTitle>
+                <CardTitle className="text-md font-bold font-heading">Luv Dat Assistance?</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2 text-xs text-muted-foreground">
                 <div className="flex items-center gap-2 font-semibold text-foreground">
-                  <Phone className="h-4 w-4 text-primary" />
+                  <PhoneRounded className="!h-4 !w-4 text-primary" />
                   <span>+263 4 123 456</span>
                 </div>
                 <p>Call our hotline if you need any assistance with placing your order online.</p>

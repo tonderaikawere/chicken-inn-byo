@@ -1,4 +1,7 @@
-import { ShoppingCart, MapPin, Menu, X, Star } from "lucide-react";
+import ShoppingCartRounded from "@mui/icons-material/ShoppingCartRounded";
+import MenuRounded from "@mui/icons-material/MenuRounded";
+import CloseRounded from "@mui/icons-material/CloseRounded";
+import StarRateRounded from "@mui/icons-material/StarRateRounded";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -30,6 +33,11 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* Mock Website Warning Alert Bar */}
+      <div className="bg-amber-500 text-zinc-950 py-2 px-4 text-center text-xs font-black tracking-wide uppercase flex items-center justify-center gap-2 border-b border-amber-600 shadow-sm">
+        <span>⚠️ THIS IS A MOCK DESIGN PROJECT FOR PORTFOLIO DEMONSTRATION. ORDERS ARE SIMULATED AND NOT SENT TO CHICKEN INN.</span>
+      </div>
+      
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo - Responsive */}
@@ -132,7 +140,7 @@ const Header = () => {
                 to="/past-orders"
                 className="flex items-center gap-1.5 bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-600 dark:text-yellow-500 px-3 py-1.5 rounded-full border border-yellow-500/20 font-bold text-xs md:text-sm transition-all mr-1"
               >
-                <Star className="h-3.5 w-3.5 fill-yellow-500 text-yellow-500" />
+                <StarRateRounded className="!h-4 !w-4 text-yellow-500" />
                 <span>{starsPoints} <span className="hidden sm:inline">Stars</span></span>
               </Link>
             )}
@@ -143,7 +151,7 @@ const Header = () => {
               className="relative p-2 md:px-3 md:py-2"
               size="sm"
             >
-              <ShoppingCart className="h-4 w-4 md:h-5 md:w-5" />
+              <ShoppingCartRounded className="!h-4 !w-4 md:!h-5 md:!w-5" />
               {cartItemCount > 0 && (
                 <span className="absolute -top-1 -right-1 md:-top-2 md:-right-2 h-4 w-4 md:h-5 md:w-5 flex items-center justify-center text-xs bg-primary text-primary-foreground rounded-full">
                   {cartItemCount}
@@ -160,9 +168,9 @@ const Header = () => {
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-4 w-4 md:h-5 md:w-5" />
+                <CloseRounded className="!h-4 !w-4 md:!h-5 md:!w-5" />
               ) : (
-                <Menu className="h-4 w-4 md:h-5 md:w-5" />
+                <MenuRounded className="!h-4 !w-4 md:!h-5 md:!w-5" />
               )}
             </Button>
           </div>

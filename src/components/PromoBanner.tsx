@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { Star, Clock, Truck, Gift } from "lucide-react";
+import AccessTimeRounded from "@mui/icons-material/AccessTimeRounded";
+import LocalShippingRounded from "@mui/icons-material/LocalShippingRounded";
+import StarRateRounded from "@mui/icons-material/StarRateRounded";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -61,7 +63,7 @@ const PromoBanner = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-4xl mx-auto">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Clock className="h-6 w-6 text-white fill-white" />
+                <AccessTimeRounded className="!h-6 !w-6 text-white" />
               </div>
               <h3 className="text-lg font-bold mb-1 uppercase tracking-wide">Fast Delivery</h3>
               <p className="text-xs text-white/80">30-45 minutes in Bulawayo</p>
@@ -69,7 +71,7 @@ const PromoBanner = () => {
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Truck className="h-6 w-6 text-white fill-white" />
+                <LocalShippingRounded className="!h-6 !w-6 text-white" />
               </div>
               <h3 className="text-lg font-bold mb-1 uppercase tracking-wide">Bulawayo Wide</h3>
               <p className="text-xs text-white/80">Coverage across Bulawayo suburbs</p>
@@ -77,7 +79,7 @@ const PromoBanner = () => {
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Star className="h-6 w-6 text-white fill-white" />
+                <StarRateRounded className="!h-6 !w-6 text-white" />
               </div>
               <h3 className="text-lg font-bold mb-1 uppercase tracking-wide">Fresh Guarantee</h3>
               <p className="text-xs text-white/80">Hot & fresh or money back</p>

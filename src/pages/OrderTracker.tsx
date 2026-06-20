@@ -5,7 +5,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Truck, Clock, UtensilsCrossed, ChefHat, Award } from "lucide-react";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
+import LocalShippingRounded from "@mui/icons-material/LocalShippingRounded";
+import AccessTimeRounded from "@mui/icons-material/AccessTimeRounded";
+import RestaurantRounded from "@mui/icons-material/RestaurantRounded";
+import EmojiEventsRounded from "@mui/icons-material/EmojiEventsRounded";
+import CheckCircleRounded from "@mui/icons-material/CheckCircleRounded";
 import { toast } from "@/hooks/use-toast";
 
 type TrackingStatus = "Preparing" | "Dispatched" | "Delivered";
@@ -62,10 +67,10 @@ const OrderTracker = () => {
   }
 
   const steps = [
-    { label: "Received", val: 10, icon: Clock, desc: "Order confirmed" },
-    { label: "Preparing", val: 35, icon: ChefHat, desc: "Frying golden chicken" },
-    { label: "On The Way", val: 70, icon: Truck, desc: "Scooting to your suburb" },
-    { label: "Delivered", val: 100, icon: CheckCircle, desc: "Enjoy your meal!" }
+    { label: "Received", val: 10, icon: AccessTimeRounded, desc: "Order confirmed" },
+    { label: "Preparing", val: 35, icon: RestaurantRounded, desc: "Frying golden chicken" },
+    { label: "On The Way", val: 70, icon: LocalShippingRounded, desc: "Scooting to your suburb" },
+    { label: "Delivered", val: 100, icon: CheckCircleRounded, desc: "Enjoy your meal!" }
   ];
 
   return (
@@ -122,8 +127,8 @@ const OrderTracker = () => {
         {/* Live Delivery Status Card */}
         <Card className="border border-border shadow-elegant overflow-hidden mb-6">
           <CardHeader className="bg-primary/5 border-b py-4">
-            <CardTitle className="text-lg flex items-center gap-2 font-bold text-foreground">
-              <UtensilsCrossed className="h-5 w-5 text-primary" />
+            <CardTitle className="text-lg flex items-center gap-2 font-bold text-foreground font-heading">
+              <RestaurantRounded className="!h-5 !w-5 text-primary" />
               {status === "Preparing" ? "Kitchen Activity" : 
                status === "Dispatched" ? "Scooter on Route" : "Order Complete"}
             </CardTitle>
@@ -153,7 +158,7 @@ const OrderTracker = () => {
               <div className="h-48 border-2 border-muted rounded-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden relative flex items-center justify-center shadow-inner">
                 {status === "Preparing" && (
                   <div className="flex flex-col items-center justify-center text-center p-4">
-                    <ChefHat className="h-12 w-12 text-primary animate-bounce mb-2" />
+                    <RestaurantRounded className="!h-12 !w-12 text-primary animate-bounce mb-2" />
                     <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Kitchen preparing combo</p>
                   </div>
                 )}
@@ -177,7 +182,7 @@ const OrderTracker = () => {
                     {/* Scooter Moving */}
                     <div className="absolute top-[28px] left-[105px] transform -translate-x-1/2 flex flex-col items-center animate-pulse">
                       <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white shadow-md border-2 border-background">
-                        <Truck className="h-4 w-4" />
+                        <LocalShippingRounded className="!h-4 !w-4" />
                       </div>
                       <span className="text-[8px] font-bold text-white bg-primary px-1 rounded shadow-sm mt-0.5">Scooter</span>
                     </div>
@@ -192,7 +197,7 @@ const OrderTracker = () => {
 
                 {status === "Delivered" && (
                   <div className="flex flex-col items-center justify-center text-center p-4">
-                    <CheckCircle className="h-12 w-12 text-green-600 animate-pulse mb-2" />
+                    <CheckCircleRounded className="!h-12 !w-12 text-green-600 animate-pulse mb-2" />
                     <p className="text-xs font-bold text-green-600 uppercase tracking-widest">Delivered successfully</p>
                   </div>
                 )}
@@ -205,7 +210,7 @@ const OrderTracker = () => {
         <Card className="border border-border shadow-elegant mb-8 bg-card">
           <CardContent className="p-5 flex items-center gap-4">
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary flex-shrink-0">
-              <Award className="h-6 w-6 fill-current" />
+              <EmojiEventsRounded className="!h-6 !w-6 text-primary" />
             </div>
             <div className="flex-1">
               <h5 className="font-bold text-sm text-foreground">

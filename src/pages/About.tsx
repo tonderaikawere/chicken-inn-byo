@@ -1,4 +1,8 @@
-import { Award, Heart, Users, Clock, MapPin, Phone } from "lucide-react";
+import Award from "@mui/icons-material/EmojiEventsRounded";
+import FavoriteRounded from "@mui/icons-material/FavoriteRounded";
+import PeopleRounded from "@mui/icons-material/PeopleRounded";
+import PhoneRounded from "@mui/icons-material/PhoneRounded";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -39,12 +43,12 @@ const About = () => {
 
   const values = [
     {
-      icon: Heart,
+      icon: FavoriteRounded,
       title: "Quality First",
       description: "We never compromise on the quality of our ingredients or preparation methods"
     },
     {
-      icon: Users,
+      icon: PeopleRounded,
       title: "Community Focus",
       description: "Proudly Zimbabwean, we support local communities and create employment opportunities"
     },
@@ -54,25 +58,34 @@ const About = () => {
       description: "Committed to delivering exceptional food and service that exceeds expectations"
     }
   ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
-
-        {/* Hero Section */}
-        <section className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      {/* 60vh Hero Section */}
+      <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-zinc-950 text-white">
+        <div className="absolute inset-0">
+          <img 
+            src="/hero-chicken.jpg" 
+            alt="About Chicken Inn" 
+            className="w-full h-full object-cover object-center opacity-40 scale-105" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-primary/40" />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full text-center space-y-4 z-10">
+          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-white">
             About <span className="text-primary">Chicken Inn</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto leading-relaxed font-medium">
             For over three decades, we've been Bulawayo's favorite chicken destination, 
             serving millions of satisfied customers with our signature blend of quality, 
             flavor, and affordability.
           </p>
-        </section>
+        </div>
+      </section>
 
+      <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-16">
         {/* Brand Story Section */}
         <section className="grid md:grid-cols-2 gap-8 mb-16">
           <Card className="border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
@@ -159,7 +172,7 @@ const About = () => {
                 <Card key={index} className="text-center hover:shadow-elegant transition-all bg-card">
                   <CardContent className="p-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
-                      <value.icon className="h-8 w-8 text-primary fill-current" />
+                      <value.icon className="!h-8 !w-8 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold mb-4">{value.title}</h3>
                     <p className="text-muted-foreground">{value.description}</p>
@@ -169,7 +182,7 @@ const About = () => {
             </div>
           </div>
         </section>
-
+ 
         {/* Contact Section */}
         <section className="py-20">
           <div className="bg-primary/5 border border-primary/10 rounded-3xl p-8 md:p-12">
@@ -182,11 +195,11 @@ const About = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
               <div className="flex items-center justify-center gap-3">
-                <Phone className="h-6 w-6 text-primary" />
+                <PhoneRounded className="!h-6 !w-6 text-primary" />
                 <span className="text-lg">073 120 0040</span>
               </div>
               <div className="flex items-center justify-center gap-3">
-                <MapPin className="h-6 w-6 text-primary" />
+                <PlaceRounded className="!h-6 !w-6 text-primary" />
                 <span className="text-lg">10 9th Avenue, Bulawayo CBD</span>
               </div>
             </div>

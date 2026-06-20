@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Check } from "lucide-react";
+import CheckRounded from "@mui/icons-material/CheckRounded";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -66,7 +66,7 @@ const ComboCustomizer = ({ isOpen, onClose, item, onConfirm }: ComboCustomizerPr
                   <span>{f}</span>
                   {flavor === f && (
                     <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white">
-                      <Check className="h-3 w-3 stroke-[3]" />
+                      <CheckRounded className="!h-3 !w-3" />
                     </div>
                   )}
                 </button>
@@ -91,7 +91,7 @@ const ComboCustomizer = ({ isOpen, onClose, item, onConfirm }: ComboCustomizerPr
                   <span className="leading-tight">{s}</span>
                   {side === s && (
                     <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white flex-shrink-0 ml-1">
-                      <Check className="h-3 w-3 stroke-[3]" />
+                      <CheckRounded className="!h-3 !w-3" />
                     </div>
                   )}
                 </button>
@@ -116,7 +116,7 @@ const ComboCustomizer = ({ isOpen, onClose, item, onConfirm }: ComboCustomizerPr
                   <span>{d}</span>
                   {drink === d && (
                     <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white">
-                      <Check className="h-3 w-3 stroke-[3]" />
+                      <CheckRounded className="!h-3 !w-3" />
                     </div>
                   )}
                 </button>

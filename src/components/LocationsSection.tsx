@@ -1,4 +1,6 @@
-import { MapPin, Phone, Clock } from "lucide-react";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
+import PhoneRounded from "@mui/icons-material/PhoneRounded";
+import AccessTimeRounded from "@mui/icons-material/AccessTimeRounded";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -83,24 +85,24 @@ const LocationsSection = () => {
             <Card key={location.id} className="transition-all duration-300 border-2 border-foreground hover:border-primary bg-card rounded-xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(231,32,36,1)] hover:-translate-y-1">
               <CardHeader className="bg-zinc-50 dark:bg-zinc-900/50 border-b-2 border-foreground p-5">
                 <CardTitle className="text-xl flex items-center gap-2.5 font-black text-foreground uppercase tracking-tight">
-                  <MapPin className="h-5 w-5 text-primary fill-primary" />
+                  <PlaceRounded className="!h-5 !w-5 text-primary" />
                   {location.name}
                 </CardTitle>
                 {/* Clean header */}
               </CardHeader>
               <CardContent className="space-y-3.5 p-5">
                 <div className="flex items-start gap-2.5 text-sm font-semibold">
-                  <MapPin className="h-4.5 w-4.5 text-primary fill-primary mt-0.5 flex-shrink-0" />
+                  <PlaceRounded className="!h-4.5 !w-4.5 text-primary mt-0.5 flex-shrink-0" />
                   <span className="text-muted-foreground leading-relaxed">{location.address}</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold">
-                  <Phone className="h-4.5 w-4.5 text-primary fill-primary" />
+                  <PhoneRounded className="!h-4.5 !w-4.5 text-primary" />
                   <a href={`tel:${location.phone}`} className="text-muted-foreground hover:text-primary transition-colors">
                     {location.phone}
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm font-semibold">
-                  <Clock className="h-4.5 w-4.5 text-primary fill-primary" />
+                  <AccessTimeRounded className="!h-4.5 !w-4.5 text-primary" />
                   <span className="text-muted-foreground">{location.hours}</span>
                 </div>
               </CardContent>
@@ -113,9 +115,9 @@ const LocationsSection = () => {
             variant="outline" 
             size="lg" 
             className="border-2 border-primary text-primary hover:bg-primary hover:text-white font-extrabold uppercase tracking-wide px-8 py-6 rounded-xl transition-all"
-            onClick={() => navigate('/all-locations')}
+            onClick={() => navigate('/locations')}
           >
-            <MapPin className="h-5 w-5 mr-2 fill-current" />
+            <PlaceRounded className="!h-5 !w-5 mr-2" />
             View All Bulawayo Branches
           </Button>
         </div>

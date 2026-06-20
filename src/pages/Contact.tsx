@@ -1,4 +1,8 @@
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
+import PhoneRounded from "@mui/icons-material/PhoneRounded";
+import EmailRounded from "@mui/icons-material/EmailRounded";
+import AccessTimeRounded from "@mui/icons-material/AccessTimeRounded";
+import SendRounded from "@mui/icons-material/SendRounded";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,25 +40,25 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: Phone,
+      icon: PhoneRounded,
       title: "Call Us",
       details: ["073 120 0040", "073 120 0029"],
       description: "Available during operating hours for orders & support"
     },
     {
-      icon: Mail,
+      icon: EmailRounded,
       title: "Email Us",
       details: ["customercare@simbisa.co.zw"],
       description: "We respond within 24 hours"
     },
     {
-      icon: MapPin,
+      icon: PlaceRounded,
       title: "Main Bulawayo Outlet",
       details: ["10 9th Avenue", "Bulawayo, Zimbabwe"],
       description: "Visit us Monday to Sunday"
     },
     {
-      icon: Clock,
+      icon: AccessTimeRounded,
       title: "Operating Hours",
       details: ["Mon-Sun: 8:00 AM - 9:00 PM", "GVL Outlet: 8:00 AM - 10:00 PM"],
       description: "Consistent hours for takeaways and dine-in"
@@ -67,17 +71,24 @@ const Contact = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 bg-primary/5">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
-            <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Contact <span className="text-primary">Us</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                We'd love to hear from you! Get in touch with us for orders, feedback, 
-                or any questions about our delicious chicken.
-              </p>
-            </div>
+        <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-zinc-950 text-white">
+          <div className="absolute inset-0">
+            <img 
+              src="/chicken-nuggets.jpg" 
+              alt="Contact Chicken Inn" 
+              className="w-full h-full object-cover object-center opacity-40 scale-105" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-primary/40" />
+          </div>
+          
+          <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full text-center space-y-4 z-10">
+            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-white">
+              Contact <span className="text-primary">Us</span>
+            </h1>
+            <p className="text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto leading-relaxed font-medium">
+              We'd love to hear from you! Get in touch with us for orders, feedback, 
+              or any questions about our delicious chicken.
+            </p>
           </div>
         </section>
 
@@ -89,7 +100,7 @@ const Contact = () => {
                 <Card key={index} className="text-center border-2 hover:border-primary transition-all hover:shadow-elegant bg-card">
                   <CardHeader>
                     <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                      <info.icon className="h-8 w-8 text-white fill-current" />
+                      <info.icon className="!h-8 !w-8 text-white" />
                     </div>
                     <CardTitle className="text-xl">{info.title}</CardTitle>
                   </CardHeader>
@@ -177,7 +188,7 @@ const Contact = () => {
                   </div>
                   
                   <Button type="submit" size="lg" className="w-full">
-                    <Send className="h-5 w-5 mr-2" />
+                    <SendRounded className="!h-5 !w-5 mr-2" />
                     Send Message
                   </Button>
                 </form>
@@ -187,7 +198,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-bold mb-6">Visit Our Main Outlet</h3>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-primary mt-1" />
+                    <PlaceRounded className="!h-5 !w-5 text-primary mt-1" />
                     <div>
                       <p className="font-semibold">Chicken Inn 9th Avenue</p>
                       <p className="text-muted-foreground">10 9th Avenue</p>
@@ -195,7 +206,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="h-5 w-5 text-primary" />
+                    <AccessTimeRounded className="!h-5 !w-5 text-primary" />
                     <div>
                       <p className="font-semibold">Store Hours</p>
                       <p className="text-muted-foreground">Monday - Sunday: 8:00 AM - 9:00 PM</p>
@@ -207,11 +218,11 @@ const Contact = () => {
                   <h4 className="font-bold mb-4">Quick Contact</h4>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <Phone className="h-4 w-4 text-primary" />
+                      <PhoneRounded className="!h-4 !w-4 text-primary" />
                       <span className="text-sm">073 120 0040</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Mail className="h-4 w-4 text-primary" />
+                      <EmailRounded className="!h-4 !w-4 text-primary" />
                       <span className="text-sm">customercare@simbisa.co.zw</span>
                     </div>
                   </div>

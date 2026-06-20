@@ -3,7 +3,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, Receipt, RotateCcw, Award, Clock, ArrowRight } from "lucide-react";
+import CalendarTodayRounded from "@mui/icons-material/CalendarTodayRounded";
+import ReceiptLongRounded from "@mui/icons-material/ReceiptLongRounded";
+import ReplayRounded from "@mui/icons-material/ReplayRounded";
+import EmojiEventsRounded from "@mui/icons-material/EmojiEventsRounded";
+import ArrowForwardRounded from "@mui/icons-material/ArrowForwardRounded";
 import { useNavigate } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 
@@ -47,7 +51,7 @@ const PastOrders = () => {
         {/* Loyalty Program Header Card */}
         <Card className="border-2 border-primary bg-primary/5 mb-8 relative overflow-hidden shadow-elegant">
           <div className="absolute top-0 right-0 p-8 opacity-10">
-            <Award className="h-40 w-40 text-primary" />
+            <EmojiEventsRounded className="!h-40 !w-40 text-primary" />
           </div>
           <CardContent className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 relative">
             <div className="space-y-3">
@@ -89,13 +93,13 @@ const PastOrders = () => {
         {pastOrders.length === 0 ? (
           <Card className="text-center py-16 border-2 border-dashed">
             <CardContent className="space-y-4">
-              <Receipt className="h-16 w-16 text-muted-foreground mx-auto" />
+              <ReceiptLongRounded className="!h-16 !w-16 text-muted-foreground mx-auto" />
               <h4 className="text-xl font-bold text-foreground">No orders found</h4>
               <p className="text-muted-foreground max-w-sm mx-auto text-sm">
                 You haven't placed any orders yet. Build your first meal combo and order to earn loyalty stars!
               </p>
-              <Button size="lg" className="font-bold" onClick={() => navigate("/menu")}>
-                Browse Menu <ArrowRight className="h-4 w-4 ml-2" />
+              <Button size="lg" className="font-bold animate-pulse-slow" onClick={() => navigate("/menu")}>
+                Browse Menu <ArrowForwardRounded className="!h-4 !w-4 ml-2" />
               </Button>
             </CardContent>
           </Card>
@@ -115,7 +119,7 @@ const PastOrders = () => {
                       </span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
-                      <Calendar className="h-3.5 w-3.5" />
+                      <CalendarTodayRounded className="!h-3.5 !w-3.5" />
                       <span>{order.date}</span>
                       <span>•</span>
                       <span>{order.orderType.toUpperCase()}</span>
@@ -133,7 +137,7 @@ const PastOrders = () => {
                       className="border-primary text-primary hover:bg-primary hover:text-white font-bold gap-2"
                       onClick={() => handleReorder(order.items)}
                     >
-                      <RotateCcw className="h-4 w-4" />
+                      <ReplayRounded className="!h-4 !w-4" />
                       Reorder
                     </Button>
                   </div>

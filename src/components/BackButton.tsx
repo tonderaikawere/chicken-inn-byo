@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import ArrowBackRounded from "@mui/icons-material/ArrowBackRounded";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +29,7 @@ const BackButton = ({ className = "", variant = "outline", size = "default" }: B
       className={`flex items-center gap-2 ${className}`}
       aria-label="Go back"
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ArrowBackRounded className="!h-4 !w-4" />
       Back
     </Button>
   );

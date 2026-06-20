@@ -1,4 +1,7 @@
-import { MapPin, Clock, Truck, CheckCircle } from "lucide-react";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
+import AccessTimeRounded from "@mui/icons-material/AccessTimeRounded";
+import LocalShippingRounded from "@mui/icons-material/LocalShippingRounded";
+import CheckCircleRounded from "@mui/icons-material/CheckCircleRounded";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const DeliveryZones = () => {
@@ -64,7 +67,7 @@ const DeliveryZones = () => {
           <Card className="text-center border-2 hover:border-primary transition-all bg-card">
             <CardContent className="pt-6">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-6 w-6 text-white" />
+                <PlaceRounded className="!h-6 !w-6 text-white" />
               </div>
               <h3 className="text-2xl font-black text-primary">8</h3>
               <p className="text-muted-foreground font-semibold text-sm">Outlets in Bulawayo</p>
@@ -74,7 +77,7 @@ const DeliveryZones = () => {
           <Card className="text-center border-2 hover:border-primary transition-all bg-card">
             <CardContent className="pt-6">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="h-6 w-6 text-white" />
+                <LocalShippingRounded className="!h-6 !w-6 text-white" />
               </div>
               <h3 className="text-2xl font-black text-primary">25+</h3>
               <p className="text-muted-foreground font-semibold text-sm">Suburbs Covered</p>
@@ -84,7 +87,7 @@ const DeliveryZones = () => {
           <Card className="text-center border-2 hover:border-primary transition-all bg-card">
             <CardContent className="pt-6">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-6 w-6 text-white" />
+                <AccessTimeRounded className="!h-6 !w-6 text-white" />
               </div>
               <h3 className="text-2xl font-black text-primary">15-35</h3>
               <p className="text-muted-foreground font-semibold text-sm">Minutes Delivery</p>
@@ -94,7 +97,7 @@ const DeliveryZones = () => {
           <Card className="text-center border-2 hover:border-primary transition-all bg-card">
             <CardContent className="pt-6">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="h-6 w-6 text-white" />
+                <CheckCircleRounded className="!h-6 !w-6 text-white" />
               </div>
               <h3 className="text-2xl font-black text-primary">99%</h3>
               <p className="text-muted-foreground font-semibold text-sm">On-Time Delivery</p>
@@ -109,7 +112,7 @@ const DeliveryZones = () => {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl flex items-center gap-2 font-bold text-foreground">
-                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    <PlaceRounded className="!h-5 !w-5 text-primary flex-shrink-0" />
                     {zone.name}
                   </CardTitle>
                 </div>
@@ -128,7 +131,7 @@ const DeliveryZones = () => {
 
                 <div className="border-t pt-3 flex justify-between items-center text-sm">
                   <div className="flex items-center gap-1 text-muted-foreground font-medium">
-                    <Clock className="h-4 w-4 text-primary" />
+                    <AccessTimeRounded className="!h-4 !w-4 text-primary" />
                     <span>{zone.deliveryTime}</span>
                   </div>
                   <div className="flex items-center gap-1 font-bold text-foreground">

@@ -1,4 +1,9 @@
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import Facebook from "@mui/icons-material/Facebook";
+import Instagram from "@mui/icons-material/Instagram";
+import Twitter from "@mui/icons-material/Twitter";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
+import PhoneRounded from "@mui/icons-material/PhoneRounded";
+import EmailRounded from "@mui/icons-material/EmailRounded";
 import { Link } from "react-router-dom";
 import logo from "@/assets/chickeninn-logo.png";
 
@@ -54,15 +59,15 @@ const Footer = () => {
             <h4 className="font-black uppercase tracking-wider text-white text-sm">Contact Us</h4>
             <ul className="space-y-3 text-zinc-400 text-sm font-semibold">
               <li className="flex items-start gap-2.5">
-                <Phone className="h-4.5 w-4.5 mt-0.5 flex-shrink-0 text-primary" />
+                <PhoneRounded className="!h-4.5 !w-4.5 mt-0.5 flex-shrink-0 text-primary" />
                 <span>073 120 0040</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Mail className="h-4.5 w-4.5 mt-0.5 flex-shrink-0 text-primary" />
+                <EmailRounded className="!h-4.5 !w-4.5 mt-0.5 flex-shrink-0 text-primary" />
                 <span className="break-all">customercare@simbisa.co.zw</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="h-4.5 w-4.5 mt-0.5 flex-shrink-0 fill-current text-primary" />
+                <PlaceRounded className="!h-4.5 !w-4.5 mt-0.5 flex-shrink-0 text-primary" />
                 <span>10 9th Avenue, Bulawayo</span>
               </li>
             </ul>
@@ -79,7 +84,7 @@ const Footer = () => {
                 className="text-zinc-400 hover:text-white transition-colors p-2.5 bg-zinc-900 hover:bg-primary rounded-xl border border-zinc-800"
                 aria-label="Follow us on Facebook"
               >
-                <Facebook className="h-5 w-5 fill-current" />
+                <Facebook className="!h-5 !w-5" />
               </a>
               <a 
                 href="https://instagram.com/chickeninnzw" 
@@ -88,7 +93,7 @@ const Footer = () => {
                 className="text-zinc-400 hover:text-white transition-colors p-2.5 bg-zinc-900 hover:bg-primary rounded-xl border border-zinc-800"
                 aria-label="Follow us on Instagram"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="!h-5 !w-5" />
               </a>
               <a 
                 href="https://twitter.com/chickeninnzw" 
@@ -97,7 +102,7 @@ const Footer = () => {
                 className="text-zinc-400 hover:text-white transition-colors p-2.5 bg-zinc-900 hover:bg-primary rounded-xl border border-zinc-800"
                 aria-label="Follow us on Twitter"
               >
-                <Twitter className="h-5 w-5 fill-current" />
+                <Twitter className="!h-5 !w-5" />
               </a>
             </div>
             

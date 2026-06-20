@@ -2,7 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Phone, Clock, Navigation, Search, Filter, Star, Truck } from "lucide-react";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
+import PhoneRounded from "@mui/icons-material/PhoneRounded";
+import AccessTimeRounded from "@mui/icons-material/AccessTimeRounded";
+import NavigationRounded from "@mui/icons-material/NavigationRounded";
+import SearchRounded from "@mui/icons-material/SearchRounded";
+import StarRateRounded from "@mui/icons-material/StarRateRounded";
+import LocalShippingRounded from "@mui/icons-material/LocalShippingRounded";
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -160,8 +166,8 @@ const AllLocations = () => {
 
   const getServiceIcon = (service: string) => {
     switch (service) {
-      case "delivery": return <Truck className="h-3 w-3" />;
-      case "drive-thru": return <Navigation className="h-3 w-3" />;
+      case "delivery": return <LocalShippingRounded className="!h-3 !w-3" />;
+      case "drive-thru": return <NavigationRounded className="!h-3 !w-3" />;
       default: return null;
     }
   };
@@ -169,22 +175,34 @@ const AllLocations = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <div className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-8">
-
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      
+      {/* 60vh Hero Section */}
+      <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-zinc-950 text-white">
+        <div className="absolute inset-0">
+          <img 
+            src="/chicken-wings.jpg" 
+            alt="Bulawayo Branches" 
+            className="w-full h-full object-cover object-center opacity-40 scale-105" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-primary/40" />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full text-center space-y-4 z-10">
+          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-white">
             Bulawayo <span className="text-primary">Branches</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed font-medium">
             Find your nearest Chicken Inn outlet across Bulawayo, Zimbabwe
           </p>
         </div>
+      </section>
+
+      <div className="flex-1 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full py-16">
 
         {/* Search and Filters */}
         <div className="grid md:grid-cols-4 gap-4 mb-8">
           <div className="relative md:col-span-2">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <SearchRounded className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search Bulawayo branches..."
               value={searchTerm}
@@ -238,7 +256,7 @@ const AllLocations = () => {
                         <p className="text-sm text-muted-foreground mt-1">{location.city}</p>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <StarRateRounded className="!h-4 !w-4 text-yellow-400" />
                         <span className="text-sm font-semibold">{location.rating}</span>
                         <span className="text-xs text-muted-foreground">({location.reviews})</span>
                       </div>
@@ -247,15 +265,15 @@ const AllLocations = () => {
                   <CardContent className="space-y-4">
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
-                        <MapPin className="h-4 w-4 text-primary fill-primary mt-0.5 flex-shrink-0" />
+                        <PlaceRounded className="!h-4 !w-4 text-primary mt-0.5 flex-shrink-0" />
                         <span className="text-sm">{location.address}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-primary fill-primary" />
+                        <PhoneRounded className="!h-4 !w-4 text-primary" />
                         <span className="text-sm">{location.phone}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-primary fill-primary" />
+                        <AccessTimeRounded className="!h-4 !w-4 text-primary" />
                         <span className="text-sm">{location.hours}</span>
                       </div>
                     </div>
@@ -277,7 +295,7 @@ const AllLocations = () => {
                     {location.services.includes("delivery") && (
                       <div className="bg-muted/50 rounded-lg p-3">
                         <p className="text-xs text-muted-foreground">
-                          <Truck className="h-3 w-3 inline mr-1 text-primary fill-primary" />
+                          <LocalShippingRounded className="!h-3 !w-3 inline mr-1 text-primary" />
                           Delivery radius: {location.deliveryRadius}
                         </p>
                       </div>
@@ -285,7 +303,7 @@ const AllLocations = () => {
 
                     <div className="flex gap-2">
                       <Button className="flex-1 font-semibold" size="sm">
-                        <Navigation className="h-4 w-4 mr-2 fill-current" />
+                        <NavigationRounded className="!h-4 !w-4 mr-2" />
                         Get Directions
                       </Button>
                       <Button variant="outline" size="sm" asChild>

@@ -1,4 +1,7 @@
-import { X, Minus, Plus, ShoppingBag } from "lucide-react";
+import CloseRounded from "@mui/icons-material/CloseRounded";
+import RemoveRounded from "@mui/icons-material/RemoveRounded";
+import AddRounded from "@mui/icons-material/AddRounded";
+import ShoppingBagRounded from "@mui/icons-material/ShoppingBagRounded";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -31,7 +34,7 @@ const Cart = () => {
     <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
       <SheetContent className="w-full sm:max-w-lg">
         <SheetHeader>
-          <SheetTitle className="text-2xl">Your Cart</SheetTitle>
+          <SheetTitle className="text-2xl font-heading">Your Cart</SheetTitle>
           <SheetDescription>
             {cartItems.length === 0 ? "Your cart is empty" : `${cartItems.length} item(s) in cart`}
           </SheetDescription>
@@ -40,7 +43,7 @@ const Cart = () => {
         <div className="mt-8 space-y-4">
           {cartItems.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
-              <ShoppingBag className="h-16 w-16 text-muted-foreground mb-4" />
+              <ShoppingBagRounded className="!h-16 !w-16 text-muted-foreground mb-4" />
               <p className="text-muted-foreground">Start adding some delicious items!</p>
             </div>
           ) : (
@@ -64,7 +67,7 @@ const Cart = () => {
                           size="icon"
                           onClick={() => removeFromCart(item.id)}
                         >
-                          <X className="h-4 w-4" />
+                          <CloseRounded className="!h-4 !w-4" />
                         </Button>
                       </div>
                       <div className="flex items-center gap-2 mt-2">
@@ -75,7 +78,7 @@ const Cart = () => {
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
                           disabled={item.quantity <= 1}
                         >
-                          <Minus className="h-3 w-3" />
+                          <RemoveRounded className="!h-3 !w-3" />
                         </Button>
                         <span className="w-8 text-center font-medium">{item.quantity}</span>
                         <Button
@@ -84,7 +87,7 @@ const Cart = () => {
                           className="h-8 w-8"
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         >
-                          <Plus className="h-3 w-3" />
+                          <AddRounded className="!h-3 !w-3" />
                         </Button>
                       </div>
                     </div>
@@ -95,7 +98,7 @@ const Cart = () => {
               <div className="border-t border-border pt-4 mt-4">
                 <div className="flex justify-between items-center text-lg font-semibold mb-4">
                   <span>Total:</span>
-                  <span className="text-primary">${total.toFixed(2)}</span>
+                  <span className="text-primary font-bold">${total.toFixed(2)}</span>
                 </div>
                 <Button className="w-full" size="lg" onClick={handleCheckoutClick}>
                   Checkout

@@ -1,4 +1,9 @@
-import { Users, Heart, Award, MapPin, Clock, DollarSign, GraduationCap } from "lucide-react";
+import Users from "@mui/icons-material/PeopleRounded";
+import Heart from "@mui/icons-material/FavoriteRounded";
+import Award from "@mui/icons-material/EmojiEventsRounded";
+import PlaceRounded from "@mui/icons-material/PlaceRounded";
+import DollarSign from "@mui/icons-material/AttachMoneyRounded";
+import GraduationCap from "@mui/icons-material/SchoolRounded";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -92,17 +97,26 @@ const Careers = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 bg-primary/5">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full">
-            <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Join Our <span className="text-primary">Team</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
-                Be part of Zimbabwe's favorite chicken restaurant family. We're looking for 
-                passionate individuals who want to grow with us and serve our communities.
-              </p>
-              <Button size="lg" className="shadow-elegant">
+        <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-zinc-950 text-white">
+          <div className="absolute inset-0">
+            <img 
+              src="/chicken-burger.jpg" 
+              alt="Careers at Chicken Inn" 
+              className="w-full h-full object-cover object-center opacity-40 scale-105" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-primary/40" />
+          </div>
+          
+          <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full text-center space-y-6 z-10">
+            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-white">
+              Join Our <span className="text-primary">Team</span>
+            </h1>
+            <p className="text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto leading-relaxed font-medium">
+              Be part of Zimbabwe's favorite chicken restaurant family. We're looking for 
+              passionate individuals who want to grow with us and serve our communities.
+            </p>
+            <div className="pt-2">
+              <Button size="lg" className="bg-primary hover:bg-primary/95 text-white font-bold px-8 py-6 rounded-xl shadow-elegant uppercase tracking-wider text-sm active:translate-y-[2px] transition-all">
                 View Open Positions
               </Button>
             </div>
@@ -124,7 +138,7 @@ const Careers = () => {
                 <Card key={index} className="text-center border-2 hover:border-primary transition-all hover:shadow-elegant">
                   <CardHeader>
                     <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                      <benefit.icon className="h-8 w-8 text-white fill-current" />
+                      <benefit.icon className="!h-8 !w-8 text-white" />
                     </div>
                     <CardTitle className="text-xl">{benefit.title}</CardTitle>
                   </CardHeader>
@@ -156,7 +170,7 @@ const Careers = () => {
                         <CardTitle className="text-2xl mb-2">{job.title}</CardTitle>
                         <div className="flex flex-wrap gap-2">
                           <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-secondary text-secondary-foreground font-semibold">
-                            <MapPin className="h-3 w-3" />
+                            <PlaceRounded className="!h-3 !w-3" />
                             {job.location}
                           </span>
                           <span className="inline-flex items-center text-xs px-2 py-0.5 rounded border border-border text-foreground font-semibold bg-transparent">{job.type}</span>
