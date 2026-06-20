@@ -20,6 +20,17 @@ const Header = () => {
       const currentScrollY = window.scrollY;
       if (isMobileMenuOpen) return;
 
+      // Ignore rubber-banding/negative scroll at top
+      if (currentScrollY <= 0) {
+        setVisible(true);
+        setLastScrollY(0);
+        return;
+      }
+
+      // Avoid triggering on tiny scroll adjustments
+      const diff = currentScrollY - lastScrollY;
+      if (Math.abs(diff) < 15) return;
+
       if (currentScrollY > lastScrollY && currentScrollY > 120) {
         setVisible(false);
       } else {

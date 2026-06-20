@@ -403,28 +403,30 @@ const FullMenu = () => {
           <div className="lg:col-span-3 space-y-8">
             
             {/* Custom Responsive Horizontal Scrolling Category Pills */}
-            <div className="flex overflow-x-auto pb-3 gap-2.5 w-full scrollbar-none">
-              {menuCategories.map((category) => {
-                const isActive = selectedCategory === category.id;
-                return (
-                  <button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`whitespace-nowrap px-6 py-3 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 transform active:scale-95 flex items-center gap-2 ${
-                      isActive
-                        ? "bg-primary text-white shadow-md shadow-primary/20 scale-105"
-                        : "bg-card border border-border text-foreground hover:bg-muted"
-                    }`}
-                  >
-                    <span>{category.name}</span>
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full ${
-                      isActive ? "bg-white/20 text-white" : "bg-muted-foreground/15 text-muted-foreground"
-                    }`}>
-                      {category.count}
-                    </span>
-                  </button>
-                );
-              })}
+            <div className="w-full overflow-hidden">
+              <div className="flex overflow-x-auto pb-3 gap-2.5 w-full scrollbar-none">
+                {menuCategories.map((category) => {
+                  const isActive = selectedCategory === category.id;
+                  return (
+                    <button
+                      key={category.id}
+                      onClick={() => setSelectedCategory(category.id)}
+                      className={`whitespace-nowrap px-6 py-3 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 transform active:scale-95 flex items-center gap-2 ${
+                        isActive
+                          ? "bg-primary text-white shadow-md shadow-primary/20 scale-105"
+                          : "bg-card border border-border text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      <span>{category.name}</span>
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full ${
+                        isActive ? "bg-white/20 text-white" : "bg-muted-foreground/15 text-muted-foreground"
+                      }`}>
+                        {category.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Product Cards Loop */}
