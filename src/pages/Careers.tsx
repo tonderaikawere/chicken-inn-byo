@@ -96,8 +96,8 @@ const Careers = () => {
       <Header />
       
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-zinc-950 text-white">
+        {/* 80vh/60vh Hero Section */}
+        <section className="relative w-full h-[80vh] lg:h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-zinc-950 text-white">
           <div className="absolute inset-0">
             <img 
               src="/chicken-burger.jpg" 
